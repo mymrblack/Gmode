@@ -22,6 +22,7 @@
     <Option Name="IPRepoPath" Val="$PPRDIR/IPS/TDC_REG_RD_WR"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/IPS/TDC_CTRL_G"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/ip_repo/gmode_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/ip_repo"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
     <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
     <Option Name="IPUserFilesDir" Val="$PPRDIR/Gmode.ip_user_files"/>
@@ -53,6 +54,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
         <CompFileExtendedInfo CompFileName="design_tdc.bd" FileRelPathName="ip/design_tdc_TDC_CTRL_G_0_0/design_tdc_TDC_CTRL_G_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_tdc.bd" FileRelPathName="ip/design_tdc_TDC_REG_RD_WR_0_0/design_tdc_TDC_REG_RD_WR_0_0.xci"/>
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
