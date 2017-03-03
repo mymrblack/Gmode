@@ -1,11 +1,10 @@
 #Tstart  JA1
-set_property PACKAGE_PIN AB11 [get_ports StartTrigger]
+set_property PACKAGE_PIN Y11 [get_ports StartTrigger] 
 set_property IOSTANDARD LVCMOS33 [get_ports StartTrigger]
-set_property PACKAGE_PIN W8 [get_ports StopTrigger1]
+set_property PACKAGE_PIN AA11 [get_ports StopTrigger1] 
 set_property IOSTANDARD LVCMOS33 [get_ports StopTrigger1]
-set_property PACKAGE_PIN V10 [get_ports StopTrigger2]
+set_property PACKAGE_PIN Y10 [get_ports StopTrigger2] 
 set_property IOSTANDARD LVCMOS33 [get_ports StopTrigger2]
-
 
 set_property PACKAGE_PIN P20 [get_ports StopDis1]
 set_property IOSTANDARD LVCMOS33 [get_ports StopDis1]

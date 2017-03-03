@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="Local" key="gpsImode_hw2-target"/>
 	<item value="Auto Detect" key="gpsImode_hw-device"/>
 	<item value="" key="gpsImode_hw-bmmFile"/>
 	<item value="gpsImode_wrapper.bit" key="gpsImode_hw-bitFile"/>
 	<item value="" key="gpsImode_hw1-bmmFile"/>
-	<item value="" key="double_fifo_hw-bmmFile"/>
 	<item value="Local" key="double_fifo_hw-target"/>
 	<item value="false" key="gpsImode_hw-partial_bit"/>
-	<item value="C:\Users\Lin\Desktop\sd\gpsImode_Proj\gpsImode_Proj.sdk\double_fifo_hw\gpsImode_wrapper.bit" key="double_fifo_hw-bitFile"/>
-	<item value="Local" key="gpsImode_hw1-target"/>
 	<item value="gpsImode_wrapper.bit" key="gpsImode_hw1-bitFile"/>
 	<item value="gpsImode_wrapper.bit" key="gpsImode_hw2-bitFile"/>
-	<item value="" key="gpsImode_hw2-bmmFile"/>
-	<item value="double_fifo_hw" key="programfpga.hwplatform"/>
+	<item value="Local" key="Gmode_hw-target"/>
 	<item value="false" key="double_fifo_hw-partial_bit"/>
+	<item value="gpsImode_wrapper.bit" key="Gmode_hw-bitFile"/>
+	<item value="Local" key="gpsImode_hw2-target"/>
+	<item value="" key="double_fifo_hw-bmmFile"/>
+	<item value="Auto Detect" key="Gmode_hw-device"/>
+	<item value="C:\Users\Lin\Desktop\sd\gpsImode_Proj\gpsImode_Proj.sdk\double_fifo_hw\gpsImode_wrapper.bit" key="double_fifo_hw-bitFile"/>
+	<item value="Local" key="gpsImode_hw1-target"/>
+	<item value="false" key="Gmode_hw-partial_bit"/>
+	<item value="" key="gpsImode_hw2-bmmFile"/>
+	<item value="Gmode_hw" key="programfpga.hwplatform"/>
 	<item value="false" key="gpsImode_hw1-partial_bit"/>
+	<item value="" key="Gmode_hw-bmmFile"/>
 	<item value="Auto Detect" key="gpsImode_hw2-device"/>
 	<item value="Local" key="gpsImode_hw-target"/>
 	<item value="false" key="gpsImode_hw2-partial_bit"/>
