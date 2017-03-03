@@ -45,29 +45,11 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
         output [31:0] gps2_fifo_wr_data,
         output [31:0] start_tri_fifo_wr_data,
 
-        output ch1_fifo1_wr,
-        output ch2_fifo1_wr,
-        output gps1_fifo1_wr,
-        output gps2_fifo1_wr,
-        output start_tri_fifo1_wr,
+        output fifo1_rd,
+        output fifo2_rd,
+        output fifo1_wr,
+        output fifo2_wr,
 
-        output ch1_fifo2_wr,
-        output ch2_fifo2_wr,
-        output gps1_fifo2_wr,
-        output gps2_fifo2_wr,
-        output start_tri_fifo2_wr,
-
-        output ch1_fifo1_rd,
-        output ch2_fifo1_rd,
-        output gps1_fifo1_rd,
-        output gps2_fifo1_rd,
-        output start_tri_fifo1_rd,
-
-        output ch1_fifo2_rd,
-        output ch2_fifo2_rd,
-        output gps1_fifo2_rd,
-        output gps2_fifo2_rd,
-        output start_tri_fifo2_rd,
 
         output fifo_rst,
 		// User ports ends
@@ -155,7 +137,31 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
 	localparam integer ADDR_LSB = (C_S_AXI_DATA_WIDTH/32) + 1;
 	localparam integer OPT_MEM_ADDR_BITS = 5;
 	//----------------------------------------------
-	//-- Signals for user logic register space example
+    //-- Signals for user logic register space example
+    wire ch1_fifo1_wr;
+    wire ch2_fifo1_wr;
+    wire gps1_fifo1_wr;
+    wire gps2_fifo1_wr;
+    wire start_tri_fifo1_wr;
+
+    wire ch1_fifo2_wr;
+    wire ch2_fifo2_wr;
+    wire gps1_fifo2_wr;
+    wire gps2_fifo2_wr;
+    wire start_tri_fifo2_wr;
+
+    wire ch1_fifo1_rd;
+    wire ch2_fifo1_rd;
+    wire gps1_fifo1_rd;
+    wire gps2_fifo1_rd;
+    wire start_tri_fifo1_rd;
+
+    wire ch1_fifo2_rd;
+    wire ch2_fifo2_rd;
+    wire gps1_fifo2_rd;
+    wire gps2_fifo2_rd;
+    wire start_tri_fifo2_rd;
+
     wire rd_command1;
     wire rd_command2;
     wire wr_fifo_num;
@@ -891,6 +897,10 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
     assign fifo_rst = slv_reg0[0]; 
     assign rd_command1 = slv_reg0[1];
     assign rd_command2 = slv_reg0[2];
+    assign fifo1_rd = ch1_fifo1_rd;
+    assign fifo2_rd = ch1_fifo2_rd;
+    assign fifo1_wr = ch1_fifo1_wr;
+    assign fifo2_wr = ch1_fifo2_wr;
 
     fifo_block_ctrl ch1(.clk(S_AXI_ACLK), .resetn(S_AXI_ARESETN), 
         .rd_command1(rd_command1), .rd_command2(rd_command2), 
@@ -943,7 +953,6 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
         .fifo_wr_data(start_tri_fifo_wr_data));
 
 	// User logic ends
-
 endmodule
 
 //--has been tested.

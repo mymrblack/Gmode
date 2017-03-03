@@ -45,29 +45,10 @@ module myip_fifo_ctrl_v1_0 #
         output [31:0] gps2_fifo_wr_data,
         output [31:0] start_tri_fifo_wr_data,
 
-        output ch1_fifo1_wr,
-        output ch2_fifo1_wr,
-        output gps1_fifo1_wr,
-        output gps2_fifo1_wr,
-        output start_tri_fifo1_wr,
-
-        output ch1_fifo2_wr,
-        output ch2_fifo2_wr,
-        output gps1_fifo2_wr,
-        output gps2_fifo2_wr,
-        output start_tri_fifo2_wr,
-
-        output ch1_fifo1_rd,
-        output ch2_fifo1_rd,
-        output gps1_fifo1_rd,
-        output gps2_fifo1_rd,
-        output start_tri_fifo1_rd,
-
-        output ch1_fifo2_rd,
-        output ch2_fifo2_rd,
-        output gps1_fifo2_rd,
-        output gps2_fifo2_rd,
-        output start_tri_fifo2_rd,
+        output fifo1_rd,
+        output fifo2_rd,
+        output fifo1_wr,
+        output fifo2_wr,
 
         output fifo_rst,
 		// User ports ends
@@ -132,30 +113,10 @@ module myip_fifo_ctrl_v1_0 #
         .gps2_fifo_wr_data(gps2_fifo_wr_data),
         .start_tri_fifo_wr_data(start_tri_fifo_wr_data),
 
-        .ch1_fifo1_wr(ch1_fifo1_wr),
-        .ch2_fifo1_wr(ch2_fifo1_wr),
-        .gps1_fifo1_wr(gps1_fifo1_wr),
-        .gps2_fifo1_wr(gps2_fifo1_wr),
-        .start_tri_fifo1_wr(start_tri_fifo1_wr),
-
-        .ch1_fifo2_wr(ch1_fifo2_wr),
-        .ch2_fifo2_wr(ch2_fifo2_wr),
-        .gps1_fifo2_wr(gps1_fifo2_wr),
-        .gps2_fifo2_wr(gps2_fifo2_wr),
-        .start_tri_fifo2_wr(start_tri_fifo2_wr),
-
-        .ch1_fifo1_rd(ch1_fifo1_rd),
-        .ch2_fifo1_rd(ch2_fifo1_rd),
-        .gps1_fifo1_rd(gps1_fifo1_rd),
-        .gps2_fifo1_rd(gps2_fifo1_rd),
-        .start_tri_fifo1_rd(start_tri_fifo1_rd),
-
-        .ch1_fifo2_rd(ch1_fifo2_rd),
-        .ch2_fifo2_rd(ch2_fifo2_rd),
-        .gps1_fifo2_rd(gps1_fifo2_rd),
-        .gps2_fifo2_rd(gps2_fifo2_rd),
-        .start_tri_fifo2_rd(start_tri_fifo2_rd),
-
+        .fifo1_rd(fifo1_rd),
+        .fifo2_rd(fifo2_rd),
+        .fifo1_wr(fifo1_wr),
+        .fifo2_wr(fifo2_wr),
         .fifo_rst(fifo_rst),
 
 		.S_AXI_ACLK(fifo_axi_aclk),
