@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Mon Mar 06 13:52:56 2017
+//Date        : Mon Mar 06 15:37:21 2017
 //Host        : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
 //Command     : generate_target gpsImode.bd
 //Design      : gpsImode
@@ -58,6 +58,7 @@ module gpsImode
     out_1,
     out_2,
     out_3,
+    out_4,
     rdn,
     switch,
     tstart_out,
@@ -109,6 +110,7 @@ module gpsImode
   output out_1;
   output out_2;
   output out_3;
+  output out_4;
   output rdn;
   input switch;
   output tstart_out;
@@ -120,13 +122,14 @@ module gpsImode
   wire IrFlag_1;
   wire [27:0]Net;
   wire PPS_IN_1;
+  wire StopTrigger1_1;
   wire axi_uartlite_0_UART_RxD;
   wire axi_uartlite_0_UART_TxD;
   wire [21:0]ch2_fifo2_dout;
-  wire delay_0_ch1;
   wire delay_0_out_1;
   wire delay_0_out_2;
   wire delay_0_out_3;
+  wire delay_0_out_4;
   wire delay_0_tstart_out;
   wire [21:0]fifo_generator_0_dout;
   wire fifo_generator_0_empty;
@@ -341,6 +344,7 @@ module gpsImode
   assign StopDis2 = myImode_0_StopDis2;
   assign StopDis3 = myImode_0_StopDis3;
   assign StopDis4 = myImode_0_StopDis4;
+  assign StopTrigger1_1 = StopTrigger1;
   assign Tstart = myImode_0_Tstart;
   assign Tstop1 = myImode_0_Tstop1;
   assign Tstop2 = myImode_0_Tstop2;
@@ -352,6 +356,7 @@ module gpsImode
   assign out_1 = delay_0_out_1;
   assign out_2 = delay_0_out_2;
   assign out_3 = delay_0_out_3;
+  assign out_4 = delay_0_out_4;
   assign rdn = myImode_0_rdn;
   assign switch_1 = switch;
   assign tstart_out = delay_0_tstart_out;
@@ -411,8 +416,7 @@ module gpsImode
         .srst(myip_fifo_ctrl_0_fifo_rst),
         .wr_en(myip_fifo_ctrl_0_start_tri_fifo2_wr));
   gpsImode_delay_0_1 delay_0
-       (.ch1(delay_0_ch1),
-        .ch1_time_data(myImode_0_ch1_data),
+       (.ch1_time_data(myImode_0_ch1_data),
         .data_flag(myImode_0_timeDataWrEn),
         .delay_axi_aclk(processing_system7_0_FCLK_CLK0),
         .delay_axi_araddr(processing_system7_0_axi_periph_M04_AXI_ARADDR[5:0]),
@@ -438,7 +442,7 @@ module gpsImode
         .out_1(delay_0_out_1),
         .out_2(delay_0_out_2),
         .out_3(delay_0_out_3),
-        .tstart_count(myImode_0_Tstart_counter),
+        .out_4(delay_0_out_4),
         .tstart_out(delay_0_tstart_out));
   gpsImode_fifo_generator_14_2 gps1_fifo1
        (.clk(processing_system7_0_FCLK_CLK0),
@@ -480,7 +484,7 @@ module gpsImode
         .StopDis2(myImode_0_StopDis2),
         .StopDis3(myImode_0_StopDis3),
         .StopDis4(myImode_0_StopDis4),
-        .StopTrigger1(delay_0_ch1),
+        .StopTrigger1(StopTrigger1_1),
         .StopTrigger2(delay_0_out_1),
         .Tstart(myImode_0_Tstart),
         .Tstart_counter(myImode_0_Tstart_counter),

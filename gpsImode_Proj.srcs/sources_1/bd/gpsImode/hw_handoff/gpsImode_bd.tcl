@@ -183,6 +183,7 @@ proc create_root_design { parentCell } {
   set out_1 [ create_bd_port -dir O out_1 ]
   set out_2 [ create_bd_port -dir O out_2 ]
   set out_3 [ create_bd_port -dir O out_3 ]
+  set out_4 [ create_bd_port -dir O out_4 ]
   set rdn [ create_bd_port -dir O rdn ]
   set switch [ create_bd_port -dir I switch ]
   set tstart_out [ create_bd_port -dir O tstart_out ]
@@ -1647,11 +1648,12 @@ CONFIG.Write_Data_Count_Width {13} \
   connect_bd_net -net IrFlag_1 [get_bd_ports IrFlag] [get_bd_pins myGmode_0/IrFlag]
   connect_bd_net -net Net [get_bd_ports data] [get_bd_pins myGmode_0/data]
   connect_bd_net -net PPS_IN_1 [get_bd_ports PPS_IN] [get_bd_pins newGpsIp_0/PPS_IN]
+  connect_bd_net -net StopTrigger1_1 [get_bd_ports StopTrigger1] [get_bd_pins myGmode_0/StopTrigger1]
   connect_bd_net -net ch2_fifo2_dout [get_bd_pins ch2_fifo2/dout] [get_bd_pins myip_fifo_ctrl_0/ch2_fifo2_rd_data]
-  connect_bd_net -net delay_0_ch1 [get_bd_pins delay_0/ch1] [get_bd_pins myGmode_0/StopTrigger1]
   connect_bd_net -net delay_0_out_1 [get_bd_ports out_1] [get_bd_pins delay_0/out_1] [get_bd_pins myGmode_0/StopTrigger2]
   connect_bd_net -net delay_0_out_2 [get_bd_ports out_2] [get_bd_pins delay_0/out_2]
   connect_bd_net -net delay_0_out_3 [get_bd_ports out_3] [get_bd_pins delay_0/out_3]
+  connect_bd_net -net delay_0_out_4 [get_bd_ports out_4] [get_bd_pins delay_0/out_4]
   connect_bd_net -net delay_0_tstart_out [get_bd_ports tstart_out] [get_bd_pins delay_0/tstart_out] [get_bd_pins myGmode_0/StartTrigger]
   connect_bd_net -net fifo_generator_0_dout [get_bd_pins ch1_fifo1/dout] [get_bd_pins myip_fifo_ctrl_0/ch1_fifo1_rd_data]
   connect_bd_net -net fifo_generator_0_empty [get_bd_pins ch1_fifo1/empty] [get_bd_pins myip_fifo_ctrl_0/fifo1_empty]
@@ -1673,7 +1675,7 @@ CONFIG.Write_Data_Count_Width {13} \
   connect_bd_net -net myImode_0_StopDis3 [get_bd_ports StopDis3] [get_bd_pins myGmode_0/StopDis3]
   connect_bd_net -net myImode_0_StopDis4 [get_bd_ports StopDis4] [get_bd_pins myGmode_0/StopDis4]
   connect_bd_net -net myImode_0_Tstart [get_bd_ports Tstart] [get_bd_pins myGmode_0/Tstart]
-  connect_bd_net -net myImode_0_Tstart_counter [get_bd_pins delay_0/tstart_count] [get_bd_pins myGmode_0/Tstart_counter] [get_bd_pins myip_fifo_ctrl_0/start_tri_data_to_be_wr]
+  connect_bd_net -net myImode_0_Tstart_counter [get_bd_pins myGmode_0/Tstart_counter] [get_bd_pins myip_fifo_ctrl_0/start_tri_data_to_be_wr]
   connect_bd_net -net myImode_0_Tstop1 [get_bd_ports Tstop1] [get_bd_pins myGmode_0/Tstop1]
   connect_bd_net -net myImode_0_Tstop2 [get_bd_ports Tstop2] [get_bd_pins myGmode_0/Tstop2]
   connect_bd_net -net myImode_0_addr [get_bd_ports addr] [get_bd_pins myGmode_0/addr]
@@ -1715,126 +1717,128 @@ CONFIG.Write_Data_Count_Width {13} \
    commentid: "",
    guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace port ErrFlag -pg 1 -y 2510 -defaultsOSRD
-preplace port IrFlag -pg 1 -y 2450 -defaultsOSRD
-preplace port PPS_IN -pg 1 -y 1960 -defaultsOSRD
-preplace port DDR -pg 1 -y 1550 -defaultsOSRD
-preplace port oen -pg 1 -y 2460 -defaultsOSRD
-preplace port UART -pg 1 -y 1740 -defaultsOSRD
-preplace port Tstop1 -pg 1 -y 2520 -defaultsOSRD
-preplace port Tstart -pg 1 -y 2500 -defaultsOSRD
-preplace port out_1 -pg 1 -y 2010 -defaultsOSRD
-preplace port tstart_out -pg 1 -y 1990 -defaultsOSRD
-preplace port Tstop2 -pg 1 -y 2540 -defaultsOSRD
-preplace port StartDis -pg 1 -y 2340 -defaultsOSRD
+preplace port ErrFlag -pg 1 -y 2170 -defaultsOSRD
+preplace port IrFlag -pg 1 -y 2190 -defaultsOSRD
+preplace port PPS_IN -pg 1 -y 1600 -defaultsOSRD
+preplace port DDR -pg 1 -y 1720 -defaultsOSRD
+preplace port oen -pg 1 -y 2010 -defaultsOSRD
+preplace port UART -pg 1 -y 2470 -defaultsOSRD
+preplace port Tstop1 -pg 1 -y 2070 -defaultsOSRD
+preplace port Tstart -pg 1 -y 2050 -defaultsOSRD
+preplace port out_1 -pg 1 -y 2260 -defaultsOSRD
+preplace port tstart_out -pg 1 -y 2240 -defaultsOSRD
+preplace port Tstop2 -pg 1 -y 2090 -defaultsOSRD
+preplace port StartDis -pg 1 -y 1890 -defaultsOSRD
 preplace port StartTrigger -pg 1 -y 20 -defaultsOSRD
-preplace port out_2 -pg 1 -y 2030 -defaultsOSRD
-preplace port AluTrigger -pg 1 -y 2480 -defaultsOSRD
-preplace port out_3 -pg 1 -y 2050 -defaultsOSRD
-preplace port switch -pg 1 -y 2370 -defaultsOSRD
-preplace port csn -pg 1 -y 2440 -defaultsOSRD
-preplace port StopDis1 -pg 1 -y 2260 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 1760 -defaultsOSRD
-preplace port StopDis2 -pg 1 -y 2280 -defaultsOSRD
+preplace port out_2 -pg 1 -y 2340 -defaultsOSRD
+preplace port AluTrigger -pg 1 -y 2030 -defaultsOSRD
+preplace port out_3 -pg 1 -y 2360 -defaultsOSRD
+preplace port out_4 -pg 1 -y 2380 -defaultsOSRD
+preplace port switch -pg 1 -y 2210 -defaultsOSRD
+preplace port csn -pg 1 -y 1990 -defaultsOSRD
+preplace port StopDis1 -pg 1 -y 1810 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 1740 -defaultsOSRD
+preplace port StopDis2 -pg 1 -y 1830 -defaultsOSRD
 preplace port StopTrigger1 -pg 1 -y 40 -defaultsOSRD
-preplace port rdn -pg 1 -y 2420 -defaultsOSRD
-preplace port StopDis3 -pg 1 -y 2300 -defaultsOSRD
+preplace port rdn -pg 1 -y 1970 -defaultsOSRD
+preplace port StopDis3 -pg 1 -y 1850 -defaultsOSRD
 preplace port StopTrigger2 -pg 1 -y 60 -defaultsOSRD
-preplace port StopDis4 -pg 1 -y 2320 -defaultsOSRD
-preplace port EF1 -pg 1 -y 2470 -defaultsOSRD
-preplace port EF2 -pg 1 -y 2490 -defaultsOSRD
-preplace port wrn -pg 1 -y 2400 -defaultsOSRD
-preplace portBus data -pg 1 -y 2380 -defaultsOSRD
-preplace portBus addr -pg 1 -y 2360 -defaultsOSRD
+preplace port StopDis4 -pg 1 -y 1870 -defaultsOSRD
+preplace port EF1 -pg 1 -y 2130 -defaultsOSRD
+preplace port EF2 -pg 1 -y 2150 -defaultsOSRD
+preplace port wrn -pg 1 -y 1950 -defaultsOSRD
+preplace portBus data -pg 1 -y 1930 -defaultsOSRD
+preplace portBus addr -pg 1 -y 1910 -defaultsOSRD
 preplace inst ch2_fifo1 -pg 1 -lvl 4 -y 600 -defaultsOSRD -resize 162 146
 preplace inst gps1_fifo1 -pg 1 -lvl 4 -y 940 -defaultsOSRD -resize 162 146
 preplace inst ch2_fifo2 -pg 1 -lvl 4 -y 90 -defaultsOSRD -resize 162 146
-preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 1600 -defaultsOSRD
-preplace inst myip_fifo_ctrl_0 -pg 1 -lvl 3 -y 1227 -defaultsOSRD
-preplace inst newGpsIp_0 -pg 1 -lvl 3 -y 1840 -defaultsOSRD
+preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 2030 -defaultsOSRD
+preplace inst myip_fifo_ctrl_0 -pg 1 -lvl 3 -y 1170 -defaultsOSRD
+preplace inst newGpsIp_0 -pg 1 -lvl 3 -y 1620 -defaultsOSRD
 preplace inst gps1_fifo2 -pg 1 -lvl 4 -y 260 -defaultsOSRD -resize 162 146
-preplace inst delay_0 -pg 1 -lvl 3 -y 2040 -defaultsOSRD
-preplace inst myGmode_0 -pg 1 -lvl 3 -y 2450 -defaultsOSRD
+preplace inst delay_0 -pg 1 -lvl 3 -y 2340 -defaultsOSRD
+preplace inst myGmode_0 -pg 1 -lvl 3 -y 2000 -defaultsOSRD
 preplace inst start_tri_fifo1 -pg 1 -lvl 4 -y 1280 -defaultsOSRD -resize 162 146
-preplace inst start_tri_fifo2 -pg 1 -lvl 4 -y 1640 -defaultsOSRD -resize 162 146
-preplace inst axi_uartlite_0 -pg 1 -lvl 3 -y 1660 -defaultsOSRD
+preplace inst start_tri_fifo2 -pg 1 -lvl 4 -y 1620 -defaultsOSRD -resize 162 146
+preplace inst axi_uartlite_0 -pg 1 -lvl 3 -y 2480 -defaultsOSRD
 preplace inst gps2_fifo1 -pg 1 -lvl 4 -y 1110 -defaultsOSRD -resize 162 146
 preplace inst gps2_fifo2 -pg 1 -lvl 4 -y 430 -defaultsOSRD -resize 162 146
 preplace inst ch1_fifo1 -pg 1 -lvl 4 -y 770 -defaultsOSRD -resize 159 144
 preplace inst ch1_fifo2 -pg 1 -lvl 4 -y 1450 -defaultsOSRD -resize 162 146
-preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 1540 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -y 1820 -defaultsOSRD
-preplace netloc EF2_1 1 0 3 NJ 2490 NJ 2490 NJ
-preplace netloc myImode_0_csn 1 3 2 NJ 2440 NJ
-preplace netloc fifo_generator_2_dout 1 2 2 780 600 NJ
-preplace netloc myImode_0_Tstart 1 3 2 NJ 2500 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 1 4 NJ 1760 NJ 1750 NJ 1750 NJ
-preplace netloc fifo_generator_18_dout 1 2 2 840 930 NJ
-preplace netloc newGpsIp_0_triggerTime_out1 1 2 2 910 950 1330
-preplace netloc fifo_generator_0_empty 1 2 2 890 770 NJ
-preplace netloc newGpsIp_0_triggerTime_out2 1 2 2 860 900 1370
-preplace netloc myImode_0_wrn 1 3 2 NJ 2400 NJ
-preplace netloc fifo_generator_1_dout 1 2 2 910 1500 NJ
-preplace netloc myip_fifo_ctrl_0_start_tri_fifo1_rd 1 3 1 1460
-preplace netloc myip_fifo_ctrl_0_ch2_fifo_wr_data 1 3 1 1390
-preplace netloc myip_fifo_ctrl_0_ch1_fifo_wr_data 1 3 1 1450
-preplace netloc PPS_IN_1 1 0 3 NJ 1690 NJ 1820 NJ
-preplace netloc fifo_generator_1_empty 1 2 2 850 1510 NJ
-preplace netloc processing_system7_0_DDR 1 1 4 NJ 1740 NJ 1550 NJ 1550 NJ
-preplace netloc fifo_generator_20_dout 1 2 2 870 960 NJ
-preplace netloc fifo_generator_0_dout 1 2 2 820 780 NJ
-preplace netloc myImode_0_StopDis1 1 3 2 NJ 2260 NJ
-preplace netloc myip_fifo_ctrl_0_gps2_fifo2_rd 1 3 1 1480
-preplace netloc myImode_0_set_zero 1 2 2 910 1740 1340
-preplace netloc myImode_0_StopDis2 1 3 2 NJ 2280 NJ
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 1510 370
-preplace netloc myip_fifo_ctrl_0_start_tri_fifo_wr_data 1 3 1 1470
-preplace netloc myImode_0_StopDis3 1 3 2 NJ 2300 NJ
-preplace netloc processing_system7_0_axi_periph_M03_AXI 1 2 1 690
-preplace netloc myImode_0_StopDis4 1 3 2 NJ 2320 NJ
-preplace netloc processing_system7_0_axi_periph_M02_AXI 1 2 1 720
-preplace netloc axi_uartlite_0_UART 1 3 2 NJ 1740 NJ
-preplace netloc myImode_0_rdn 1 3 2 NJ 2420 NJ
-preplace netloc myImode_0_StartDis 1 3 2 NJ 2340 NJ
-preplace netloc myip_fifo_ctrl_0_start_tri_fifo2_wr 1 3 1 1440
-preplace netloc myip_fifo_ctrl_0_gps2_fifo_wr_data 1 3 1 1430
-preplace netloc fifo_generator_16_dout 1 2 2 830 920 NJ
-preplace netloc myip_fifo_ctrl_0_fifo_rst 1 3 1 1420
-preplace netloc processing_system7_0_axi_periph_M01_AXI 1 2 1 700
-preplace netloc myImode_0_AluTrigger 1 3 2 NJ 2480 NJ
-preplace netloc IrFlag_1 1 0 3 NJ 2450 NJ 2450 NJ
-preplace netloc ErrFlag_1 1 0 3 NJ 2510 NJ 2510 NJ
-preplace netloc Net 1 3 2 NJ 2380 NJ
-preplace netloc myip_fifo_ctrl_0_gps1_fifo_wr_data 1 3 1 1400
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 20 1490 400 1770 730 1530 1510
-preplace netloc myImode_0_oen 1 3 2 NJ 2460 NJ
-preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 390
-preplace netloc EF1_1 1 0 3 NJ 2470 NJ 2470 NJ
-preplace netloc myImode_0_timeDataWrEn 1 2 2 770 2160 1350
-preplace netloc fifo_generator_0_full 1 2 2 880 720 NJ
-preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 750
-preplace netloc myImode_0_ch1_data 1 2 2 790 2150 1330
-preplace netloc delay_0_ch1 1 2 2 910 2140 1330
-preplace netloc myImode_0_Tstop1 1 3 2 NJ 2520 NJ
-preplace netloc delay_0_out_1 1 2 3 800 1930 NJ 2010 NJ
-preplace netloc fifo_generator_19_dout 1 2 2 730 430 NJ
-preplace netloc myImode_0_Tstop2 1 3 2 NJ 2540 NJ
-preplace netloc delay_0_out_2 1 3 2 NJ 2030 NJ
-preplace netloc fifo_generator_1_full 1 2 2 800 1520 NJ
-preplace netloc myip_fifo_ctrl_0_fifo1_wr 1 3 1 1490
-preplace netloc fifo_generator_17_dout 1 2 2 710 260 NJ
-preplace netloc delay_0_out_3 1 3 2 NJ 2050 NJ
-preplace netloc myImode_0_addr 1 3 2 NJ 2360 NJ
-preplace netloc delay_0_tstart_out 1 2 3 900 1940 NJ 1990 NJ
-preplace netloc myImode_0_ch2_data 1 2 2 900 940 1380
+preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 1940 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -y 1800 -defaultsOSRD
+preplace netloc EF2_1 1 0 3 NJ 2150 NJ 2150 NJ
+preplace netloc myImode_0_csn 1 3 2 NJ 1990 NJ
+preplace netloc fifo_generator_2_dout 1 2 2 830 600 NJ
+preplace netloc myImode_0_Tstart 1 3 2 NJ 2050 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 1 4 NJ 1740 NJ 1740 NJ 1740 NJ
+preplace netloc fifo_generator_18_dout 1 2 2 880 890 NJ
+preplace netloc newGpsIp_0_triggerTime_out1 1 2 2 920 850 1370
+preplace netloc fifo_generator_0_empty 1 2 2 900 770 NJ
+preplace netloc newGpsIp_0_triggerTime_out2 1 2 2 930 860 1360
+preplace netloc myImode_0_wrn 1 3 2 NJ 1950 NJ
+preplace netloc fifo_generator_1_dout 1 2 2 940 1460 NJ
+preplace netloc myip_fifo_ctrl_0_start_tri_fifo1_rd 1 3 1 1550
+preplace netloc myip_fifo_ctrl_0_ch2_fifo_wr_data 1 3 1 1410
+preplace netloc myip_fifo_ctrl_0_ch1_fifo_wr_data 1 3 1 1440
+preplace netloc PPS_IN_1 1 0 3 NJ 1600 NJ 1600 NJ
+preplace netloc fifo_generator_1_empty 1 2 2 860 1450 NJ
+preplace netloc processing_system7_0_DDR 1 1 4 NJ 1710 NJ 1720 NJ 1720 NJ
+preplace netloc fifo_generator_20_dout 1 2 2 920 1470 NJ
+preplace netloc fifo_generator_0_dout 1 2 2 840 780 NJ
+preplace netloc myImode_0_StopDis1 1 3 2 NJ 1810 NJ
+preplace netloc myip_fifo_ctrl_0_gps2_fifo2_rd 1 3 1 1510
+preplace netloc myImode_0_set_zero 1 2 2 940 1730 1360
+preplace netloc myImode_0_StopDis2 1 3 2 NJ 1830 NJ
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 20 1670 370
+preplace netloc myip_fifo_ctrl_0_start_tri_fifo_wr_data 1 3 1 1490
+preplace netloc myImode_0_StopDis3 1 3 2 NJ 1850 NJ
+preplace netloc processing_system7_0_axi_periph_M03_AXI 1 2 1 700
+preplace netloc myImode_0_StopDis4 1 3 2 NJ 1870 NJ
+preplace netloc processing_system7_0_axi_periph_M02_AXI 1 2 1 710
+preplace netloc axi_uartlite_0_UART 1 3 2 NJ 2470 NJ
+preplace netloc myImode_0_rdn 1 3 2 NJ 1970 NJ
+preplace netloc myImode_0_StartDis 1 3 2 NJ 1890 NJ
+preplace netloc myip_fifo_ctrl_0_start_tri_fifo2_wr 1 3 1 1480
+preplace netloc myip_fifo_ctrl_0_gps2_fifo_wr_data 1 3 1 1450
+preplace netloc fifo_generator_16_dout 1 2 2 870 880 NJ
+preplace netloc myip_fifo_ctrl_0_fifo_rst 1 3 1 1520
+preplace netloc processing_system7_0_axi_periph_M01_AXI 1 2 1 720
+preplace netloc myImode_0_AluTrigger 1 3 2 NJ 2030 NJ
+preplace netloc IrFlag_1 1 0 3 NJ 2190 NJ 2190 NJ
+preplace netloc ErrFlag_1 1 0 3 NJ 2170 NJ 2170 NJ
+preplace netloc Net 1 3 2 NJ 1930 NJ
+preplace netloc myip_fifo_ctrl_0_gps1_fifo_wr_data 1 3 1 1420
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 10 1650 390 1650 730 1480 1470
+preplace netloc myImode_0_oen 1 3 2 NJ 2010 NJ
+preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 400
+preplace netloc EF1_1 1 0 3 NJ 2130 NJ 2140 NJ
+preplace netloc myImode_0_timeDataWrEn 1 2 2 810 1760 1380
+preplace netloc fifo_generator_0_full 1 2 2 890 720 NJ
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 710
+preplace netloc myImode_0_ch1_data 1 2 2 820 1750 1370
+preplace netloc myImode_0_Tstop1 1 3 2 NJ 2070 NJ
+preplace netloc delay_0_out_1 1 2 3 940 2250 1370 2260 NJ
+preplace netloc fifo_generator_19_dout 1 2 2 790 430 NJ
+preplace netloc myImode_0_Tstop2 1 3 2 NJ 2090 NJ
+preplace netloc delay_0_out_2 1 3 2 NJ 2340 NJ
+preplace netloc fifo_generator_1_full 1 2 2 850 1440 NJ
+preplace netloc myip_fifo_ctrl_0_fifo1_wr 1 3 1 1540
+preplace netloc fifo_generator_17_dout 1 2 2 780 260 NJ
+preplace netloc delay_0_out_3 1 3 2 NJ 2360 NJ
+preplace netloc delay_0_out_4 1 3 2 NJ 2380 NJ
+preplace netloc myImode_0_addr 1 3 2 NJ 1910 NJ
+preplace netloc delay_0_tstart_out 1 2 3 930 2240 1500 2240 NJ
+preplace netloc myImode_0_ch2_data 1 2 2 910 840 1400
 preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 380
-preplace netloc myImode_0_Tstart_counter 1 2 2 810 1730 1360
-preplace netloc switch_1 1 0 3 NJ 2370 NJ 2370 NJ
-preplace netloc processing_system7_0_axi_periph_M04_AXI 1 2 1 690
-preplace netloc ch2_fifo2_dout 1 2 2 700 90 NJ
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 410 1750 740
-preplace netloc fifo_generator_21_dout 1 2 2 900 1590 NJ
-levelinfo -pg 1 -10 200 550 1120 1650 1780 -top 0 -bot 2690
+preplace netloc StopTrigger1_1 1 0 3 NJ 40 NJ 40 760
+preplace netloc myImode_0_Tstart_counter 1 2 2 940 900 1390
+preplace netloc switch_1 1 0 3 NJ 2210 NJ 2210 NJ
+preplace netloc processing_system7_0_axi_periph_M04_AXI 1 2 1 700
+preplace netloc ch2_fifo2_dout 1 2 2 770 90 NJ
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 410 1730 740
+preplace netloc fifo_generator_21_dout 1 2 2 930 1710 NJ
+levelinfo -pg 1 -10 200 560 1150 1660 1790 -top 0 -bot 2550
 ",
 }
 

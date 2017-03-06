@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Mar 06 13:52:57 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Mar 06 15:37:22 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.3" DEVICE="7z020" NAME="gpsImode" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -27,14 +27,18 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef"/>
     <PORT DIR="I" NAME="UART_rxd" SIGIS="undef"/>
     <PORT DIR="O" NAME="UART_txd" SIGIS="undef"/>
+    <PORT DIR="I" NAME="StartTrigger" SIGIS="undef"/>
+    <PORT DIR="I" NAME="StopTrigger1" SIGIS="undef" SIGNAME="External_Ports_StopTrigger1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="myGmode_0" PORT="StopTrigger1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="StopTrigger2" SIGIS="undef"/>
     <PORT DIR="I" NAME="PPS_IN" SIGIS="undef" SIGNAME="External_Ports_PPS_IN">
       <CONNECTIONS>
         <CONNECTION INSTANCE="newGpsIp_0" PORT="PPS_IN"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="StartTrigger" SIGIS="undef"/>
-    <PORT DIR="I" NAME="StopTrigger1" SIGIS="undef"/>
-    <PORT DIR="I" NAME="StopTrigger2" SIGIS="undef"/>
     <PORT DIR="I" NAME="IrFlag" SIGIS="undef" SIGNAME="External_Ports_IrFlag">
       <CONNECTIONS>
         <CONNECTION INSTANCE="myGmode_0" PORT="IrFlag"/>
@@ -153,6 +157,11 @@
     <PORT DIR="O" NAME="out_1" SIGIS="undef" SIGNAME="delay_0_out_1">
       <CONNECTIONS>
         <CONNECTION INSTANCE="delay_0" PORT="out_1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="out_4" SIGIS="undef" SIGNAME="delay_0_out_4">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="delay_0" PORT="out_4"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -2301,11 +2310,6 @@
         <PARAMETER NAME="C_DELAY_AXI_HIGHADDR" VALUE="0x43C3FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="31" NAME="tstart_count" RIGHT="0" SIGIS="undef" SIGNAME="myGmode_0_Tstart_counter">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myGmode_0" PORT="Tstart_counter"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" NAME="data_flag" SIGIS="undef" SIGNAME="myGmode_0_timeDataWrEn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="myGmode_0" PORT="timeDataWrEn"/>
@@ -2338,10 +2342,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="out_3"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="out_4" SIGIS="undef"/>
-        <PORT DIR="O" NAME="ch1" SIGIS="undef" SIGNAME="delay_0_ch1">
+        <PORT DIR="O" NAME="out_4" SIGIS="undef" SIGNAME="delay_0_out_4">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="myGmode_0" PORT="StopTrigger1"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="out_4"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="5" NAME="delay_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_awaddr">
@@ -4236,9 +4239,9 @@
             <CONNECTION INSTANCE="delay_0" PORT="tstart_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="StopTrigger1" SIGIS="undef" SIGNAME="delay_0_ch1">
+        <PORT DIR="I" NAME="StopTrigger1" SIGIS="undef" SIGNAME="External_Ports_StopTrigger1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="delay_0" PORT="ch1"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="StopTrigger1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="StopTrigger2" SIGIS="undef" SIGNAME="delay_0_out_1">
@@ -4349,7 +4352,6 @@
         <PORT DIR="O" LEFT="31" NAME="Tstart_counter" RIGHT="0" SIGIS="undef" SIGNAME="myGmode_0_Tstart_counter">
           <CONNECTIONS>
             <CONNECTION INSTANCE="myip_fifo_ctrl_0" PORT="start_tri_data_to_be_wr"/>
-            <CONNECTION INSTANCE="delay_0" PORT="tstart_count"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="21" NAME="ch1_data" RIGHT="0" SIGIS="undef" SIGNAME="myGmode_0_ch1_data">
@@ -6226,6 +6228,7 @@
             <CONNECTION INSTANCE="gps1_fifo1" PORT="clk"/>
             <CONNECTION INSTANCE="newGpsIp_0" PORT="gps_axi_aclk"/>
             <CONNECTION INSTANCE="myip_fifo_ctrl_0" PORT="fifo_axi_aclk"/>
+            <CONNECTION INSTANCE="myGmode_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ACLK"/>
@@ -6233,7 +6236,6 @@
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M02_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M03_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_ACLK"/>
-            <CONNECTION INSTANCE="myGmode_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="delay_0" PORT="delay_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
@@ -7651,13 +7653,13 @@
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="newGpsIp_0" PORT="gps_axi_aresetn"/>
             <CONNECTION INSTANCE="myip_fifo_ctrl_0" PORT="fifo_axi_aresetn"/>
+            <CONNECTION INSTANCE="myGmode_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M01_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M02_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M03_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_ARESETN"/>
-            <CONNECTION INSTANCE="myGmode_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="delay_0" PORT="delay_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>

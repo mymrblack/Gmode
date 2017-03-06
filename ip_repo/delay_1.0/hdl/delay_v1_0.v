@@ -15,19 +15,15 @@
 	)
 	(
 		// Users to add ports here
-        input [31 : 0] tstart_count,
         input data_flag,
-        input [21 : 0] ch1_time_data,
-        
+        input [21 : 0] ch1_time_data,  
         output tstart_out,
         output out_1,
         output out_2,
         output out_3,
         output out_4,
-        output ch1,
 		// User ports ends
 		// Do not modify the ports beyond this line
-
 
 		// Ports of Axi Slave Bus Interface DELAY_AXI
 		input wire  delay_axi_aclk,
@@ -57,7 +53,6 @@
 		.C_S_AXI_DATA_WIDTH(C_DELAY_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_DELAY_AXI_ADDR_WIDTH)
 	) delay_v1_0_DELAY_AXI_inst (
-        .tstart_count(tstart_count),
 
         .data_flag(data_flag),
         .ch1_time_data(ch1_time_data),

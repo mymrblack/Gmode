@@ -15,7 +15,6 @@
 	)
 	(
 		// Users to add ports here
-        input [31 : 0] tstart_count,
         input data_flag,
         input [21 : 0] ch1_time_data,
 
@@ -24,8 +23,6 @@
         output out_2,
         output out_3,
         output out_4,
-        output ch1,
-        
 
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -576,7 +573,7 @@ TDC_TO_DELAY tdc_data_handle(.clk(clk), .resetn(resetn),
     .timedata(ch1_time_data), .data_flag(data_flag), 
     .data_out_flag(data_out_flag), .delaydata(delay_data));
 
-DELAY_OUT out(.clk(clk), .resetn(resetn), .tstart_count(tstart_count),
+DELAY_OUT out(.clk(clk), .resetn(resetn), 
     .init(init_wr), .tdc_data_flag(data_out_flag), .tdc_data(delay_data),
     .cycle(tstart_cycle), .tstart_width(tstart_width), 
     .delay_1(out_1_delay), .out_1_width(out_1_width), 
@@ -584,11 +581,11 @@ DELAY_OUT out(.clk(clk), .resetn(resetn), .tstart_count(tstart_count),
     .delay_3(out_3_delay), .out_3_width(out_3_width), 
     .delay_4(out_4_delay), .out_4_width(out_4_width), 
     .tstart(tstart_out), .out_1(out_1), .out_2(out_2),
-    .out_3(out_3), .out_4(out_4), .ch1(ch1));
+    .out_3(out_3), .out_4(out_4));
 	// User logic ends
 
 	endmodule
-module DELAY_OUT (input clk, input resetn, input [31:0] tstart_count,
+module DELAY_OUT (input clk, input resetn, 
     input init, input tdc_data_flag, input [14:0] tdc_data,
     input [14:0] cycle, input [13:0] tstart_width, 
     input [14:0] delay_1, input [13:0] out_1_width, 
@@ -596,7 +593,7 @@ module DELAY_OUT (input clk, input resetn, input [31:0] tstart_count,
     input [14:0] delay_3, input [13:0] out_3_width, 
     input [14:0] delay_4, input [13:0] out_4_width, 
     output tstart, output out_1, output out_2,
-    output out_3, output out_4, output ch1);
+    output out_3, output out_4);
 
     reg [14:0] out_1_delay;
     wire [14:0] out_2_delay;
@@ -633,43 +630,7 @@ module DELAY_OUT (input clk, input resetn, input [31:0] tstart_count,
     assign out_2 = ((time_counter > out_2_delay) && (time_counter <= out_2_delay + out_2_width))? 1'b1 : 1'b0; 
     assign out_3 = ((time_counter > out_3_delay) && (time_counter <= out_3_delay + out_3_width))? 1'b1 : 1'b0; 
     assign out_4 = ((time_counter > out_4_delay) && (time_counter <= out_4_delay + out_4_width))? 1'b1 : 1'b0; 
-mock_ch1 ch1_mock(clk, resetn, tstart_count, data_flag,
-   time_counter, ch1);
 endmodule
-
-module mock_ch1(input clk, input resetn, input [31:0] tstart_count, input data_flag,
-  input [31:0] time_counter, output ch1);
-  reg [14:0] delay;
-  always @(posedge clk) begin
-      if(!resetn)
-          delay <= 0;
-      else begin
-          if(tstart_count <= 500)
-              delay <= 10_00;
-          else if(tstart_count == 1000)
-              delay <= 30_00;
-          else if(tstart_count == 1500)
-              delay <= 20_00; 
-          else if(tstart_count == 2000)
-              delay <= 40_00;
-          else if(tstart_count == 2500)
-              delay <= 60_00;
-          else if(tstart_count == 3000)
-              delay <= 50_00;
-          else if(tstart_count == 4000)
-              delay <= 70_00;
-          else if(tstart_count == 5000)
-              delay <= 90_00;
-          else if(tstart_count == 6000)
-              delay <= 80_00;
-          else if(tstart_count == 7000)
-              delay <= 110_00;          
-          else
-              delay <= delay;
-      end
-  end
-  assign ch1 = ((time_counter > delay) && (time_counter <= delay + 3))? 1'b1 : 1'b0;    
-  endmodule
 
 module TDC_TO_DELAY (input clk, input resetn, 
     input [21:0] timedata, input data_flag, 

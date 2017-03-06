@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Mon Mar 06 13:52:56 2017
+//Date        : Mon Mar 06 15:37:21 2017
 //Host        : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
 //Command     : generate_target gpsImode_wrapper.bd
 //Design      : gpsImode_wrapper
@@ -57,6 +57,7 @@ module gpsImode_wrapper
     out_1,
     out_2,
     out_3,
+    out_4,
     rdn,
     switch,
     tstart_out,
@@ -108,6 +109,7 @@ module gpsImode_wrapper
   output out_1;
   output out_2;
   output out_3;
+  output out_4;
   output rdn;
   input switch;
   output tstart_out;
@@ -160,6 +162,7 @@ module gpsImode_wrapper
   wire out_1;
   wire out_2;
   wire out_3;
+  wire out_4;
   wire rdn;
   wire switch;
   wire tstart_out;
@@ -213,6 +216,7 @@ module gpsImode_wrapper
         .out_1(out_1),
         .out_2(out_2),
         .out_3(out_3),
+        .out_4(out_4),
         .rdn(rdn),
         .switch(switch),
         .tstart_out(tstart_out),
