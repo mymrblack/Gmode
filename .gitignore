@@ -8,10 +8,10 @@
 *.runs
 *.cache
 *.cache/
-*.ip_user_files
-*.ip_user_files/
+#*.ip_user_files
+#*.ip_user_files/
 *.sim
 *.sim/
 *.zip
 *.str
-#webtalk/
+webtalk/
