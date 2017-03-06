@@ -1,0 +1,12 @@
+/*
+ * lidar_delay.c
+ *
+ *  Created on: 2017Äê3ÔÂ4ÈÕ
+ *      Author: Lin
+ */
+#include "lidar_delay.h"
+
+void delay_init(delay_Data *data_info){
+    lidar_
+}
+

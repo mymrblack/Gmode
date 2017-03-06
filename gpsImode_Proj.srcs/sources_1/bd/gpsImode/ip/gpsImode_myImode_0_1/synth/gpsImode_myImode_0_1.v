@@ -48,13 +48,14 @@
 
 
 // IP VLNV: xilinx.com:user:myImode:1.0
-// IP Revision: 35
+// IP Revision: 37
 
 (* X_CORE_INFO = "myGmode_v1_0,Vivado 2016.2" *)
 (* CHECK_LICENSE_TYPE = "gpsImode_myImode_0_1,myGmode_v1_0,{}" *)
-(* CORE_GENERATION_INFO = "gpsImode_myImode_0_1,myGmode_v1_0,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=myImode,x_ipVersion=1.0,x_ipCoreRevision=35,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=7}" *)
+(* CORE_GENERATION_INFO = "gpsImode_myImode_0_1,myGmode_v1_0,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=myImode,x_ipVersion=1.0,x_ipCoreRevision=37,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=7}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module gpsImode_myImode_0_1 (
+  switch,
   StartTrigger,
   StopTrigger1,
   StopTrigger2,
@@ -105,6 +106,7 @@ module gpsImode_myImode_0_1 (
   s00_axi_aresetn
 );
 
+input wire switch;
 input wire StartTrigger;
 input wire StopTrigger1;
 input wire StopTrigger2;
@@ -179,6 +181,7 @@ input wire s00_axi_aresetn;
     .C_S00_AXI_DATA_WIDTH(32),  // Width of S_AXI data bus
     .C_S00_AXI_ADDR_WIDTH(7)  // Width of S_AXI address bus
   ) inst (
+    .switch(switch),
     .StartTrigger(StartTrigger),
     .StopTrigger1(StopTrigger1),
     .StopTrigger2(StopTrigger2),

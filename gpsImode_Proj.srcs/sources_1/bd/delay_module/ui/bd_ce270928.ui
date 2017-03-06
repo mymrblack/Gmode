@@ -1,0 +1,46 @@
+{
+   guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port delay_axi_aresetn -pg 1 -y 80 -defaultsOSRD
+preplace port ch1 -pg 1 -y 270 -defaultsOSRD
+preplace port tstart -pg 1 -y 180 -defaultsOSRD
+preplace port out_1 -pg 1 -y 200 -defaultsOSRD
+preplace port data_flag -pg 1 -y 130 -defaultsOSRD
+preplace port out_2 -pg 1 -y 220 -defaultsOSRD
+preplace port out_3 -pg 1 -y 240 -defaultsOSRD
+preplace port DELAY_AXI -pg 1 -y 300 -defaultsOSRD
+preplace port out_4 -pg 1 -y 290 -defaultsOSRD
+preplace port delay_axi_aclk -pg 1 -y 20 -defaultsOSRD
+preplace portBus tstart_count -pg 1 -y 110 -defaultsOSRD
+preplace portBus timedata -pg 1 -y 60 -defaultsOSRD
+preplace inst delay_0 -pg 1 -lvl 1 -y 330 -defaultsOSRD
+preplace inst TDC_TO_DELAY_0 -pg 1 -lvl 1 -y 90 -defaultsOSRD
+preplace inst DELAY_OUT_0 -pg 1 -lvl 2 -y 220 -defaultsOSRD
+preplace netloc DELAY_OUT_0_out_3 1 2 1 NJ
+preplace netloc DELAY_OUT_0_out_4 1 2 1 NJ
+preplace netloc delay_0_out_1_width 1 1 1 N
+preplace netloc delay_0_out_1_delay 1 1 1 N
+preplace netloc delay_0_tstart_width 1 1 1 N
+preplace netloc delay_0_out_2_delay 1 1 1 N
+preplace netloc delay_axi_aclk_1 1 0 2 30 170 320
+preplace netloc delay_0_out_4_width 1 1 1 N
+preplace netloc delay_0_out_4_delay 1 1 1 N
+preplace netloc delay_0_init_wr 1 1 1 N
+preplace netloc delay_axi_aresetn_1 1 0 2 40 180 350
+preplace netloc TDC_TO_DELAY_0_delaydata 1 1 1 330
+preplace netloc delay_0_out_2_width 1 1 1 N
+preplace netloc delay_0_tstart_cycle 1 1 1 N
+preplace netloc data_flag_1 1 0 1 NJ
+preplace netloc tstart_count_1 1 0 2 NJ 10 NJ
+preplace netloc DELAY_OUT_0_tstart 1 2 1 NJ
+preplace netloc delay_0_out_3_width 1 1 1 N
+preplace netloc delay_0_out_3_delay 1 1 1 N
+preplace netloc DELAY_AXI_1 1 0 1 NJ
+preplace netloc DELAY_OUT_0_out_1 1 2 1 NJ
+preplace netloc timedata_1 1 0 1 NJ
+preplace netloc DELAY_OUT_0_ch1 1 2 1 N
+preplace netloc DELAY_OUT_0_out_2 1 2 1 NJ
+preplace netloc TDC_TO_DELAY_0_data_out_flag 1 1 1 340
+levelinfo -pg 1 -10 190 520 650 -top 0 -bot 480
+",
+}

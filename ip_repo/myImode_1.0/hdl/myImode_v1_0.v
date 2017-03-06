@@ -15,6 +15,7 @@
 	)
 	(
 		// Users to add ports here
+		input wire switch,
         input wire StartTrigger,
         input wire StopTrigger1,
         input wire StopTrigger2,
@@ -76,6 +77,7 @@
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
 	) myImode_v1_0_S00_AXI_inst (
+	    .switch(switch),
         .StartTrigger(StartTrigger),
         .StopTrigger1(StopTrigger1),
         .StopTrigger2(StopTrigger2),

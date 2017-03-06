@@ -1,0 +1,22 @@
+/*
+ * lidar_delay.h
+ *
+ *  Created on: 2017Äê3ÔÂ4ÈÕ
+ *      Author: Lin
+ */
+
+#ifndef SRC_LIDAR_DELAY_H_
+#define SRC_LIDAR_DELAY_H_
+
+#define DELAY_CTRL_REG  0
+#define DELAY_OUT1_REG  4
+#define DELAY_OUT2_REG  8
+#define DELAY_OUT3_REG  12
+#define DELAY_OUT4_REG  16
+
+#define TSTART_CONFIG_REG      20
+
+#define DELAY_BASEADDR  here_should_be_changed
+
+
+#endif /* SRC_LIDAR_DELAY_H_ */

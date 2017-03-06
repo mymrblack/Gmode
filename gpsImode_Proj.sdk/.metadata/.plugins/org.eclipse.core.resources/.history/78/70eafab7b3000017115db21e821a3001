@@ -1,0 +1,25 @@
+/*
+ * lidar_delay.c
+ *
+ *  Created on: 2017Äê3ÔÂ4ÈÕ
+ *      Author: Lin
+ */
+#include "lidar_delay.h"
+#include "lidar_sys.h"
+
+void delay_init(delay_Data *data_info){
+    delay_config(data_info -> cycle, data_info -> tstart_width);
+    delay_config(data_info -> ch1_delay, data_info -> ch1_width);
+    delay_config(data_info -> ch2_delay, data_info -> ch2_width);
+    delay_config(data_info -> ch3_delay, data_info -> ch3_width);
+    delay_config(data_info -> ch4_delay, data_info -> ch4_width);
+}
+
+void delay_config(int delay, int width){
+    int config_data = 0;
+
+    config_data = (delay << 16) | width;
+
+    lidar_mWriteReg(DELAY_BASEADDR, DELAY_OUT1_REG, config_data);
+}
+

@@ -48,12 +48,13 @@
 
 
 // IP VLNV: xilinx.com:user:myImode:1.0
-// IP Revision: 35
+// IP Revision: 37
 
 `timescale 1ns/1ps
 
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module gpsImode_myImode_0_1 (
+  switch,
   StartTrigger,
   StopTrigger1,
   StopTrigger2,
@@ -104,6 +105,7 @@ module gpsImode_myImode_0_1 (
   s00_axi_aresetn
 );
 
+input wire switch;
 input wire StartTrigger;
 input wire StopTrigger1;
 input wire StopTrigger2;
@@ -178,6 +180,7 @@ input wire s00_axi_aresetn;
     .C_S00_AXI_DATA_WIDTH(32),  // Width of S_AXI data bus
     .C_S00_AXI_ADDR_WIDTH(7)  // Width of S_AXI address bus
   ) inst (
+    .switch(switch),
     .StartTrigger(StartTrigger),
     .StopTrigger1(StopTrigger1),
     .StopTrigger2(StopTrigger2),

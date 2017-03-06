@@ -14,6 +14,7 @@ module myImode_v1_0_S00_AXI #
 	)
 	(
 		// Users to add ports here
+		input wire switch,
 		input wire StartTrigger,
 		input wire StopTrigger1,
 		input wire StopTrigger2,
@@ -686,9 +687,9 @@ module myImode_v1_0_S00_AXI #
          end
      end
      
-    assign Tstart=StartTrigger;
-    assign Tstop1=StopTrigger1;
-    assign Tstop2=StopTrigger2;
+    assign Tstart=StartTrigger & switch;
+    assign Tstop1=StopTrigger1 & switch;
+    assign Tstop2=StopTrigger2 & switch;
     //bylk
 
     TstartCounter tstart_counter(.clk(S_AXI_ACLK), .resetn(S_AXI_ARESETN), 
@@ -713,7 +714,7 @@ module myImode_v1_0_S00_AXI #
         .timeData_out(timeData), .rdOverFlag_out(rdOverFlag_out)); 
 
     GetSyncSignal_Async  getTstartTrigger(.clk(S_AXI_ACLK), .resetn(S_AXI_ARESETN),
-        .signal_in(StartTrigger), .signal_out(set_zero)); 
+        .signal_in(StartTrigger & switch), .signal_out(set_zero)); 
 endmodule
 	
 module TdcRegReadAndWrite(input clk, input resetn, 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Mar 01 16:06:13 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Mar 06 13:52:57 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.3" DEVICE="7z020" NAME="gpsImode" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -32,21 +32,9 @@
         <CONNECTION INSTANCE="newGpsIp_0" PORT="PPS_IN"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="StartTrigger" SIGIS="undef" SIGNAME="External_Ports_StartTrigger">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="myGmode_0" PORT="StartTrigger"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="StopTrigger1" SIGIS="undef" SIGNAME="External_Ports_StopTrigger1">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="myGmode_0" PORT="StopTrigger1"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="StopTrigger2" SIGIS="undef" SIGNAME="External_Ports_StopTrigger2">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="myGmode_0" PORT="StopTrigger2"/>
-      </CONNECTIONS>
-    </PORT>
+    <PORT DIR="I" NAME="StartTrigger" SIGIS="undef"/>
+    <PORT DIR="I" NAME="StopTrigger1" SIGIS="undef"/>
+    <PORT DIR="I" NAME="StopTrigger2" SIGIS="undef"/>
     <PORT DIR="I" NAME="IrFlag" SIGIS="undef" SIGNAME="External_Ports_IrFlag">
       <CONNECTIONS>
         <CONNECTION INSTANCE="myGmode_0" PORT="IrFlag"/>
@@ -140,6 +128,31 @@
     <PORT DIR="I" NAME="ErrFlag" SIGIS="undef" SIGNAME="External_Ports_ErrFlag">
       <CONNECTIONS>
         <CONNECTION INSTANCE="myGmode_0" PORT="ErrFlag"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="switch" SIGIS="undef" SIGNAME="External_Ports_switch">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="myGmode_0" PORT="switch"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="out_2" SIGIS="undef" SIGNAME="delay_0_out_2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="delay_0" PORT="out_2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="out_3" SIGIS="undef" SIGNAME="delay_0_out_3">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="delay_0" PORT="out_3"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="tstart_out" SIGIS="undef" SIGNAME="delay_0_tstart_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="delay_0" PORT="tstart_out"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="out_1" SIGIS="undef" SIGNAME="delay_0_out_1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="delay_0" PORT="out_1"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -2274,6 +2287,223 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
+    <MODULE FULLNAME="/delay_0" HWVERSION="1.0" INSTANCE="delay_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="delay" VLNV="xilinx.com:user:delay:1.0">
+      <DOCUMENTS/>
+      <ADDRESSBLOCKS>
+        <ADDRESSBLOCK ACCESS="" INTERFACE="DELAY_AXI" NAME="DELAY_AXI_reg" RANGE="4096" USAGE="register"/>
+      </ADDRESSBLOCKS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_DELAY_AXI_DATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_DELAY_AXI_ADDR_WIDTH" VALUE="6"/>
+        <PARAMETER NAME="Component_Name" VALUE="gpsImode_delay_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+        <PARAMETER NAME="C_DELAY_AXI_BASEADDR" VALUE="0x43C30000"/>
+        <PARAMETER NAME="C_DELAY_AXI_HIGHADDR" VALUE="0x43C3FFFF"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="31" NAME="tstart_count" RIGHT="0" SIGIS="undef" SIGNAME="myGmode_0_Tstart_counter">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myGmode_0" PORT="Tstart_counter"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="data_flag" SIGIS="undef" SIGNAME="myGmode_0_timeDataWrEn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myGmode_0" PORT="timeDataWrEn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="21" NAME="ch1_time_data" RIGHT="0" SIGIS="undef" SIGNAME="myGmode_0_ch1_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myGmode_0" PORT="ch1_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tstart_out" SIGIS="undef" SIGNAME="delay_0_tstart_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tstart_out"/>
+            <CONNECTION INSTANCE="myGmode_0" PORT="StartTrigger"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_1" SIGIS="undef" SIGNAME="delay_0_out_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="out_1"/>
+            <CONNECTION INSTANCE="myGmode_0" PORT="StopTrigger2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_2" SIGIS="undef" SIGNAME="delay_0_out_2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="out_2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_3" SIGIS="undef" SIGNAME="delay_0_out_3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="out_3"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_4" SIGIS="undef"/>
+        <PORT DIR="O" NAME="ch1" SIGIS="undef" SIGNAME="delay_0_ch1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myGmode_0" PORT="StopTrigger1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="delay_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_awaddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_awaddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="delay_axi_awprot" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_awprot">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_awprot"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="delay_axi_awvalid" SIGIS="undef" SIGNAME="delay_0_delay_axi_awvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_awvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="delay_axi_awready" SIGIS="undef" SIGNAME="delay_0_delay_axi_awready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_awready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="delay_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_wdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_wdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="delay_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_wstrb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_wstrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="delay_axi_wvalid" SIGIS="undef" SIGNAME="delay_0_delay_axi_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_wvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="delay_axi_wready" SIGIS="undef" SIGNAME="delay_0_delay_axi_wready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_wready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="delay_axi_bresp" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_bresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_bresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="delay_axi_bvalid" SIGIS="undef" SIGNAME="delay_0_delay_axi_bvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_bvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="delay_axi_bready" SIGIS="undef" SIGNAME="delay_0_delay_axi_bready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_bready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="delay_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_araddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_araddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="delay_axi_arprot" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_arprot">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_arprot"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="delay_axi_arvalid" SIGIS="undef" SIGNAME="delay_0_delay_axi_arvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_arvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="delay_axi_arready" SIGIS="undef" SIGNAME="delay_0_delay_axi_arready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_arready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="delay_axi_rdata" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_rdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="delay_axi_rresp" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_rresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_rresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="delay_axi_rvalid" SIGIS="undef" SIGNAME="delay_0_delay_axi_rvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="delay_axi_rready" SIGIS="undef" SIGNAME="delay_0_delay_axi_rready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_AXI_rready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="delay_axi_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="delay_axi_aresetn" SIGIS="rst" SIGNAME="rst_processing_system7_0_100M_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="processing_system7_0_axi_periph_M04_AXI" DATAWIDTH="32" NAME="DELAY_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+          <PARAMETER NAME="WIZ_DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="WIZ_NUM_REG" VALUE="16"/>
+          <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="ADDR_WIDTH" VALUE="6"/>
+          <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="RUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
+          <PARAMETER NAME="HAS_BURST" VALUE="0"/>
+          <PARAMETER NAME="HAS_LOCK" VALUE="0"/>
+          <PARAMETER NAME="HAS_PROT" VALUE="1"/>
+          <PARAMETER NAME="HAS_CACHE" VALUE="0"/>
+          <PARAMETER NAME="HAS_QOS" VALUE="0"/>
+          <PARAMETER NAME="HAS_REGION" VALUE="0"/>
+          <PARAMETER NAME="HAS_WSTRB" VALUE="1"/>
+          <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
+          <PARAMETER NAME="HAS_RRESP" VALUE="1"/>
+          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="1"/>
+          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="1"/>
+          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="gpsImode_processing_system7_0_0_FCLK_CLK0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="AWADDR" PHYSICAL="delay_axi_awaddr"/>
+            <PORTMAP LOGICAL="AWPROT" PHYSICAL="delay_axi_awprot"/>
+            <PORTMAP LOGICAL="AWVALID" PHYSICAL="delay_axi_awvalid"/>
+            <PORTMAP LOGICAL="AWREADY" PHYSICAL="delay_axi_awready"/>
+            <PORTMAP LOGICAL="WDATA" PHYSICAL="delay_axi_wdata"/>
+            <PORTMAP LOGICAL="WSTRB" PHYSICAL="delay_axi_wstrb"/>
+            <PORTMAP LOGICAL="WVALID" PHYSICAL="delay_axi_wvalid"/>
+            <PORTMAP LOGICAL="WREADY" PHYSICAL="delay_axi_wready"/>
+            <PORTMAP LOGICAL="BRESP" PHYSICAL="delay_axi_bresp"/>
+            <PORTMAP LOGICAL="BVALID" PHYSICAL="delay_axi_bvalid"/>
+            <PORTMAP LOGICAL="BREADY" PHYSICAL="delay_axi_bready"/>
+            <PORTMAP LOGICAL="ARADDR" PHYSICAL="delay_axi_araddr"/>
+            <PORTMAP LOGICAL="ARPROT" PHYSICAL="delay_axi_arprot"/>
+            <PORTMAP LOGICAL="ARVALID" PHYSICAL="delay_axi_arvalid"/>
+            <PORTMAP LOGICAL="ARREADY" PHYSICAL="delay_axi_arready"/>
+            <PORTMAP LOGICAL="RDATA" PHYSICAL="delay_axi_rdata"/>
+            <PORTMAP LOGICAL="RRESP" PHYSICAL="delay_axi_rresp"/>
+            <PORTMAP LOGICAL="RVALID" PHYSICAL="delay_axi_rvalid"/>
+            <PORTMAP LOGICAL="RREADY" PHYSICAL="delay_axi_rready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
     <MODULE FULLNAME="/gps1_fifo1" HWVERSION="13.1" INSTANCE="gps1_fifo1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fifo_generator" VLNV="xilinx.com:ip:fifo_generator:13.1">
       <DOCUMENTS>
         <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=fifo_generator;v=v13_1;d=pg057-fifo-generator.pdf"/>
@@ -3996,19 +4226,24 @@
         <PARAMETER NAME="C_S00_AXI_HIGHADDR" VALUE="0x43C1FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="StartTrigger" SIGIS="undef" SIGNAME="External_Ports_StartTrigger">
+        <PORT DIR="I" NAME="switch" SIGIS="undef" SIGNAME="External_Ports_switch">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="StartTrigger"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="switch"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="StopTrigger1" SIGIS="undef" SIGNAME="External_Ports_StopTrigger1">
+        <PORT DIR="I" NAME="StartTrigger" SIGIS="undef" SIGNAME="delay_0_tstart_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="StopTrigger1"/>
+            <CONNECTION INSTANCE="delay_0" PORT="tstart_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="StopTrigger2" SIGIS="undef" SIGNAME="External_Ports_StopTrigger2">
+        <PORT DIR="I" NAME="StopTrigger1" SIGIS="undef" SIGNAME="delay_0_ch1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="StopTrigger2"/>
+            <CONNECTION INSTANCE="delay_0" PORT="ch1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="StopTrigger2" SIGIS="undef" SIGNAME="delay_0_out_1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="out_1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="StopDis1" SIGIS="undef" SIGNAME="myGmode_0_StopDis1">
@@ -4114,11 +4349,13 @@
         <PORT DIR="O" LEFT="31" NAME="Tstart_counter" RIGHT="0" SIGIS="undef" SIGNAME="myGmode_0_Tstart_counter">
           <CONNECTIONS>
             <CONNECTION INSTANCE="myip_fifo_ctrl_0" PORT="start_tri_data_to_be_wr"/>
+            <CONNECTION INSTANCE="delay_0" PORT="tstart_count"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="21" NAME="ch1_data" RIGHT="0" SIGIS="undef" SIGNAME="myGmode_0_ch1_data">
           <CONNECTIONS>
             <CONNECTION INSTANCE="myip_fifo_ctrl_0" PORT="ch1_data_to_be_wr"/>
+            <CONNECTION INSTANCE="delay_0" PORT="ch1_time_data"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="21" NAME="ch2_data" RIGHT="0" SIGIS="undef" SIGNAME="myGmode_0_ch2_data">
@@ -4129,6 +4366,7 @@
         <PORT DIR="O" NAME="timeDataWrEn" SIGIS="undef" SIGNAME="myGmode_0_timeDataWrEn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="myip_fifo_ctrl_0" PORT="data_in_flag"/>
+            <CONNECTION INSTANCE="delay_0" PORT="data_flag"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="6" NAME="s00_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="myGmode_0_s00_axi_awaddr">
@@ -5987,6 +6225,7 @@
             <CONNECTION INSTANCE="start_tri_fifo2" PORT="clk"/>
             <CONNECTION INSTANCE="gps1_fifo1" PORT="clk"/>
             <CONNECTION INSTANCE="newGpsIp_0" PORT="gps_axi_aclk"/>
+            <CONNECTION INSTANCE="myip_fifo_ctrl_0" PORT="fifo_axi_aclk"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ACLK"/>
@@ -5995,7 +6234,7 @@
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M03_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_ACLK"/>
             <CONNECTION INSTANCE="myGmode_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="myip_fifo_ctrl_0" PORT="fifo_axi_aclk"/>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" SIGIS="rst" SIGNAME="processing_system7_0_FCLK_RESET0_N">
@@ -6149,12 +6388,14 @@
         <MEMRANGE ADDRESSBLOCK="GPS_AXI_reg" BASENAME="C_GPS_AXI_BASEADDR" BASEVALUE="0x43C00000" HIGHNAME="C_GPS_AXI_HIGHADDR" HIGHVALUE="0x43C0FFFF" INSTANCE="newGpsIp_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="GPS_AXI"/>
         <MEMRANGE ADDRESSBLOCK="S00_AXI_reg" BASENAME="C_S00_AXI_BASEADDR" BASEVALUE="0x43C10000" HIGHNAME="C_S00_AXI_HIGHADDR" HIGHVALUE="0x43C1FFFF" INSTANCE="myGmode_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S00_AXI"/>
         <MEMRANGE ADDRESSBLOCK="FIFO_AXI_reg" BASENAME="C_FIFO_AXI_BASEADDR" BASEVALUE="0x43C20000" HIGHNAME="C_FIFO_AXI_HIGHADDR" HIGHVALUE="0x43C2FFFF" INSTANCE="myip_fifo_ctrl_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="FIFO_AXI"/>
+        <MEMRANGE ADDRESSBLOCK="DELAY_AXI_reg" BASENAME="C_DELAY_AXI_BASEADDR" BASEVALUE="0x43C30000" HIGHNAME="C_DELAY_AXI_HIGHADDR" HIGHVALUE="0x43C3FFFF" INSTANCE="delay_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="DELAY_AXI"/>
       </MEMORYMAP>
       <PERIPHERALS>
         <PERIPHERAL INSTANCE="axi_uartlite_0"/>
         <PERIPHERAL INSTANCE="newGpsIp_0"/>
         <PERIPHERAL INSTANCE="myGmode_0"/>
         <PERIPHERAL INSTANCE="myip_fifo_ctrl_0"/>
+        <PERIPHERAL INSTANCE="delay_0"/>
       </PERIPHERALS>
     </MODULE>
     <MODULE FULLNAME="/processing_system7_0_axi_periph" HWVERSION="2.1" INSTANCE="processing_system7_0_axi_periph" IPTYPE="BUS" IS_ENABLE="1" MODCLASS="BUS" MODTYPE="axi_interconnect" VLNV="xilinx.com:ip:axi_interconnect:2.1">
@@ -7110,25 +7351,101 @@
             <CONNECTION INSTANCE="myip_fifo_ctrl_0" PORT="fifo_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M04_AXI_awaddr" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M04_AXI_awprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M04_AXI_awvalid" SIGIS="undef"/>
-        <PORT DIR="I" NAME="M04_AXI_awready" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M04_AXI_wdata" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M04_AXI_wstrb" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M04_AXI_wvalid" SIGIS="undef"/>
-        <PORT DIR="I" NAME="M04_AXI_wready" SIGIS="undef"/>
-        <PORT DIR="I" NAME="M04_AXI_bresp" SIGIS="undef"/>
-        <PORT DIR="I" NAME="M04_AXI_bvalid" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M04_AXI_bready" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M04_AXI_araddr" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M04_AXI_arprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M04_AXI_arvalid" SIGIS="undef"/>
-        <PORT DIR="I" NAME="M04_AXI_arready" SIGIS="undef"/>
-        <PORT DIR="I" NAME="M04_AXI_rdata" SIGIS="undef"/>
-        <PORT DIR="I" NAME="M04_AXI_rresp" SIGIS="undef"/>
-        <PORT DIR="I" NAME="M04_AXI_rvalid" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M04_AXI_rready" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="31" NAME="M04_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_awaddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_awaddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M04_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_awprot">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_awprot"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M04_AXI_awvalid" SIGIS="undef" SIGNAME="delay_0_delay_axi_awvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_awvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M04_AXI_awready" SIGIS="undef" SIGNAME="delay_0_delay_axi_awready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_awready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M04_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_wdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_wdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="M04_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_wstrb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_wstrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M04_AXI_wvalid" SIGIS="undef" SIGNAME="delay_0_delay_axi_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_wvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M04_AXI_wready" SIGIS="undef" SIGNAME="delay_0_delay_axi_wready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_wready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M04_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_bresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_bresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M04_AXI_bvalid" SIGIS="undef" SIGNAME="delay_0_delay_axi_bvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_bvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M04_AXI_bready" SIGIS="undef" SIGNAME="delay_0_delay_axi_bready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_bready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M04_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_araddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_araddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M04_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_arprot">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_arprot"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M04_AXI_arvalid" SIGIS="undef" SIGNAME="delay_0_delay_axi_arvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_arvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M04_AXI_arready" SIGIS="undef" SIGNAME="delay_0_delay_axi_arready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_arready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="M04_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_rdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M04_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="delay_0_delay_axi_rresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_rresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M04_AXI_rvalid" SIGIS="undef" SIGNAME="delay_0_delay_axi_rvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M04_AXI_rready" SIGIS="undef" SIGNAME="delay_0_delay_axi_rready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_rready"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES>
         <BUSINTERFACE BUSNAME="processing_system7_0_M_AXI_GP0" DATAWIDTH="32" NAME="S00_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
@@ -7263,7 +7580,7 @@
             <PORTMAP LOGICAL="RREADY" PHYSICAL="M03_AXI_rready"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="__NOC__" NAME="M04_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="processing_system7_0_axi_periph_M04_AXI" DATAWIDTH="32" NAME="M04_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="M04_AXI_awaddr"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="M04_AXI_awprot"/>
@@ -7333,6 +7650,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="newGpsIp_0" PORT="gps_axi_aresetn"/>
+            <CONNECTION INSTANCE="myip_fifo_ctrl_0" PORT="fifo_axi_aresetn"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M01_ARESETN"/>
@@ -7340,7 +7658,7 @@
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M03_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_ARESETN"/>
             <CONNECTION INSTANCE="myGmode_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="myip_fifo_ctrl_0" PORT="fifo_axi_aresetn"/>
+            <CONNECTION INSTANCE="delay_0" PORT="delay_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

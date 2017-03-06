@@ -288,6 +288,36 @@
             <spirit:direction>in</spirit:direction>
           </spirit:wire>
         </spirit:port>
+        <spirit:port>
+          <spirit:name>switch</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>out_2</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>out_3</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>tstart_out</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>out_1</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
       </spirit:ports>
     </spirit:model>
   </spirit:component>
@@ -440,6 +470,13 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
+        <spirit:instanceName>myip_fifo_ctrl_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="myip_fifo_ctrl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_myip_fifo_ctrl_0_0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
         <spirit:instanceName>myGmode_0</spirit:instanceName>
         <spirit:componentRef spirit:library="user" spirit:name="myImode" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
@@ -447,10 +484,10 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>myip_fifo_ctrl_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="myip_fifo_ctrl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:instanceName>delay_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="delay" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_myip_fifo_ctrl_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_delay_0_1</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -480,6 +517,11 @@
         <spirit:activeInterface spirit:busRef="M03_AXI" spirit:componentRef="processing_system7_0_axi_periph"/>
         <spirit:activeInterface spirit:busRef="FIFO_AXI" spirit:componentRef="myip_fifo_ctrl_0"/>
       </spirit:interconnection>
+      <spirit:interconnection>
+        <spirit:name>processing_system7_0_axi_periph_M04_AXI</spirit:name>
+        <spirit:activeInterface spirit:busRef="M04_AXI" spirit:componentRef="processing_system7_0_axi_periph"/>
+        <spirit:activeInterface spirit:busRef="DELAY_AXI" spirit:componentRef="delay_0"/>
+      </spirit:interconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
       <spirit:adHocConnection>
@@ -504,6 +546,7 @@
         <spirit:internalPortReference spirit:componentRef="start_tri_fifo2" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="gps1_fifo1" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="newGpsIp_0" spirit:portRef="gps_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="S00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M00_ACLK"/>
@@ -512,7 +555,7 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M03_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M04_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="delay_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_RESET0_N</spirit:name>
@@ -524,6 +567,7 @@
         <spirit:internalPortReference spirit:componentRef="rst_processing_system7_0_100M" spirit:portRef="peripheral_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_uartlite_0" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="newGpsIp_0" spirit:portRef="gps_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M01_ARESETN"/>
@@ -531,27 +575,12 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M03_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M04_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="delay_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>rst_processing_system7_0_100M_interconnect_aresetn</spirit:name>
         <spirit:internalPortReference spirit:componentRef="rst_processing_system7_0_100M" spirit:portRef="interconnect_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="ARESETN"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>StartTrigger_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="StartTrigger"/>
-        <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="StartTrigger"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>StopTrigger1_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="StopTrigger1"/>
-        <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="StopTrigger1"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>StopTrigger2_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="StopTrigger2"/>
-        <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="StopTrigger2"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>IrFlag_1</spirit:name>
@@ -793,6 +822,7 @@
         <spirit:name>myImode_0_ch1_data</spirit:name>
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="ch1_data"/>
         <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="ch1_data_to_be_wr"/>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="ch1_time_data"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>myImode_0_ch2_data</spirit:name>
@@ -800,27 +830,10 @@
         <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="ch2_data_to_be_wr"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>myImode_0_ch3_data</spirit:name>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>myImode_0_ch4_data</spirit:name>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>myImode_0_ch5_data</spirit:name>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>myImode_0_ch6_data</spirit:name>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>myImode_0_ch7_data</spirit:name>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>myImode_0_ch8_data</spirit:name>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>myImode_0_Tstart_counter</spirit:name>
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="Tstart_counter"/>
         <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="start_tri_data_to_be_wr"/>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="tstart_count"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>newGpsIp_0_triggerTime_out1</spirit:name>
@@ -836,6 +849,7 @@
         <spirit:name>myImode_0_timeDataWrEn</spirit:name>
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="timeDataWrEn"/>
         <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="data_in_flag"/>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="data_flag"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>myip_fifo_ctrl_0_fifo1_wr</spirit:name>
@@ -850,6 +864,38 @@
         <spirit:name>ch2_fifo2_dout</spirit:name>
         <spirit:internalPortReference spirit:componentRef="ch2_fifo2" spirit:portRef="dout"/>
         <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="ch2_fifo2_rd_data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>switch_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="switch"/>
+        <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="switch"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay_0_ch1</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="ch1"/>
+        <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="StopTrigger1"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay_0_out_2</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="out_2"/>
+        <spirit:externalPortReference spirit:portRef="out_2"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay_0_out_3</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="out_3"/>
+        <spirit:externalPortReference spirit:portRef="out_3"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay_0_tstart_out</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="tstart_out"/>
+        <spirit:externalPortReference spirit:portRef="tstart_out"/>
+        <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="StartTrigger"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay_0_out_1</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="out_1"/>
+        <spirit:externalPortReference spirit:portRef="out_1"/>
+        <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="StopTrigger2"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -2773,15 +2819,21 @@
             <spirit:range>64K</spirit:range>
           </spirit:segment>
           <spirit:segment>
+            <spirit:name>SEG_myip_fifo_ctrl_0_FIFO_AXI_reg</spirit:name>
+            <spirit:displayName>/myip_fifo_ctrl_0/FIFO_AXI/FIFO_AXI_reg</spirit:displayName>
+            <spirit:addressOffset>0x43C20000</spirit:addressOffset>
+            <spirit:range>64K</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
             <spirit:name>SEG_myImode_0_S00_AXI_reg</spirit:name>
             <spirit:displayName>/myGmode_0/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x43C10000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_myip_fifo_ctrl_0_FIFO_AXI_reg</spirit:name>
-            <spirit:displayName>/myip_fifo_ctrl_0/FIFO_AXI/FIFO_AXI_reg</spirit:displayName>
-            <spirit:addressOffset>0x43C20000</spirit:addressOffset>
+            <spirit:name>SEG_delay_0_DELAY_AXI_reg</spirit:name>
+            <spirit:displayName>/delay_0/DELAY_AXI/DELAY_AXI_reg</spirit:displayName>
+            <spirit:addressOffset>0x43C30000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
         </spirit:segments>
