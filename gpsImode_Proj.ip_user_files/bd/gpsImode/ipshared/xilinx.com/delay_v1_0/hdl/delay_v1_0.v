@@ -15,13 +15,20 @@
 	)
 	(
 		// Users to add ports here
+        input time_record_flag,
         input data_flag,
         input [21 : 0] ch1_time_data,  
+
         output tstart_out,
         output out_1,
         output out_2,
         output out_3,
         output out_4,
+
+        output [14:0] out_1_delay_data,
+        output [14:0] out_2_delay_data,
+        output [14:0] out_3_delay_data,
+        output [14:0] out_4_delay_data,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -54,6 +61,7 @@
 		.C_S_AXI_ADDR_WIDTH(C_DELAY_AXI_ADDR_WIDTH)
 	) delay_v1_0_DELAY_AXI_inst (
 
+        .time_record_flag(time_record_flag),
         .data_flag(data_flag),
         .ch1_time_data(ch1_time_data),
 
@@ -62,6 +70,11 @@
         .out_2(out_2),
         .out_3(out_3),
         .out_4(out_4),
+
+        .out_1_delay_data(out_1_delay_data),
+        .out_2_delay_data(out_2_delay_data),
+        .out_3_delay_data(out_3_delay_data),
+        .out_4_delay_data(out_4_delay_data),
 
 		.S_AXI_ACLK(delay_axi_aclk),
 		.S_AXI_ARESETN(delay_axi_aresetn),

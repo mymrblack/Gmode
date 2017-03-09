@@ -71,7 +71,7 @@
         .out_3(out_3),
         .out_4(out_4),
 
-        .out_2_delay_data(out_1_delay_data),
+        .out_1_delay_data(out_1_delay_data),
         .out_2_delay_data(out_2_delay_data),
         .out_3_delay_data(out_3_delay_data),
         .out_4_delay_data(out_4_delay_data),

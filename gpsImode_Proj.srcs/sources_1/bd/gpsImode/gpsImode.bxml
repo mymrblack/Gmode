@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="gpsImode" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1489028524"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1489028524"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1489028524"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1489049715"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1489049715"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1489049715"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\gpsImode_processing_system7_0_0\gpsImode_processing_system7_0_0.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0"/>
@@ -167,6 +167,70 @@
       </File>
       <File Name="ip\gpsImode_dec_pwm_0_0\gpsImode_dec_pwm_0_0.xci" Type="IP">
         <Instance HierarchyPath="dec_pwm_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\gpsImode_ch2_fifo2_0\gpsImode_ch2_fifo2_0.xci" Type="IP">
+        <Instance HierarchyPath="delay1_fifo1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\gpsImode_delay1_fifo1_1\gpsImode_delay1_fifo1_1.xci" Type="IP">
+        <Instance HierarchyPath="delay1_fifo2"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\gpsImode_delay1_fifo1_2\gpsImode_delay1_fifo1_2.xci" Type="IP">
+        <Instance HierarchyPath="delay2_fifo1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\gpsImode_delay2_fifo1_0\gpsImode_delay2_fifo1_0.xci" Type="IP">
+        <Instance HierarchyPath="delay2_fifo2"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\gpsImode_delay2_fifo1_1\gpsImode_delay2_fifo1_1.xci" Type="IP">
+        <Instance HierarchyPath="delay3_fifo1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\gpsImode_delay3_fifo1_0\gpsImode_delay3_fifo1_0.xci" Type="IP">
+        <Instance HierarchyPath="delay3_fifo2"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\gpsImode_delay3_fifo2_0\gpsImode_delay3_fifo2_0.xci" Type="IP">
+        <Instance HierarchyPath="delay4_fifo1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\gpsImode_delay4_fifo1_0\gpsImode_delay4_fifo1_0.xci" Type="IP">
+        <Instance HierarchyPath="delay4_fifo2"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

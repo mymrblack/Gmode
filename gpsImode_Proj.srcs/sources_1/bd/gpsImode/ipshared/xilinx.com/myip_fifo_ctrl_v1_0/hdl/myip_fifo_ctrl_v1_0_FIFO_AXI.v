@@ -26,30 +26,45 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
         input [31:0] gps1_data_to_be_wr,
         input [31:0] gps2_data_to_be_wr,
         input [31:0] start_tri_data_to_be_wr,
+        input [14:0] delay1_data_to_be_wr,
+        input [14:0] delay2_data_to_be_wr,
+        input [14:0] delay3_data_to_be_wr,
+        input [14:0] delay4_data_to_be_wr,
 
         input [21:0] ch1_fifo1_rd_data,
         input [21:0] ch2_fifo1_rd_data,
         input [31:0] gps1_fifo1_rd_data,
         input [31:0] gps2_fifo1_rd_data,
         input [31:0] start_tri_fifo1_rd_data,
+        input [14:0] delay1_fifo1_rd_data,
+        input [14:0] delay2_fifo1_rd_data,
+        input [14:0] delay3_fifo1_rd_data,
+        input [14:0] delay4_fifo1_rd_data,
 
         input [21:0] ch1_fifo2_rd_data,
         input [21:0] ch2_fifo2_rd_data,
         input [31:0] gps1_fifo2_rd_data,
         input [31:0] gps2_fifo2_rd_data,
         input [31:0] start_tri_fifo2_rd_data,
+        input [14:0] delay1_fifo2_rd_data,
+        input [14:0] delay2_fifo2_rd_data,
+        input [14:0] delay3_fifo2_rd_data,
+        input [14:0] delay4_fifo2_rd_data,
 
         output [21:0] ch1_fifo_wr_data,
         output [21:0] ch2_fifo_wr_data,
         output [31:0] gps1_fifo_wr_data,
         output [31:0] gps2_fifo_wr_data,
         output [31:0] start_tri_fifo_wr_data,
+        output [14:0] delay1_fifo_wr_data,
+        output [14:0] delay2_fifo_wr_data,
+        output [14:0] delay3_fifo_wr_data,
+        output [14:0] delay4_fifo_wr_data,
 
         output fifo1_rd,
         output fifo2_rd,
         output fifo1_wr,
         output fifo2_wr,
-
 
         output fifo_rst,
 		// User ports ends
@@ -143,24 +158,40 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
     wire gps1_fifo1_wr;
     wire gps2_fifo1_wr;
     wire start_tri_fifo1_wr;
+    wire delay1_fifo1_wr;
+    wire delay2_fifo1_wr;
+    wire delay3_fifo1_wr;
+    wire delay4_fifo1_wr;
 
     wire ch1_fifo2_wr;
     wire ch2_fifo2_wr;
     wire gps1_fifo2_wr;
     wire gps2_fifo2_wr;
     wire start_tri_fifo2_wr;
+    wire delay1_fifo2_wr;
+    wire delay2_fifo2_wr;
+    wire delay3_fifo2_wr;
+    wire delay4_fifo2_wr;
 
     wire ch1_fifo1_rd;
     wire ch2_fifo1_rd;
     wire gps1_fifo1_rd;
     wire gps2_fifo1_rd;
     wire start_tri_fifo1_rd;
+    wire delay1_fifo1_rd;
+    wire delay2_fifo1_rd;
+    wire delay3_fifo1_rd;
+    wire delay4_fifo1_rd;
 
     wire ch1_fifo2_rd;
     wire ch2_fifo2_rd;
     wire gps1_fifo2_rd;
     wire gps2_fifo2_rd;
     wire start_tri_fifo2_rd;
+    wire delay1_fifo2_rd;
+    wire delay2_fifo2_rd;
+    wire delay3_fifo2_rd;
+    wire delay4_fifo2_rd;
 
     wire rd_command1;
     wire rd_command2;
@@ -171,12 +202,20 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
     wire [31:0] gps1_fifo1_data_to_sw;
     wire [31:0] gps2_fifo1_data_to_sw;
     wire [31:0] start_tri_fifo1_data_to_sw;
+    wire [14:0] delay1_fifo1_data_to_sw;
+    wire [14:0] delay2_fifo1_data_to_sw;
+    wire [14:0] delay3_fifo1_data_to_sw;
+    wire [14:0] delay4_fifo1_data_to_sw;
 
     wire [31:0] ch1_fifo2_data_to_sw;
     wire [31:0] ch2_fifo2_data_to_sw;
     wire [31:0] gps1_fifo2_data_to_sw;
     wire [31:0] gps2_fifo2_data_to_sw;
     wire [31:0] start_tri_fifo2_data_to_sw;
+    wire [14:0] delay1_fifo2_data_to_sw;
+    wire [14:0] delay2_fifo2_data_to_sw;
+    wire [14:0] delay3_fifo2_data_to_sw;
+    wire [14:0] delay4_fifo2_data_to_sw;
 	//------------------------------------------------
 	//-- Number of Slave Registers 43
 	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg0;
@@ -839,10 +878,10 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
 	        6'h09   : reg_data_out <= gps1_fifo1_data_to_sw;
 	        6'h0A   : reg_data_out <= gps2_fifo1_data_to_sw;
 	        6'h0B   : reg_data_out <= start_tri_fifo1_data_to_sw;
-	        6'h0C   : reg_data_out <= slv_reg12;
-	        6'h0D   : reg_data_out <= slv_reg13;
-	        6'h0E   : reg_data_out <= slv_reg14;
-	        6'h0F   : reg_data_out <= slv_reg15;
+	        6'h0C   : reg_data_out <= delay1_fifo1_data_to_sw;
+	        6'h0D   : reg_data_out <= delay2_fifo1_data_to_sw;
+	        6'h0E   : reg_data_out <= delay3_fifo1_data_to_sw;
+	        6'h0F   : reg_data_out <= delay4_fifo1_data_to_sw;
 	        6'h10   : reg_data_out <= slv_reg16;
 	        6'h11   : reg_data_out <= slv_reg17;
 	        6'h12   : reg_data_out <= slv_reg18;
@@ -860,10 +899,10 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
 	        6'h1E   : reg_data_out <= gps1_fifo2_data_to_sw;
 	        6'h1F   : reg_data_out <= gps2_fifo2_data_to_sw;
 	        6'h20   : reg_data_out <= start_tri_fifo2_data_to_sw;
-	        6'h21   : reg_data_out <= slv_reg33; 
-	        6'h22   : reg_data_out <= slv_reg34;
-	        6'h23   : reg_data_out <= slv_reg35;
-	        6'h24   : reg_data_out <= slv_reg36;
+	        6'h21   : reg_data_out <= delay1_fifo2_data_to_sw; 
+	        6'h22   : reg_data_out <= delay2_fifo2_data_to_sw;
+	        6'h23   : reg_data_out <= delay3_fifo2_data_to_sw;
+	        6'h24   : reg_data_out <= delay4_fifo2_data_to_sw;
 	        6'h25   : reg_data_out <= slv_reg37;
 	        6'h26   : reg_data_out <= slv_reg38;
 	        6'h27   : reg_data_out <= slv_reg39;
@@ -952,6 +991,45 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
         .fifo1_data_to_sw(start_tri_fifo1_data_to_sw), .fifo2_data_to_sw(start_tri_fifo2_data_to_sw), 
         .fifo_wr_data(start_tri_fifo_wr_data));
 
+    fifo_block_ctrl delay1(.clk(S_AXI_ACLK), .resetn(S_AXI_ARESETN), 
+        .rd_command1(rd_command1), .rd_command2(rd_command2), 
+        .wr(data_in_flag), .full1(fifo1_full), .full2(fifo2_full), 
+        .data_to_be_wr({17'b0, delay1_data_to_be_wr}), 
+        .fifo1_rd_data({17'b0, delay1_fifo1_rd_data}), .fifo2_rd_data({17'b0, delay1_fifo2_rd_data}), 
+        .wr1(delay1_fifo1_wr), .wr2(delay1_fifo2_wr), .rd1(delay1_fifo1_rd), .rd2(delay1_fifo2_rd),
+        .wr_fifo_num(wr_fifo_num),
+        .fifo1_data_to_sw(delay1_fifo1_data_to_sw), .fifo2_data_to_sw(delay1_fifo2_data_to_sw), 
+        .fifo_wr_data(delay1_fifo_wr_data));
+
+    fifo_block_ctrl delay2(.clk(S_AXI_ACLK), .resetn(S_AXI_ARESETN), 
+        .rd_command1(rd_command1), .rd_command2(rd_command2), 
+        .wr(data_in_flag), .full1(fifo1_full), .full2(fifo2_full), 
+        .data_to_be_wr({17'b0, delay2_data_to_be_wr}), 
+        .fifo1_rd_data({17'b0, delay2_fifo1_rd_data}), .fifo2_rd_data({17'b0, delay2_fifo2_rd_data}), 
+        .wr1(delay2_fifo1_wr), .wr2(delay2_fifo2_wr), .rd1(delay2_fifo1_rd), .rd2(delay2_fifo2_rd),
+        .wr_fifo_num(wr_fifo_num),
+        .fifo1_data_to_sw(delay2_fifo1_data_to_sw), .fifo2_data_to_sw(delay2_fifo2_data_to_sw), 
+        .fifo_wr_data(delay2_fifo_wr_data));
+
+    fifo_block_ctrl delay3(.clk(S_AXI_ACLK), .resetn(S_AXI_ARESETN), 
+        .rd_command1(rd_command1), .rd_command2(rd_command2), 
+        .wr(data_in_flag), .full1(fifo1_full), .full2(fifo2_full), 
+        .data_to_be_wr({17'b0, delay3_data_to_be_wr}), 
+        .fifo1_rd_data({17'b0, delay3_fifo1_rd_data}), .fifo2_rd_data({17'b0, delay3_fifo2_rd_data}), 
+        .wr1(delay3_fifo1_wr), .wr2(delay3_fifo2_wr), .rd1(delay3_fifo1_rd), .rd2(delay3_fifo2_rd),
+        .wr_fifo_num(wr_fifo_num),
+        .fifo1_data_to_sw(delay3_fifo1_data_to_sw), .fifo2_data_to_sw(delay3_fifo2_data_to_sw), 
+        .fifo_wr_data(delay3_fifo_wr_data));
+
+    fifo_block_ctrl delay4(.clk(S_AXI_ACLK), .resetn(S_AXI_ARESETN), 
+        .rd_command1(rd_command1), .rd_command2(rd_command2), 
+        .wr(data_in_flag), .full1(fifo1_full), .full2(fifo2_full), 
+        .data_to_be_wr({17'b0, delay4_data_to_be_wr}), 
+        .fifo1_rd_data({17'b0, delay4_fifo1_rd_data}), .fifo2_rd_data({17'b0, delay4_fifo2_rd_data}), 
+        .wr1(delay4_fifo1_wr), .wr2(delay4_fifo2_wr), .rd1(delay4_fifo1_rd), .rd2(delay4_fifo2_rd),
+        .wr_fifo_num(wr_fifo_num),
+        .fifo1_data_to_sw(delay4_fifo1_data_to_sw), .fifo2_data_to_sw(delay4_fifo2_data_to_sw), 
+        .fifo_wr_data(delay4_fifo_wr_data));
 	// User logic ends
 endmodule
 

@@ -48,13 +48,14 @@
 
 
 // IP VLNV: xilinx.com:user:delay:1.0
-// IP Revision: 11
+// IP Revision: 13
 
 (* X_CORE_INFO = "delay_v1_0,Vivado 2016.2" *)
 (* CHECK_LICENSE_TYPE = "gpsImode_delay_0_1,delay_v1_0,{}" *)
-(* CORE_GENERATION_INFO = "gpsImode_delay_0_1,delay_v1_0,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=delay,x_ipVersion=1.0,x_ipCoreRevision=11,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_DELAY_AXI_DATA_WIDTH=32,C_DELAY_AXI_ADDR_WIDTH=6}" *)
+(* CORE_GENERATION_INFO = "gpsImode_delay_0_1,delay_v1_0,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=delay,x_ipVersion=1.0,x_ipCoreRevision=13,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_DELAY_AXI_DATA_WIDTH=32,C_DELAY_AXI_ADDR_WIDTH=6}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module gpsImode_delay_0_1 (
+  time_record_flag,
   data_flag,
   ch1_time_data,
   tstart_out,
@@ -62,6 +63,10 @@ module gpsImode_delay_0_1 (
   out_2,
   out_3,
   out_4,
+  out_1_delay_data,
+  out_2_delay_data,
+  out_3_delay_data,
+  out_4_delay_data,
   delay_axi_awaddr,
   delay_axi_awprot,
   delay_axi_awvalid,
@@ -85,6 +90,7 @@ module gpsImode_delay_0_1 (
   delay_axi_aresetn
 );
 
+input wire time_record_flag;
 input wire data_flag;
 input wire [21 : 0] ch1_time_data;
 output wire tstart_out;
@@ -92,6 +98,10 @@ output wire out_1;
 output wire out_2;
 output wire out_3;
 output wire out_4;
+output wire [14 : 0] out_1_delay_data;
+output wire [14 : 0] out_2_delay_data;
+output wire [14 : 0] out_3_delay_data;
+output wire [14 : 0] out_4_delay_data;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 DELAY_AXI AWADDR" *)
 input wire [5 : 0] delay_axi_awaddr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 DELAY_AXI AWPROT" *)
@@ -139,6 +149,7 @@ input wire delay_axi_aresetn;
     .C_DELAY_AXI_DATA_WIDTH(32),  // Width of S_AXI data bus
     .C_DELAY_AXI_ADDR_WIDTH(6)  // Width of S_AXI address bus
   ) inst (
+    .time_record_flag(time_record_flag),
     .data_flag(data_flag),
     .ch1_time_data(ch1_time_data),
     .tstart_out(tstart_out),
@@ -146,6 +157,10 @@ input wire delay_axi_aresetn;
     .out_2(out_2),
     .out_3(out_3),
     .out_4(out_4),
+    .out_1_delay_data(out_1_delay_data),
+    .out_2_delay_data(out_2_delay_data),
+    .out_3_delay_data(out_3_delay_data),
+    .out_4_delay_data(out_4_delay_data),
     .delay_axi_awaddr(delay_axi_awaddr),
     .delay_axi_awprot(delay_axi_awprot),
     .delay_axi_awvalid(delay_axi_awvalid),

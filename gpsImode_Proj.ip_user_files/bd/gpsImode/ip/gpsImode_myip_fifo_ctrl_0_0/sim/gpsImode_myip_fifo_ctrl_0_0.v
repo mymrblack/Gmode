@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:user:myip_fifo_ctrl:1.0
-// IP Revision: 6
+// IP Revision: 7
 
 `timescale 1ns/1ps
 
@@ -64,21 +64,37 @@ module gpsImode_myip_fifo_ctrl_0_0 (
   gps1_data_to_be_wr,
   gps2_data_to_be_wr,
   start_tri_data_to_be_wr,
+  delay1_data_to_be_wr,
+  delay2_data_to_be_wr,
+  delay3_data_to_be_wr,
+  delay4_data_to_be_wr,
   ch1_fifo1_rd_data,
   ch2_fifo1_rd_data,
   gps1_fifo1_rd_data,
   gps2_fifo1_rd_data,
   start_tri_fifo1_rd_data,
+  delay1_fifo1_rd_data,
+  delay2_fifo1_rd_data,
+  delay3_fifo1_rd_data,
+  delay4_fifo1_rd_data,
   ch1_fifo2_rd_data,
   ch2_fifo2_rd_data,
   gps1_fifo2_rd_data,
   gps2_fifo2_rd_data,
   start_tri_fifo2_rd_data,
+  delay1_fifo2_rd_data,
+  delay2_fifo2_rd_data,
+  delay3_fifo2_rd_data,
+  delay4_fifo2_rd_data,
   ch1_fifo_wr_data,
   ch2_fifo_wr_data,
   gps1_fifo_wr_data,
   gps2_fifo_wr_data,
   start_tri_fifo_wr_data,
+  delay1_fifo_wr_data,
+  delay2_fifo_wr_data,
+  delay3_fifo_wr_data,
+  delay4_fifo_wr_data,
   fifo1_rd,
   fifo2_rd,
   fifo1_wr,
@@ -117,21 +133,37 @@ input wire [21 : 0] ch2_data_to_be_wr;
 input wire [31 : 0] gps1_data_to_be_wr;
 input wire [31 : 0] gps2_data_to_be_wr;
 input wire [31 : 0] start_tri_data_to_be_wr;
+input wire [14 : 0] delay1_data_to_be_wr;
+input wire [14 : 0] delay2_data_to_be_wr;
+input wire [14 : 0] delay3_data_to_be_wr;
+input wire [14 : 0] delay4_data_to_be_wr;
 input wire [21 : 0] ch1_fifo1_rd_data;
 input wire [21 : 0] ch2_fifo1_rd_data;
 input wire [31 : 0] gps1_fifo1_rd_data;
 input wire [31 : 0] gps2_fifo1_rd_data;
 input wire [31 : 0] start_tri_fifo1_rd_data;
+input wire [14 : 0] delay1_fifo1_rd_data;
+input wire [14 : 0] delay2_fifo1_rd_data;
+input wire [14 : 0] delay3_fifo1_rd_data;
+input wire [14 : 0] delay4_fifo1_rd_data;
 input wire [21 : 0] ch1_fifo2_rd_data;
 input wire [21 : 0] ch2_fifo2_rd_data;
 input wire [31 : 0] gps1_fifo2_rd_data;
 input wire [31 : 0] gps2_fifo2_rd_data;
 input wire [31 : 0] start_tri_fifo2_rd_data;
+input wire [14 : 0] delay1_fifo2_rd_data;
+input wire [14 : 0] delay2_fifo2_rd_data;
+input wire [14 : 0] delay3_fifo2_rd_data;
+input wire [14 : 0] delay4_fifo2_rd_data;
 output wire [21 : 0] ch1_fifo_wr_data;
 output wire [21 : 0] ch2_fifo_wr_data;
 output wire [31 : 0] gps1_fifo_wr_data;
 output wire [31 : 0] gps2_fifo_wr_data;
 output wire [31 : 0] start_tri_fifo_wr_data;
+output wire [14 : 0] delay1_fifo_wr_data;
+output wire [14 : 0] delay2_fifo_wr_data;
+output wire [14 : 0] delay3_fifo_wr_data;
+output wire [14 : 0] delay4_fifo_wr_data;
 output wire fifo1_rd;
 output wire fifo2_rd;
 output wire fifo1_wr;
@@ -194,21 +226,37 @@ input wire fifo_axi_aresetn;
     .gps1_data_to_be_wr(gps1_data_to_be_wr),
     .gps2_data_to_be_wr(gps2_data_to_be_wr),
     .start_tri_data_to_be_wr(start_tri_data_to_be_wr),
+    .delay1_data_to_be_wr(delay1_data_to_be_wr),
+    .delay2_data_to_be_wr(delay2_data_to_be_wr),
+    .delay3_data_to_be_wr(delay3_data_to_be_wr),
+    .delay4_data_to_be_wr(delay4_data_to_be_wr),
     .ch1_fifo1_rd_data(ch1_fifo1_rd_data),
     .ch2_fifo1_rd_data(ch2_fifo1_rd_data),
     .gps1_fifo1_rd_data(gps1_fifo1_rd_data),
     .gps2_fifo1_rd_data(gps2_fifo1_rd_data),
     .start_tri_fifo1_rd_data(start_tri_fifo1_rd_data),
+    .delay1_fifo1_rd_data(delay1_fifo1_rd_data),
+    .delay2_fifo1_rd_data(delay2_fifo1_rd_data),
+    .delay3_fifo1_rd_data(delay3_fifo1_rd_data),
+    .delay4_fifo1_rd_data(delay4_fifo1_rd_data),
     .ch1_fifo2_rd_data(ch1_fifo2_rd_data),
     .ch2_fifo2_rd_data(ch2_fifo2_rd_data),
     .gps1_fifo2_rd_data(gps1_fifo2_rd_data),
     .gps2_fifo2_rd_data(gps2_fifo2_rd_data),
     .start_tri_fifo2_rd_data(start_tri_fifo2_rd_data),
+    .delay1_fifo2_rd_data(delay1_fifo2_rd_data),
+    .delay2_fifo2_rd_data(delay2_fifo2_rd_data),
+    .delay3_fifo2_rd_data(delay3_fifo2_rd_data),
+    .delay4_fifo2_rd_data(delay4_fifo2_rd_data),
     .ch1_fifo_wr_data(ch1_fifo_wr_data),
     .ch2_fifo_wr_data(ch2_fifo_wr_data),
     .gps1_fifo_wr_data(gps1_fifo_wr_data),
     .gps2_fifo_wr_data(gps2_fifo_wr_data),
     .start_tri_fifo_wr_data(start_tri_fifo_wr_data),
+    .delay1_fifo_wr_data(delay1_fifo_wr_data),
+    .delay2_fifo_wr_data(delay2_fifo_wr_data),
+    .delay3_fifo_wr_data(delay3_fifo_wr_data),
+    .delay4_fifo_wr_data(delay4_fifo_wr_data),
     .fifo1_rd(fifo1_rd),
     .fifo2_rd(fifo2_rd),
     .fifo1_wr(fifo1_wr),

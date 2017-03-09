@@ -1,0 +1,22 @@
+20:43:48 **** Incremental Build of configuration Debug for project G_delay_motor_gps ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building target: G_delay_motor_gps.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../G_delay_motor_gps_bsp/ps7_cortexa9_0/lib -o "G_delay_motor_gps.elf"  ./src/GPS.o ./src/SD_Card.o ./src/fifo.o ./src/helloworld.o ./src/lidar_delay.o ./src/lidar_sys.o ./src/platform.o ./src/pwm_dec.o ./src/tdc.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/SD_Card.o: In function `Ffs_Init':
+E:\Lin\vivado_learing\Gmode\gpsImode_Proj.sdk\G_delay_motor_gps\Debug/../src/SD_Card.c:52: undefined reference to `f_mount'
+E:\Lin\vivado_learing\Gmode\gpsImode_Proj.sdk\G_delay_motor_gps\Debug/../src/SD_Card.c:58: undefined reference to `f_mkdir'
+./src/SD_Card.o: In function `Ffs_WriteDataToFileInCorrectPath':
+E:\Lin\vivado_learing\Gmode\gpsImode_Proj.sdk\G_delay_motor_gps\Debug/../src/SD_Card.c:88: undefined reference to `f_write'
+E:\Lin\vivado_learing\Gmode\gpsImode_Proj.sdk\G_delay_motor_gps\Debug/../src/SD_Card.c:93: undefined reference to `f_sync'
+./src/SD_Card.o: In function `Ffs_CreateNewFile':
+E:\Lin\vivado_learing\Gmode\gpsImode_Proj.sdk\G_delay_motor_gps\Debug/../src/SD_Card.c:111: undefined reference to `f_open'
+./src/SD_Card.o: In function `Ffs_CloseFile':
+E:\Lin\vivado_learing\Gmode\gpsImode_Proj.sdk\G_delay_motor_gps\Debug/../src/SD_Card.c:122: undefined reference to `f_close'
+collect2.exe: error: ld returned 1 exit status
+make: *** [G_delay_motor_gps.elf] ´íÎó 1
+
+20:43:48 Build Finished (took 266ms)
+

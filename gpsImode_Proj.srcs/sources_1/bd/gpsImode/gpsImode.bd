@@ -500,13 +500,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>myip_fifo_ctrl_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="myip_fifo_ctrl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_myip_fifo_ctrl_0_0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>myGmode_0</spirit:instanceName>
         <spirit:componentRef spirit:library="user" spirit:name="myImode" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
@@ -514,17 +507,104 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>delay_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="delay" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_delay_0_1</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>dec_pwm_0</spirit:instanceName>
         <spirit:componentRef spirit:library="user" spirit:name="dec_pwm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_dec_pwm_0_0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>myip_fifo_ctrl_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="myip_fifo_ctrl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_myip_fifo_ctrl_0_0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>delay1_fifo1</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_ch2_fifo2_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Data_Width">15</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Depth">8192</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Output_Data_Width">15</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>delay1_fifo2</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_delay1_fifo1_1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Data_Width">15</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Depth">8192</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Output_Data_Width">15</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>delay2_fifo1</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_delay1_fifo1_2</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Data_Width">15</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Depth">8192</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Output_Data_Width">15</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>delay2_fifo2</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_delay2_fifo1_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Data_Width">15</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Depth">8192</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Output_Data_Width">15</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>delay3_fifo1</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_delay2_fifo1_1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Data_Width">15</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Depth">8192</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Output_Data_Width">15</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>delay3_fifo2</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_delay3_fifo1_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Data_Width">15</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Depth">8192</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Output_Data_Width">15</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>delay4_fifo1</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_delay3_fifo2_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Data_Width">15</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Depth">8192</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Output_Data_Width">15</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>delay4_fifo2</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_delay4_fifo1_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Data_Width">15</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Depth">8192</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Output_Data_Width">15</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>delay_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="delay" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_delay_0_1</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -588,9 +668,17 @@
         <spirit:internalPortReference spirit:componentRef="start_tri_fifo2" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="gps1_fifo1" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="newGpsIp_0" spirit:portRef="gps_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="delay_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="dec_pwm_0" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="delay1_fifo1" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="delay1_fifo2" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="delay2_fifo1" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="delay2_fifo2" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="delay3_fifo1" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="delay3_fifo2" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="delay4_fifo1" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="delay4_fifo2" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="S00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M00_ACLK"/>
@@ -598,8 +686,8 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M02_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M03_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M04_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="dec_pwm_0" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M05_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="delay_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_RESET0_N</spirit:name>
@@ -611,17 +699,17 @@
         <spirit:internalPortReference spirit:componentRef="rst_processing_system7_0_100M" spirit:portRef="peripheral_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_uartlite_0" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="newGpsIp_0" spirit:portRef="gps_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="delay_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="dec_pwm_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M01_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M02_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M03_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M04_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="dec_pwm_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M05_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="delay_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>rst_processing_system7_0_100M_interconnect_aresetn</spirit:name>
@@ -717,6 +805,7 @@
         <spirit:name>myImode_0_set_zero</spirit:name>
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="set_zero"/>
         <spirit:internalPortReference spirit:componentRef="newGpsIp_0" spirit:portRef="tstartCome"/>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="time_record_flag"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>EF2_1</spirit:name>
@@ -766,6 +855,10 @@
         <spirit:internalPortReference spirit:componentRef="ch2_fifo2" spirit:portRef="wr_en"/>
         <spirit:internalPortReference spirit:componentRef="gps2_fifo2" spirit:portRef="wr_en"/>
         <spirit:internalPortReference spirit:componentRef="gps1_fifo2" spirit:portRef="wr_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay2_fifo2" spirit:portRef="wr_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay3_fifo2" spirit:portRef="wr_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay4_fifo2" spirit:portRef="wr_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay1_fifo2" spirit:portRef="wr_en"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>fifo_generator_0_full</spirit:name>
@@ -805,6 +898,14 @@
         <spirit:internalPortReference spirit:componentRef="gps2_fifo2" spirit:portRef="srst"/>
         <spirit:internalPortReference spirit:componentRef="start_tri_fifo2" spirit:portRef="srst"/>
         <spirit:internalPortReference spirit:componentRef="gps1_fifo1" spirit:portRef="srst"/>
+        <spirit:internalPortReference spirit:componentRef="delay1_fifo1" spirit:portRef="srst"/>
+        <spirit:internalPortReference spirit:componentRef="delay1_fifo2" spirit:portRef="srst"/>
+        <spirit:internalPortReference spirit:componentRef="delay2_fifo1" spirit:portRef="srst"/>
+        <spirit:internalPortReference spirit:componentRef="delay2_fifo2" spirit:portRef="srst"/>
+        <spirit:internalPortReference spirit:componentRef="delay3_fifo1" spirit:portRef="srst"/>
+        <spirit:internalPortReference spirit:componentRef="delay3_fifo2" spirit:portRef="srst"/>
+        <spirit:internalPortReference spirit:componentRef="delay4_fifo1" spirit:portRef="srst"/>
+        <spirit:internalPortReference spirit:componentRef="delay4_fifo2" spirit:portRef="srst"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>fifo_generator_2_dout</spirit:name>
@@ -834,6 +935,10 @@
         <spirit:internalPortReference spirit:componentRef="ch1_fifo1" spirit:portRef="rd_en"/>
         <spirit:internalPortReference spirit:componentRef="gps1_fifo1" spirit:portRef="rd_en"/>
         <spirit:internalPortReference spirit:componentRef="ch2_fifo1" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay2_fifo1" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay1_fifo1" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay3_fifo1" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay4_fifo1" spirit:portRef="rd_en"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>fifo_generator_1_dout</spirit:name>
@@ -849,15 +954,6 @@
         <spirit:name>fifo_generator_19_dout</spirit:name>
         <spirit:internalPortReference spirit:componentRef="gps2_fifo2" spirit:portRef="dout"/>
         <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="gps2_fifo2_rd_data"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>myip_fifo_ctrl_0_gps2_fifo2_rd</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo2_rd"/>
-        <spirit:internalPortReference spirit:componentRef="gps2_fifo2" spirit:portRef="rd_en"/>
-        <spirit:internalPortReference spirit:componentRef="start_tri_fifo2" spirit:portRef="rd_en"/>
-        <spirit:internalPortReference spirit:componentRef="ch1_fifo2" spirit:portRef="rd_en"/>
-        <spirit:internalPortReference spirit:componentRef="ch2_fifo2" spirit:portRef="rd_en"/>
-        <spirit:internalPortReference spirit:componentRef="gps1_fifo2" spirit:portRef="rd_en"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>fifo_generator_21_dout</spirit:name>
@@ -904,6 +1000,10 @@
         <spirit:internalPortReference spirit:componentRef="ch1_fifo1" spirit:portRef="wr_en"/>
         <spirit:internalPortReference spirit:componentRef="gps2_fifo1" spirit:portRef="wr_en"/>
         <spirit:internalPortReference spirit:componentRef="start_tri_fifo1" spirit:portRef="wr_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay2_fifo1" spirit:portRef="wr_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay1_fifo1" spirit:portRef="wr_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay3_fifo1" spirit:portRef="wr_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay4_fifo1" spirit:portRef="wr_en"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>ch2_fifo2_dout</spirit:name>
@@ -971,6 +1071,103 @@
         <spirit:name>clr_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="clr"/>
         <spirit:internalPortReference spirit:componentRef="dec_pwm_0" spirit:portRef="clr"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>myip_fifo_ctrl_0_gps2_fifo2_rd</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo2_rd"/>
+        <spirit:internalPortReference spirit:componentRef="gps2_fifo2" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="start_tri_fifo2" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="ch1_fifo2" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="ch2_fifo2" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="gps1_fifo2" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay2_fifo2" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay3_fifo2" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay4_fifo2" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="delay1_fifo2" spirit:portRef="rd_en"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay_0_out_1_delay_data</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="out_1_delay_data"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay1_data_to_be_wr"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay_0_out_2_delay_data</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="out_2_delay_data"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay2_data_to_be_wr"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay_0_out_3_delay_data</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="out_3_delay_data"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay3_data_to_be_wr"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay_0_out_4_delay_data</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="out_4_delay_data"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay4_data_to_be_wr"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay4_fifo2_dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay4_fifo2" spirit:portRef="dout"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay4_fifo2_rd_data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay4_fifo1_dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay4_fifo1" spirit:portRef="dout"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay4_fifo1_rd_data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay3_fifo2_dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay3_fifo2" spirit:portRef="dout"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay3_fifo2_rd_data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay3_fifo1_dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay3_fifo1" spirit:portRef="dout"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay3_fifo1_rd_data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay1_fifo1_dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay1_fifo1" spirit:portRef="dout"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay1_fifo1_rd_data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay2_fifo1_dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay2_fifo1" spirit:portRef="dout"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay2_fifo1_rd_data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay1_fifo2_dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay1_fifo2" spirit:portRef="dout"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay1_fifo2_rd_data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>delay2_fifo2_dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="delay2_fifo2" spirit:portRef="dout"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay2_fifo2_rd_data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>myip_fifo_ctrl_0_delay1_fifo_wr_data</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay1_fifo_wr_data"/>
+        <spirit:internalPortReference spirit:componentRef="delay1_fifo2" spirit:portRef="din"/>
+        <spirit:internalPortReference spirit:componentRef="delay1_fifo1" spirit:portRef="din"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>myip_fifo_ctrl_0_delay2_fifo_wr_data</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay2_fifo_wr_data"/>
+        <spirit:internalPortReference spirit:componentRef="delay2_fifo1" spirit:portRef="din"/>
+        <spirit:internalPortReference spirit:componentRef="delay2_fifo2" spirit:portRef="din"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>myip_fifo_ctrl_0_delay3_fifo_wr_data</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay3_fifo_wr_data"/>
+        <spirit:internalPortReference spirit:componentRef="delay3_fifo2" spirit:portRef="din"/>
+        <spirit:internalPortReference spirit:componentRef="delay3_fifo1" spirit:portRef="din"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>myip_fifo_ctrl_0_delay4_fifo_wr_data</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay4_fifo_wr_data"/>
+        <spirit:internalPortReference spirit:componentRef="delay4_fifo1" spirit:portRef="din"/>
+        <spirit:internalPortReference spirit:componentRef="delay4_fifo2" spirit:portRef="din"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -3186,27 +3383,27 @@
             <spirit:range>64K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_myip_fifo_ctrl_0_FIFO_AXI_reg</spirit:name>
-            <spirit:displayName>/myip_fifo_ctrl_0/FIFO_AXI/FIFO_AXI_reg</spirit:displayName>
-            <spirit:addressOffset>0x43C20000</spirit:addressOffset>
-            <spirit:range>64K</spirit:range>
-          </spirit:segment>
-          <spirit:segment>
             <spirit:name>SEG_myImode_0_S00_AXI_reg</spirit:name>
             <spirit:displayName>/myGmode_0/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x43C10000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_delay_0_DELAY_AXI_reg</spirit:name>
-            <spirit:displayName>/delay_0/DELAY_AXI/DELAY_AXI_reg</spirit:displayName>
-            <spirit:addressOffset>0x43C30000</spirit:addressOffset>
-            <spirit:range>64K</spirit:range>
-          </spirit:segment>
-          <spirit:segment>
             <spirit:name>SEG_dec_pwm_0_S00_AXI_reg</spirit:name>
             <spirit:displayName>/dec_pwm_0/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x43C40000</spirit:addressOffset>
+            <spirit:range>64K</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
+            <spirit:name>SEG_myip_fifo_ctrl_0_FIFO_AXI_reg</spirit:name>
+            <spirit:displayName>/myip_fifo_ctrl_0/FIFO_AXI/FIFO_AXI_reg</spirit:displayName>
+            <spirit:addressOffset>0x43C20000</spirit:addressOffset>
+            <spirit:range>64K</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
+            <spirit:name>SEG_delay_0_DELAY_AXI_reg</spirit:name>
+            <spirit:displayName>/delay_0/DELAY_AXI/DELAY_AXI_reg</spirit:displayName>
+            <spirit:addressOffset>0x43C30000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
         </spirit:segments>

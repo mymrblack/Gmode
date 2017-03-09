@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Thu Mar 09 11:01:56 2017
+//Date        : Thu Mar 09 16:55:06 2017
 //Host        : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
 //Command     : generate_target gpsImode.bd
 //Design      : gpsImode
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "gpsImode,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=gpsImode,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=28,numReposBlks=20,numNonXlnxBlks=0,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=10,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "gpsImode.hwdef" *) 
+(* CORE_GENERATION_INFO = "gpsImode,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=gpsImode,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=36,numReposBlks=28,numNonXlnxBlks=0,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=10,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "gpsImode.hwdef" *) 
 module gpsImode
    (AluTrigger,
     B,
@@ -138,10 +138,22 @@ module gpsImode
   wire clr_1;
   wire dec_pwm_0_pwmd;
   wire dec_pwm_0_pwmo;
+  wire [14:0]delay1_fifo1_dout;
+  wire [14:0]delay1_fifo2_dout;
+  wire [14:0]delay2_fifo1_dout;
+  wire [14:0]delay2_fifo2_dout;
+  wire [14:0]delay3_fifo1_dout;
+  wire [14:0]delay3_fifo2_dout;
+  wire [14:0]delay4_fifo1_dout;
+  wire [14:0]delay4_fifo2_dout;
   wire delay_0_out_1;
+  wire [14:0]delay_0_out_1_delay_data;
   wire delay_0_out_2;
+  wire [14:0]delay_0_out_2_delay_data;
   wire delay_0_out_3;
+  wire [14:0]delay_0_out_3_delay_data;
   wire delay_0_out_4;
+  wire [14:0]delay_0_out_4_delay_data;
   wire delay_0_tstart_out;
   wire [21:0]fifo_generator_0_dout;
   wire fifo_generator_0_empty;
@@ -177,6 +189,10 @@ module gpsImode
   wire myImode_0_wrn;
   wire [21:0]myip_fifo_ctrl_0_ch1_fifo_wr_data;
   wire [21:0]myip_fifo_ctrl_0_ch2_fifo_wr_data;
+  wire [14:0]myip_fifo_ctrl_0_delay1_fifo_wr_data;
+  wire [14:0]myip_fifo_ctrl_0_delay2_fifo_wr_data;
+  wire [14:0]myip_fifo_ctrl_0_delay3_fifo_wr_data;
+  wire [14:0]myip_fifo_ctrl_0_delay4_fifo_wr_data;
   wire myip_fifo_ctrl_0_fifo1_wr;
   wire myip_fifo_ctrl_0_fifo_rst;
   wire [31:0]myip_fifo_ctrl_0_gps1_fifo_wr_data;
@@ -479,6 +495,62 @@ module gpsImode
         .s00_axi_wstrb(processing_system7_0_axi_periph_M05_AXI_WSTRB),
         .s00_axi_wvalid(processing_system7_0_axi_periph_M05_AXI_WVALID),
         .sig_in(sig_in_1));
+  gpsImode_ch2_fifo2_0 delay1_fifo1
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .din(myip_fifo_ctrl_0_delay1_fifo_wr_data),
+        .dout(delay1_fifo1_dout),
+        .rd_en(myip_fifo_ctrl_0_start_tri_fifo1_rd),
+        .srst(myip_fifo_ctrl_0_fifo_rst),
+        .wr_en(myip_fifo_ctrl_0_fifo1_wr));
+  gpsImode_delay1_fifo1_1 delay1_fifo2
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .din(myip_fifo_ctrl_0_delay1_fifo_wr_data),
+        .dout(delay1_fifo2_dout),
+        .rd_en(myip_fifo_ctrl_0_gps2_fifo2_rd),
+        .srst(myip_fifo_ctrl_0_fifo_rst),
+        .wr_en(myip_fifo_ctrl_0_start_tri_fifo2_wr));
+  gpsImode_delay1_fifo1_2 delay2_fifo1
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .din(myip_fifo_ctrl_0_delay2_fifo_wr_data),
+        .dout(delay2_fifo1_dout),
+        .rd_en(myip_fifo_ctrl_0_start_tri_fifo1_rd),
+        .srst(myip_fifo_ctrl_0_fifo_rst),
+        .wr_en(myip_fifo_ctrl_0_fifo1_wr));
+  gpsImode_delay2_fifo1_0 delay2_fifo2
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .din(myip_fifo_ctrl_0_delay2_fifo_wr_data),
+        .dout(delay2_fifo2_dout),
+        .rd_en(myip_fifo_ctrl_0_gps2_fifo2_rd),
+        .srst(myip_fifo_ctrl_0_fifo_rst),
+        .wr_en(myip_fifo_ctrl_0_start_tri_fifo2_wr));
+  gpsImode_delay2_fifo1_1 delay3_fifo1
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .din(myip_fifo_ctrl_0_delay3_fifo_wr_data),
+        .dout(delay3_fifo1_dout),
+        .rd_en(myip_fifo_ctrl_0_start_tri_fifo1_rd),
+        .srst(myip_fifo_ctrl_0_fifo_rst),
+        .wr_en(myip_fifo_ctrl_0_fifo1_wr));
+  gpsImode_delay3_fifo1_0 delay3_fifo2
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .din(myip_fifo_ctrl_0_delay3_fifo_wr_data),
+        .dout(delay3_fifo2_dout),
+        .rd_en(myip_fifo_ctrl_0_gps2_fifo2_rd),
+        .srst(myip_fifo_ctrl_0_fifo_rst),
+        .wr_en(myip_fifo_ctrl_0_start_tri_fifo2_wr));
+  gpsImode_delay3_fifo2_0 delay4_fifo1
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .din(myip_fifo_ctrl_0_delay4_fifo_wr_data),
+        .dout(delay4_fifo1_dout),
+        .rd_en(myip_fifo_ctrl_0_start_tri_fifo1_rd),
+        .srst(myip_fifo_ctrl_0_fifo_rst),
+        .wr_en(myip_fifo_ctrl_0_fifo1_wr));
+  gpsImode_delay4_fifo1_0 delay4_fifo2
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .din(myip_fifo_ctrl_0_delay4_fifo_wr_data),
+        .dout(delay4_fifo2_dout),
+        .rd_en(myip_fifo_ctrl_0_gps2_fifo2_rd),
+        .srst(myip_fifo_ctrl_0_fifo_rst),
+        .wr_en(myip_fifo_ctrl_0_start_tri_fifo2_wr));
   gpsImode_delay_0_1 delay_0
        (.ch1_time_data(myImode_0_ch1_data),
         .data_flag(myImode_0_timeDataWrEn),
@@ -504,9 +576,14 @@ module gpsImode
         .delay_axi_wstrb(processing_system7_0_axi_periph_M04_AXI_WSTRB),
         .delay_axi_wvalid(processing_system7_0_axi_periph_M04_AXI_WVALID),
         .out_1(delay_0_out_1),
+        .out_1_delay_data(delay_0_out_1_delay_data),
         .out_2(delay_0_out_2),
+        .out_2_delay_data(delay_0_out_2_delay_data),
         .out_3(delay_0_out_3),
+        .out_3_delay_data(delay_0_out_3_delay_data),
         .out_4(delay_0_out_4),
+        .out_4_delay_data(delay_0_out_4_delay_data),
+        .time_record_flag(myImode_0_set_zero),
         .tstart_out(delay_0_tstart_out));
   gpsImode_fifo_generator_14_2 gps1_fifo1
        (.clk(processing_system7_0_FCLK_CLK0),
@@ -596,6 +673,22 @@ module gpsImode
         .ch2_fifo2_rd_data(ch2_fifo2_dout),
         .ch2_fifo_wr_data(myip_fifo_ctrl_0_ch2_fifo_wr_data),
         .data_in_flag(myImode_0_timeDataWrEn),
+        .delay1_data_to_be_wr(delay_0_out_1_delay_data),
+        .delay1_fifo1_rd_data(delay1_fifo1_dout),
+        .delay1_fifo2_rd_data(delay1_fifo2_dout),
+        .delay1_fifo_wr_data(myip_fifo_ctrl_0_delay1_fifo_wr_data),
+        .delay2_data_to_be_wr(delay_0_out_2_delay_data),
+        .delay2_fifo1_rd_data(delay2_fifo1_dout),
+        .delay2_fifo2_rd_data(delay2_fifo2_dout),
+        .delay2_fifo_wr_data(myip_fifo_ctrl_0_delay2_fifo_wr_data),
+        .delay3_data_to_be_wr(delay_0_out_3_delay_data),
+        .delay3_fifo1_rd_data(delay3_fifo1_dout),
+        .delay3_fifo2_rd_data(delay3_fifo2_dout),
+        .delay3_fifo_wr_data(myip_fifo_ctrl_0_delay3_fifo_wr_data),
+        .delay4_data_to_be_wr(delay_0_out_4_delay_data),
+        .delay4_fifo1_rd_data(delay4_fifo1_dout),
+        .delay4_fifo2_rd_data(delay4_fifo2_dout),
+        .delay4_fifo_wr_data(myip_fifo_ctrl_0_delay4_fifo_wr_data),
         .fifo1_empty(fifo_generator_0_empty),
         .fifo1_full(fifo_generator_0_full),
         .fifo1_rd(myip_fifo_ctrl_0_start_tri_fifo1_rd),

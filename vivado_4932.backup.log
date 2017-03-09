@@ -1,0 +1,45 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Mon Mar 06 14:44:23 2017
+# Process ID: 4932
+# Current directory: E:/Lin/vivado_learing/Gmode
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2928 E:\Lin\vivado_learing\Gmode\gpsImode_Proj.xpr
+# Log file: E:/Lin/vivado_learing/Gmode/vivado.log
+# Journal file: E:/Lin/vivado_learing/Gmode\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/Lin/vivado_learing/Gmode/gpsImode_Proj.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'e:/Lin/vivado_learing/Gmode/ip_repo/delay_1.0'. The path is contained within another repository.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/Lin/vivado_learing/Gmode/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2016.2/data/ip'.
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:10 . Memory (MB): peak = 921.684 ; gain = 275.441
+update_compile_order -fileset sources_1
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 358 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2016.2
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Lin/vivado_learing/Gmode/.Xil/Vivado-4932-DESKTOP-G26N4G8/dcp/gpsImode_wrapper_early.xdc]
+Finished Parsing XDC File [E:/Lin/vivado_learing/Gmode/.Xil/Vivado-4932-DESKTOP-G26N4G8/dcp/gpsImode_wrapper_early.xdc]
+Parsing XDC File [E:/Lin/vivado_learing/Gmode/.Xil/Vivado-4932-DESKTOP-G26N4G8/dcp/gpsImode_wrapper.xdc]
+Finished Parsing XDC File [E:/Lin/vivado_learing/Gmode/.Xil/Vivado-4932-DESKTOP-G26N4G8/dcp/gpsImode_wrapper.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1233.758 ; gain = 7.848
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1233.758 ; gain = 7.848
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 28 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 28 instances
+
+open_run: Time (s): cpu = 00:00:20 ; elapsed = 00:00:17 . Memory (MB): peak = 1368.836 ; gain = 429.027
+set_property IOSTANDARD LVTTL [get_ports [list tstart_out]]
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Mar 06 14:53:04 2017...

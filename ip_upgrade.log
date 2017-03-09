@@ -1,0 +1,1927 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Thu Mar 09 16:54:55 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_delay_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_delay_0_1 (xilinx.com:user:delay:1.0) from (Rev. 12) to (Rev. 13)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Thu Mar 09 16:24:09 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myip_fifo_ctrl_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myip_fifo_ctrl_0_0 (xilinx.com:user:myip_fifo_ctrl:1.0) from (Rev. 6) to (Rev. 7)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myip_fifo_ctrl_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'delay1_data_to_be_wr'
+
+-Upgrade has added port 'delay1_fifo1_rd_data'
+
+-Upgrade has added port 'delay1_fifo2_rd_data'
+
+-Upgrade has added port 'delay1_fifo_wr_data'
+
+-Upgrade has added port 'delay2_data_to_be_wr'
+
+-Upgrade has added port 'delay2_fifo1_rd_data'
+
+-Upgrade has added port 'delay2_fifo2_rd_data'
+
+-Upgrade has added port 'delay2_fifo_wr_data'
+
+-Upgrade has added port 'delay3_data_to_be_wr'
+
+-Upgrade has added port 'delay3_fifo1_rd_data'
+
+-Upgrade has added port 'delay3_fifo2_rd_data'
+
+-Upgrade has added port 'delay3_fifo_wr_data'
+
+-Upgrade has added port 'delay4_data_to_be_wr'
+
+-Upgrade has added port 'delay4_fifo1_rd_data'
+
+-Upgrade has added port 'delay4_fifo2_rd_data'
+
+-Upgrade has added port 'delay4_fifo_wr_data'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Thu Mar 09 15:45:44 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_delay_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_delay_0_1 (xilinx.com:user:delay:1.0) from (Rev. 11) to (Rev. 12)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_delay_0_1'. These changes may impact your design.
+
+
+-Upgrade has added port 'out_1_delay_data'
+
+-Upgrade has added port 'out_2_delay_data'
+
+-Upgrade has added port 'out_3_delay_data'
+
+-Upgrade has added port 'out_4_delay_data'
+
+-Upgrade has added port 'time_record_flag'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Mon Mar 06 15:34:18 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_delay_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_delay_0_1 (xilinx.com:user:delay:1.0) from (Rev. 9) to (Rev. 11)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_delay_0_1'. These changes may impact your design.
+
+
+-Upgrade has removed port 'ch1'
+
+-Upgrade has removed port 'tstart_count'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Mon Mar 06 13:38:47 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_delay_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the update of gpsImode_delay_0_1 (xilinx.com:user:delay:1.0 (Rev. 9)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Mon Mar 06 13:25:51 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 36) to (Rev. 37)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Mon Mar 06 12:56:25 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_delay_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the update of gpsImode_delay_0_1 (xilinx.com:user:delay:1.0 (Rev. 9)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Mon Mar 06 11:13:24 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_delay_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_delay_0_1 (xilinx.com:user:delay:1.0) from (Rev. 7) to (Rev. 9)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Mon Mar 06 10:33:40 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_delay_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_delay_0_1 (xilinx.com:user:delay:1.0) from (Rev. 6) to (Rev. 7)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Mon Mar 06 10:28:46 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_delay_module_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of gpsImode_delay_module_0_0 (xilinx.com:user:delay_module:1.0 (Rev. 2)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Mon Mar 06 10:28:45 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'delay_module_delay_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of delay_module_delay_0_1 (xilinx.com:user:delay:1.0) from (Rev. 5) to (Rev. 6)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'delay_module_delay_0_1'. These changes may impact your design.
+
+
+-Upgrade has removed port 'init_wr'
+
+-Upgrade has removed port 'out_1_delay'
+
+-Upgrade has removed port 'out_1_width'
+
+-Upgrade has removed port 'out_2_delay'
+
+-Upgrade has removed port 'out_2_width'
+
+-Upgrade has removed port 'out_3_delay'
+
+-Upgrade has removed port 'out_3_width'
+
+-Upgrade has removed port 'out_4_delay'
+
+-Upgrade has removed port 'out_4_width'
+
+-Upgrade has removed port 'tstart_cycle'
+
+-Upgrade has removed port 'tstart_width'
+
+-Upgrade has added port 'ch1'
+
+-Upgrade has added port 'ch1_time_data'
+
+-Upgrade has added port 'data_flag'
+
+-Upgrade has added port 'out_1'
+
+-Upgrade has added port 'out_2'
+
+-Upgrade has added port 'out_3'
+
+-Upgrade has added port 'out_4'
+
+-Upgrade has added port 'tstart_count'
+
+-Upgrade has added port 'tstart_out'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Mon Mar 06 10:28:10 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'delay_module_delay_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the update of delay_module_delay_0_1 (xilinx.com:user:delay:1.0 (Rev. 5)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Sat Mar 04 16:59:17 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_delay_module_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_delay_module_0_0 (xilinx.com:user:delay_module:1.0) from (Rev. 1) to (Rev. 2)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_delay_module_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'ch1'
+
+-Upgrade has added port 'tstart_count'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Sat Mar 04 16:56:42 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_delay_module_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of gpsImode_delay_module_0_0 (xilinx.com:user:delay_module:1.0 (Rev. 1)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Sat Mar 04 16:56:41 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'delay_module_DELAY_OUT_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of delay_module_DELAY_OUT_0_0 (xilinx.com:user:DELAY_OUT:1.0) from (Rev. 5) to (Rev. 6)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'delay_module_DELAY_OUT_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'ch1'
+
+-Upgrade has added port 'tstart_count'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Sat Mar 04 15:29:20 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'delay_module_TDC_TO_DELAY_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of delay_module_TDC_TO_DELAY_0_0 (xilinx.com:user:TDC_TO_DELAY:1.0) from (Rev. 2) to (Rev. 3)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'delay_module_TDC_TO_DELAY_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'data_flag'
+
+-Upgrade has added port 'data_out_flag'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Sat Mar 04 15:10:34 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'delay_module_delay_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of delay_module_delay_0_1 (xilinx.com:user:delay:1.0) from (Rev. 4) to (Rev. 5)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'delay_module_delay_0_1'. These changes may impact your design.
+
+
+-Upgraded port 'out_1_delay' width 15 differs from original width 14
+
+-Upgraded port 'out_2_delay' width 15 differs from original width 14
+
+-Upgraded port 'out_3_delay' width 15 differs from original width 14
+
+-Upgraded port 'out_4_delay' width 15 differs from original width 14
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Sat Mar 04 15:10:34 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'delay_module_DELAY_OUT_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of delay_module_DELAY_OUT_0_0 (xilinx.com:user:DELAY_OUT:1.0) from (Rev. 4) to (Rev. 5)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'delay_module_DELAY_OUT_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'init'
+
+-Upgrade has added port 'tdc_data'
+
+-Upgrade has added port 'tdc_data_flag'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Fri Mar 03 15:49:29 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 35) to (Rev. 36)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myImode_0_1'. These changes may impact your design.
+
+
+-Upgrade has added port 'switch'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Mar 01 15:57:11 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myip_fifo_ctrl_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myip_fifo_ctrl_0_0 (xilinx.com:user:myip_fifo_ctrl:1.0) from (Rev. 5) to (Rev. 6)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myip_fifo_ctrl_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'ch1_fifo1_rd'
+
+-Upgrade has removed port 'ch1_fifo1_wr'
+
+-Upgrade has removed port 'ch1_fifo2_rd'
+
+-Upgrade has removed port 'ch1_fifo2_wr'
+
+-Upgrade has removed port 'ch2_fifo1_rd'
+
+-Upgrade has removed port 'ch2_fifo1_wr'
+
+-Upgrade has removed port 'ch2_fifo2_rd'
+
+-Upgrade has removed port 'ch2_fifo2_wr'
+
+-Upgrade has removed port 'gps1_fifo1_rd'
+
+-Upgrade has removed port 'gps1_fifo1_wr'
+
+-Upgrade has removed port 'gps1_fifo2_rd'
+
+-Upgrade has removed port 'gps1_fifo2_wr'
+
+-Upgrade has removed port 'gps2_fifo1_rd'
+
+-Upgrade has removed port 'gps2_fifo1_wr'
+
+-Upgrade has removed port 'gps2_fifo2_rd'
+
+-Upgrade has removed port 'gps2_fifo2_wr'
+
+-Upgrade has removed port 'start_tri_fifo1_rd'
+
+-Upgrade has removed port 'start_tri_fifo1_wr'
+
+-Upgrade has removed port 'start_tri_fifo2_rd'
+
+-Upgrade has removed port 'start_tri_fifo2_wr'
+
+-Upgrade has added port 'fifo1_rd'
+
+-Upgrade has added port 'fifo1_wr'
+
+-Upgrade has added port 'fifo2_rd'
+
+-Upgrade has added port 'fifo2_wr'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Mar 01 15:39:58 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myip_fifo_ctrl_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myip_fifo_ctrl_0_0 (xilinx.com:user:myip_fifo_ctrl:1.0) from (Rev. 4) to (Rev. 5)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myip_fifo_ctrl_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'ch1_data_to_be_wr' width 22 differs from original width 17
+
+-Upgraded port 'ch1_fifo1_rd_data' width 22 differs from original width 17
+
+-Upgraded port 'ch1_fifo2_rd_data' width 22 differs from original width 17
+
+-Upgraded port 'ch1_fifo_wr_data' width 22 differs from original width 17
+
+-Upgraded port 'ch2_data_to_be_wr' width 22 differs from original width 17
+
+-Upgraded port 'ch2_fifo1_rd_data' width 22 differs from original width 17
+
+-Upgraded port 'ch2_fifo2_rd_data' width 22 differs from original width 17
+
+-Upgraded port 'ch2_fifo_wr_data' width 22 differs from original width 17
+
+-Upgrade has removed port 'ch3_data_to_be_wr'
+
+-Upgrade has removed port 'ch3_fifo1_rd'
+
+-Upgrade has removed port 'ch3_fifo1_rd_data'
+
+-Upgrade has removed port 'ch3_fifo1_wr'
+
+-Upgrade has removed port 'ch3_fifo2_rd'
+
+-Upgrade has removed port 'ch3_fifo2_rd_data'
+
+-Upgrade has removed port 'ch3_fifo2_wr'
+
+-Upgrade has removed port 'ch3_fifo_wr_data'
+
+-Upgrade has removed port 'ch4_data_to_be_wr'
+
+-Upgrade has removed port 'ch4_fifo1_rd'
+
+-Upgrade has removed port 'ch4_fifo1_rd_data'
+
+-Upgrade has removed port 'ch4_fifo1_wr'
+
+-Upgrade has removed port 'ch4_fifo2_rd'
+
+-Upgrade has removed port 'ch4_fifo2_rd_data'
+
+-Upgrade has removed port 'ch4_fifo2_wr'
+
+-Upgrade has removed port 'ch4_fifo_wr_data'
+
+-Upgrade has removed port 'ch5_data_to_be_wr'
+
+-Upgrade has removed port 'ch5_fifo1_rd'
+
+-Upgrade has removed port 'ch5_fifo1_rd_data'
+
+-Upgrade has removed port 'ch5_fifo1_wr'
+
+-Upgrade has removed port 'ch5_fifo2_rd'
+
+-Upgrade has removed port 'ch5_fifo2_rd_data'
+
+-Upgrade has removed port 'ch5_fifo2_wr'
+
+-Upgrade has removed port 'ch5_fifo_wr_data'
+
+-Upgrade has removed port 'ch6_data_to_be_wr'
+
+-Upgrade has removed port 'ch6_fifo1_rd'
+
+-Upgrade has removed port 'ch6_fifo1_rd_data'
+
+-Upgrade has removed port 'ch6_fifo1_wr'
+
+-Upgrade has removed port 'ch6_fifo2_rd'
+
+-Upgrade has removed port 'ch6_fifo2_rd_data'
+
+-Upgrade has removed port 'ch6_fifo2_wr'
+
+-Upgrade has removed port 'ch6_fifo_wr_data'
+
+-Upgrade has removed port 'ch7_data_to_be_wr'
+
+-Upgrade has removed port 'ch7_fifo1_rd'
+
+-Upgrade has removed port 'ch7_fifo1_rd_data'
+
+-Upgrade has removed port 'ch7_fifo1_wr'
+
+-Upgrade has removed port 'ch7_fifo2_rd'
+
+-Upgrade has removed port 'ch7_fifo2_rd_data'
+
+-Upgrade has removed port 'ch7_fifo2_wr'
+
+-Upgrade has removed port 'ch7_fifo_wr_data'
+
+-Upgrade has removed port 'ch8_data_to_be_wr'
+
+-Upgrade has removed port 'ch8_fifo1_rd'
+
+-Upgrade has removed port 'ch8_fifo1_rd_data'
+
+-Upgrade has removed port 'ch8_fifo1_wr'
+
+-Upgrade has removed port 'ch8_fifo2_rd'
+
+-Upgrade has removed port 'ch8_fifo2_rd_data'
+
+-Upgrade has removed port 'ch8_fifo2_wr'
+
+-Upgrade has removed port 'ch8_fifo_wr_data'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Mar 01 15:39:58 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 33) to (Rev. 35)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myImode_0_1'. These changes may impact your design.
+
+
+-Upgrade has removed port 'StopTrigger3'
+
+-Upgrade has removed port 'StopTrigger4'
+
+-Upgrade has removed port 'StopTrigger5'
+
+-Upgrade has removed port 'StopTrigger6'
+
+-Upgrade has removed port 'StopTrigger7'
+
+-Upgrade has removed port 'StopTrigger8'
+
+-Upgrade has removed port 'Tstop3'
+
+-Upgrade has removed port 'Tstop4'
+
+-Upgrade has removed port 'Tstop5'
+
+-Upgrade has removed port 'Tstop6'
+
+-Upgrade has removed port 'Tstop7'
+
+-Upgrade has removed port 'Tstop8'
+
+-Upgraded port 'ch1_data' width 22 differs from original width 17
+
+-Upgraded port 'ch2_data' width 22 differs from original width 17
+
+-Upgrade has removed port 'ch3_data'
+
+-Upgrade has removed port 'ch4_data'
+
+-Upgrade has removed port 'ch5_data'
+
+-Upgrade has removed port 'ch6_data'
+
+-Upgrade has removed port 'ch7_data'
+
+-Upgrade has removed port 'ch8_data'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Fri Jan 06 14:23:28 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 23) to (Rev. 24)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Fri Jan 06 14:23:28 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 32) to (Rev. 33)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Jan 04 15:28:19 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 31) to (Rev. 32)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Jan 04 14:50:48 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 30) to (Rev. 31)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Jan 04 14:45:34 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 29) to (Rev. 30)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Tue Jan 03 14:50:16 2017
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 28) to (Rev. 29)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Fri Dec 30 10:50:41 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 27) to (Rev. 28)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Thu Dec 29 12:33:50 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myip_fifo_ctrl_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myip_fifo_ctrl_0_0 (xilinx.com:user:myip_fifo_ctrl:1.0) from (Rev. 2) to (Rev. 4)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myip_fifo_ctrl_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'ch1_data_to_be_wr' width 17 differs from original width 32
+
+-Upgraded port 'ch1_fifo1_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch1_fifo2_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch1_fifo_wr_data' width 17 differs from original width 32
+
+-Upgraded port 'ch2_data_to_be_wr' width 17 differs from original width 32
+
+-Upgraded port 'ch2_fifo1_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch2_fifo2_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch2_fifo_wr_data' width 17 differs from original width 32
+
+-Upgraded port 'ch3_data_to_be_wr' width 17 differs from original width 32
+
+-Upgraded port 'ch3_fifo1_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch3_fifo2_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch3_fifo_wr_data' width 17 differs from original width 32
+
+-Upgraded port 'ch4_data_to_be_wr' width 17 differs from original width 32
+
+-Upgraded port 'ch4_fifo1_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch4_fifo2_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch4_fifo_wr_data' width 17 differs from original width 32
+
+-Upgraded port 'ch5_data_to_be_wr' width 17 differs from original width 32
+
+-Upgraded port 'ch5_fifo1_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch5_fifo2_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch5_fifo_wr_data' width 17 differs from original width 32
+
+-Upgraded port 'ch6_data_to_be_wr' width 17 differs from original width 32
+
+-Upgraded port 'ch6_fifo1_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch6_fifo2_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch6_fifo_wr_data' width 17 differs from original width 32
+
+-Upgraded port 'ch7_data_to_be_wr' width 17 differs from original width 32
+
+-Upgraded port 'ch7_fifo1_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch7_fifo2_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch7_fifo_wr_data' width 17 differs from original width 32
+
+-Upgraded port 'ch8_data_to_be_wr' width 17 differs from original width 32
+
+-Upgraded port 'ch8_fifo1_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch8_fifo2_rd_data' width 17 differs from original width 32
+
+-Upgraded port 'ch8_fifo_wr_data' width 17 differs from original width 32
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Thu Dec 29 12:33:50 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 26) to (Rev. 27)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myImode_0_1'. These changes may impact your design.
+
+
+-Upgraded port 'ch1_data' width 17 differs from original width 18
+
+-Upgraded port 'ch2_data' width 17 differs from original width 18
+
+-Upgraded port 'ch3_data' width 17 differs from original width 18
+
+-Upgraded port 'ch4_data' width 17 differs from original width 18
+
+-Upgraded port 'ch5_data' width 17 differs from original width 18
+
+-Upgraded port 'ch6_data' width 17 differs from original width 18
+
+-Upgraded port 'ch7_data' width 17 differs from original width 18
+
+-Upgraded port 'ch8_data' width 17 differs from original width 18
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Thu Dec 29 12:26:14 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 25) to (Rev. 26)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myImode_0_1'. These changes may impact your design.
+
+
+-Upgraded port 'ch1_data' width 18 differs from original width 32
+
+-Upgraded port 'ch2_data' width 18 differs from original width 32
+
+-Upgraded port 'ch3_data' width 18 differs from original width 32
+
+-Upgraded port 'ch4_data' width 18 differs from original width 32
+
+-Upgraded port 'ch5_data' width 18 differs from original width 32
+
+-Upgraded port 'ch6_data' width 18 differs from original width 32
+
+-Upgraded port 'ch7_data' width 18 differs from original width 32
+
+-Upgraded port 'ch8_data' width 18 differs from original width 32
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Thu Dec 29 10:02:56 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 24) to (Rev. 25)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myImode_0_1'. These changes may impact your design.
+
+
+-Upgrade has removed port 'fifo1_full_in'
+
+-Upgrade has removed port 'fifo1_reset'
+
+-Upgrade has removed port 'fifo1_wr'
+
+-Upgrade has removed port 'fifo2_full_in'
+
+-Upgrade has removed port 'fifo2_reset'
+
+-Upgrade has removed port 'fifo2_wr'
+
+-Upgrade has removed port 'fifoWrFlag'
+
+-Upgrade has removed port 'timeData_out'
+
+-Upgrade has added port 'timeDataWrEn'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Fri Dec 23 20:54:13 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 22) to (Rev. 23)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_newGpsIp_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'triggerTime_out1'
+
+-Upgrade has added port 'triggerTime_out2'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Fri Dec 23 20:19:53 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 23) to (Rev. 24)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myImode_0_1'. These changes may impact your design.
+
+
+-Upgrade has removed port 'reset'
+
+-Upgrade has added port 'fifo1_full_in'
+
+-Upgrade has added port 'fifo1_reset'
+
+-Upgrade has added port 'fifo1_wr'
+
+-Upgrade has added port 'fifo2_full_in'
+
+-Upgrade has added port 'fifo2_reset'
+
+-Upgrade has added port 'fifo2_wr'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Fri Dec 23 18:20:41 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 22) to (Rev. 23)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myImode_0_1'. These changes may impact your design.
+
+
+-Upgrade has added port 'reset'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Fri Dec 23 18:17:07 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 21) to (Rev. 22)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Fri Dec 23 18:09:26 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 20) to (Rev. 21)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myImode_0_1'. These changes may impact your design.
+
+
+-Upgrade has removed port 'timeRdOverFlag_out'
+
+-Upgrade has added port 'Tstart_counter'
+
+-Upgrade has added port 'ch1_data'
+
+-Upgrade has added port 'ch2_data'
+
+-Upgrade has added port 'ch3_data'
+
+-Upgrade has added port 'ch4_data'
+
+-Upgrade has added port 'ch5_data'
+
+-Upgrade has added port 'ch6_data'
+
+-Upgrade has added port 'ch7_data'
+
+-Upgrade has added port 'ch8_data'
+
+-Upgrade has added port 'fifoWrFlag'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Thu Dec 22 16:54:48 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_myImode_0_1 (xilinx.com:user:myImode:1.0) from (Rev. 19) to (Rev. 20)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Thu Dec 22 16:36:36 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_time_data_mapper_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_time_data_mapper_0_0 (xilinx.com:user:time_data_mapper:1.0) from (Rev. 5) to (Rev. 7)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Thu Dec 22 14:37:28 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of gpsImode_myImode_0_0 (xilinx.com:user:myImode:1.0) from (Rev. 18) to (Rev. 19)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'gpsImode_myImode_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'timeData_out'
+
+-Upgrade has added port 'timeRdOverFlag_out'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Tue Dec 06 14:56:19 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_myImode_0_0 (xilinx.com:user:myImode:1.0) from (Rev. 17) to (Rev. 18)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Tue Dec 06 14:44:11 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_myImode_0_0 (xilinx.com:user:myImode:1.0) from (Rev. 16) to (Rev. 17)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Fri Dec 02 14:37:44 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_myImode_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_myImode_0_0 (xilinx.com:user:myImode:1.0) from (Rev. 15) to (Rev. 16)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Fri Dec 02 10:05:19 2016
+| Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 21) to (Rev. 22)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 17:29:54 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 20) to (Rev. 21)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 17:21:17 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 19) to (Rev. 20)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 15:53:52 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 18) to (Rev. 19)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 15:31:42 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 17) to (Rev. 18)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 15:10:34 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 15) to (Rev. 17)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 14:39:39 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 14) to (Rev. 15)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 14:37:19 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 13) to (Rev. 14)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 14:34:13 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 12) to (Rev. 13)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 14:08:14 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 11) to (Rev. 12)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 13:46:23 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 10) to (Rev. 11)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 13:06:17 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 9) to (Rev. 10)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 12:52:03 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 8) to (Rev. 9)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 12:43:14 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 7) to (Rev. 8)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Nov 30 10:58:57 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 5) to (Rev. 7)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Tue Nov 29 21:43:58 2016
+| Host         : DESKTOP-BGEPG26 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'gpsImode_newGpsIp_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of gpsImode_newGpsIp_0_0 (xilinx.com:user:newGpsIp:1.0) from (Rev. 4) to (Rev. 5)
+

@@ -9,3 +9,7 @@
 1489041661400	Delete resource 'G_delay_bsp'
 1489042040159	Delete resource 'Gmode_delay'
 1489042046191	Delete resource 'Gmode_delay_bsp'
+1489061507442	Delete resource 'G_delay_motor'
+1489061519778	Delete resource 'G_delay_motor_bsp'
+1489063792151	Delete resource 'G_delay_motor_gps'
+1489063799340	Delete resource 'G_delay_motor_gps_bsp'

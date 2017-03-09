@@ -204,6 +204,14 @@ vlog -work xil_defaultlib -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1
 "../../../bd/gpsImode/ipshared/xilinx.com/dec_pwm_v1_0/hdl/dec_pwm_v1_0_S00_AXI.v" \
 "../../../bd/gpsImode/ipshared/xilinx.com/dec_pwm_v1_0/hdl/dec_pwm_v1_0.v" \
 "../../../bd/gpsImode/ip/gpsImode_dec_pwm_0_0/sim/gpsImode_dec_pwm_0_0.v" \
+"../../../bd/gpsImode/ip/gpsImode_ch2_fifo2_0/sim/gpsImode_ch2_fifo2_0.v" \
+"../../../bd/gpsImode/ip/gpsImode_delay1_fifo1_1/sim/gpsImode_delay1_fifo1_1.v" \
+"../../../bd/gpsImode/ip/gpsImode_delay1_fifo1_2/sim/gpsImode_delay1_fifo1_2.v" \
+"../../../bd/gpsImode/ip/gpsImode_delay2_fifo1_0/sim/gpsImode_delay2_fifo1_0.v" \
+"../../../bd/gpsImode/ip/gpsImode_delay2_fifo1_1/sim/gpsImode_delay2_fifo1_1.v" \
+"../../../bd/gpsImode/ip/gpsImode_delay3_fifo1_0/sim/gpsImode_delay3_fifo1_0.v" \
+"../../../bd/gpsImode/ip/gpsImode_delay3_fifo2_0/sim/gpsImode_delay3_fifo2_0.v" \
+"../../../bd/gpsImode/ip/gpsImode_delay4_fifo1_0/sim/gpsImode_delay4_fifo1_0.v" \
 
 vlog -work axi_protocol_converter_v2_1_9 -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
 "../../../ipstatic/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_a_axi3_conv.v" \
