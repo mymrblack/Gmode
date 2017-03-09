@@ -15,6 +15,7 @@
 	)
 	(
 		// Users to add ports here
+        input time_record_flag,
         input data_flag,
         input [21 : 0] ch1_time_data,
 
@@ -23,6 +24,11 @@
         output out_2,
         output out_3,
         output out_4,
+
+        output [14:0] out_1_delay_data,
+        output [14:0] out_2_delay_data,
+        output [14:0] out_3_delay_data,
+        output [14:0] out_4_delay_data,
 
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -575,25 +581,29 @@ TDC_TO_DELAY tdc_data_handle(.clk(clk), .resetn(resetn),
 
 DELAY_OUT out(.clk(clk), .resetn(resetn), 
     .init(init_wr), .tdc_data_flag(data_out_flag), .tdc_data(delay_data),
-    .cycle(tstart_cycle), .tstart_width(tstart_width), 
+    .cycle(tstart_cycle), .tstart_width(tstart_width), .time_record_flag(time_record_flag),
     .delay_1(out_1_delay), .out_1_width(out_1_width), 
     .delay_2(out_2_delay), .out_2_width(out_2_width), 
     .delay_3(out_3_delay), .out_3_width(out_3_width), 
     .delay_4(out_4_delay), .out_4_width(out_4_width), 
     .tstart(tstart_out), .out_1(out_1), .out_2(out_2),
-    .out_3(out_3), .out_4(out_4));
+    .out_3(out_3), .out_4(out_4), 
+    .out_1_delay_data(out_1_delay_data), .out_2_delay_data(out_2_delay_data),
+    .out_3_delay_data(out_3_delay_data), .out_4_delay_data(out_4_delay_data));
 	// User logic ends
 
 	endmodule
 module DELAY_OUT (input clk, input resetn, 
     input init, input tdc_data_flag, input [14:0] tdc_data,
-    input [14:0] cycle, input [13:0] tstart_width, 
+    input [14:0] cycle, input [13:0] tstart_width, input time_record_flag,
     input [14:0] delay_1, input [13:0] out_1_width, 
     input [14:0] delay_2, input [13:0] out_2_width, 
     input [14:0] delay_3, input [13:0] out_3_width, 
     input [14:0] delay_4, input [13:0] out_4_width, 
     output tstart, output out_1, output out_2,
-    output out_3, output out_4);
+    output out_3, output out_4,
+    output reg [14:0] out_1_delay_data, output reg [14:0] out_2_delay_data,
+    output reg [14:0] out_3_delay_data, output reg [14:0] out_4_delay_data);
 
     reg [14:0] out_1_delay;
     wire [14:0] out_2_delay;
@@ -619,6 +629,27 @@ module DELAY_OUT (input clk, input resetn,
             out_1_delay <= tdc_data;
         else
             out_1_delay <= out_1_delay;
+    end
+
+    always @(posedge clk) begin
+        if(!resetn) begin
+            out_1_delay_data <= 0;
+            out_2_delay_data <= 0;
+            out_3_delay_data <= 0;
+            out_4_delay_data <= 0;
+        end
+        else if(time_record_flag) begin
+            out_1_delay_data <= out_1_delay;
+            out_2_delay_data <= out_2_delay;
+            out_3_delay_data <= out_3_delay;
+            out_4_delay_data <= out_4_delay;
+        end
+        else begin
+            out_1_delay_data <= out_1_delay_data;
+            out_2_delay_data <= out_2_delay_data;
+            out_3_delay_data <= out_3_delay_data;
+            out_4_delay_data <= out_4_delay_data;
+        end
     end
 
     assign out_2_delay = out_1_delay + delay_2;
