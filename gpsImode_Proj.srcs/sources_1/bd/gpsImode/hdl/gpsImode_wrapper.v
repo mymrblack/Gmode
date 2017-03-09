@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Mon Mar 06 15:37:21 2017
+//Date        : Thu Mar 09 11:01:56 2017
 //Host        : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
 //Command     : generate_target gpsImode_wrapper.bd
 //Design      : gpsImode_wrapper
@@ -11,6 +11,7 @@
 
 module gpsImode_wrapper
    (AluTrigger,
+    B,
     DDR_addr,
     DDR_ba,
     DDR_cas_n,
@@ -38,7 +39,6 @@ module gpsImode_wrapper
     IrFlag,
     PPS_IN,
     StartDis,
-    StartTrigger,
     StopDis1,
     StopDis2,
     StopDis3,
@@ -51,6 +51,7 @@ module gpsImode_wrapper
     UART_rxd,
     UART_txd,
     addr,
+    clr,
     csn,
     data,
     oen,
@@ -58,11 +59,15 @@ module gpsImode_wrapper
     out_2,
     out_3,
     out_4,
+    pwmd,
+    pwmo,
     rdn,
+    sig_in,
     switch,
     tstart_out,
     wrn);
   output AluTrigger;
+  input B;
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -90,7 +95,6 @@ module gpsImode_wrapper
   input IrFlag;
   input PPS_IN;
   output StartDis;
-  input StartTrigger;
   output StopDis1;
   output StopDis2;
   output StopDis3;
@@ -103,6 +107,7 @@ module gpsImode_wrapper
   input UART_rxd;
   output UART_txd;
   output [3:0]addr;
+  input clr;
   output csn;
   inout [27:0]data;
   output oen;
@@ -110,12 +115,16 @@ module gpsImode_wrapper
   output out_2;
   output out_3;
   output out_4;
+  output pwmd;
+  output pwmo;
   output rdn;
+  input sig_in;
   input switch;
   output tstart_out;
   output wrn;
 
   wire AluTrigger;
+  wire B;
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
   wire DDR_cas_n;
@@ -143,7 +152,6 @@ module gpsImode_wrapper
   wire IrFlag;
   wire PPS_IN;
   wire StartDis;
-  wire StartTrigger;
   wire StopDis1;
   wire StopDis2;
   wire StopDis3;
@@ -156,6 +164,7 @@ module gpsImode_wrapper
   wire UART_rxd;
   wire UART_txd;
   wire [3:0]addr;
+  wire clr;
   wire csn;
   wire [27:0]data;
   wire oen;
@@ -163,13 +172,17 @@ module gpsImode_wrapper
   wire out_2;
   wire out_3;
   wire out_4;
+  wire pwmd;
+  wire pwmo;
   wire rdn;
+  wire sig_in;
   wire switch;
   wire tstart_out;
   wire wrn;
 
   gpsImode gpsImode_i
        (.AluTrigger(AluTrigger),
+        .B(B),
         .DDR_addr(DDR_addr),
         .DDR_ba(DDR_ba),
         .DDR_cas_n(DDR_cas_n),
@@ -197,7 +210,6 @@ module gpsImode_wrapper
         .IrFlag(IrFlag),
         .PPS_IN(PPS_IN),
         .StartDis(StartDis),
-        .StartTrigger(StartTrigger),
         .StopDis1(StopDis1),
         .StopDis2(StopDis2),
         .StopDis3(StopDis3),
@@ -210,6 +222,7 @@ module gpsImode_wrapper
         .UART_rxd(UART_rxd),
         .UART_txd(UART_txd),
         .addr(addr),
+        .clr(clr),
         .csn(csn),
         .data(data),
         .oen(oen),
@@ -217,7 +230,10 @@ module gpsImode_wrapper
         .out_2(out_2),
         .out_3(out_3),
         .out_4(out_4),
+        .pwmd(pwmd),
+        .pwmo(pwmo),
         .rdn(rdn),
+        .sig_in(sig_in),
         .switch(switch),
         .tstart_out(tstart_out),
         .wrn(wrn));
