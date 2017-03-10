@@ -3608,3 +3608,21 @@ Design is not opened in the current session.
 22:01:40 INFO  : ps7_init is completed.
 22:01:40 INFO  : ps7_post_config is completed.
 22:01:40 INFO  : Processor reset is completed for ps7_cortexa9_0
+22:24:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:24:13 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248685614" && level==0} -index 1' command is executed.
+22:24:15 INFO  : FPGA configured successfully with bitstream "E:/Lin/vivado_learing/Gmode/gpsImode_Proj.sdk/G_delay_hw/gpsImode_wrapper.bit"
+22:24:18 INFO  : ps7_init is completed.
+22:24:18 INFO  : ps7_post_config is completed.
+22:24:18 INFO  : Processor reset is completed for ps7_cortexa9_0
+22:25:24 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+09:07:34 INFO  : Launching XSDB server: xsdb.bat -interactive E:\Lin\vivado_learing\Gmode\gpsImode_Proj.sdk\temp_xsdb_launch_script.tcl
+09:07:38 INFO  : XSDB server has started successfully.
+09:10:44 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+09:10:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248685614" && level==0} -index 1' command is executed.
+09:10:47 INFO  : FPGA configured successfully with bitstream "E:/Lin/vivado_learing/Gmode/gpsImode_Proj.sdk/G_delay_hw/gpsImode_wrapper.bit"
+09:11:08 INFO  : ps7_init is completed.
+09:11:08 INFO  : ps7_post_config is completed.
+09:11:09 INFO  : Processor reset is completed for ps7_cortexa9_0
+09:18:15 INFO  : Time out for XMD transaction is 60000
+If you want to increase the timeout value, goto Windows-> Preferences -> Xilinx SDK -> XMD Startup
+09:18:15 ERROR : Timeout occured while waiting to get reply for command "targets 64"

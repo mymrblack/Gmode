@@ -174,7 +174,7 @@ void TEST_Gmode(Lidar_Data *data){
          for(i = 0; i < FIFO_SIZE; i++){
              FIFO_getData(&data[i], fifoNum);
          }
-         Ffs_CreateFileAndSaveData(data, dirPath);
+//         Ffs_CreateFileAndSaveData(data, dirPath);
          xil_printf("%d\r\n", fifoNum);
          FIFO_printData(data, FIFO_SIZE, 300);
      }
