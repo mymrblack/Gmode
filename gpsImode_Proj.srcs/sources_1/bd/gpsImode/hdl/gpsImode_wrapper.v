@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Thu Mar 09 16:55:06 2017
+//Date        : Wed Apr 05 17:35:15 2017
 //Host        : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
 //Command     : generate_target gpsImode_wrapper.bd
 //Design      : gpsImode_wrapper
@@ -11,7 +11,6 @@
 
 module gpsImode_wrapper
    (AluTrigger,
-    B,
     DDR_addr,
     DDR_ba,
     DDR_cas_n,
@@ -51,23 +50,23 @@ module gpsImode_wrapper
     UART_rxd,
     UART_txd,
     addr,
-    clr,
     csn,
     data,
+    dir,
     oen,
     out_1,
     out_2,
     out_3,
     out_4,
-    pwmd,
-    pwmo,
+    pos_pwm,
+    raster_a,
+    raster_b,
+    raster_z,
     rdn,
-    sig_in,
     switch,
     tstart_out,
     wrn);
   output AluTrigger;
-  input B;
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -107,24 +106,24 @@ module gpsImode_wrapper
   input UART_rxd;
   output UART_txd;
   output [3:0]addr;
-  input clr;
   output csn;
   inout [27:0]data;
+  output dir;
   output oen;
   output out_1;
   output out_2;
   output out_3;
   output out_4;
-  output pwmd;
-  output pwmo;
+  output pos_pwm;
+  input raster_a;
+  input raster_b;
+  input raster_z;
   output rdn;
-  input sig_in;
   input switch;
   output tstart_out;
   output wrn;
 
   wire AluTrigger;
-  wire B;
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
   wire DDR_cas_n;
@@ -164,25 +163,25 @@ module gpsImode_wrapper
   wire UART_rxd;
   wire UART_txd;
   wire [3:0]addr;
-  wire clr;
   wire csn;
   wire [27:0]data;
+  wire dir;
   wire oen;
   wire out_1;
   wire out_2;
   wire out_3;
   wire out_4;
-  wire pwmd;
-  wire pwmo;
+  wire pos_pwm;
+  wire raster_a;
+  wire raster_b;
+  wire raster_z;
   wire rdn;
-  wire sig_in;
   wire switch;
   wire tstart_out;
   wire wrn;
 
   gpsImode gpsImode_i
        (.AluTrigger(AluTrigger),
-        .B(B),
         .DDR_addr(DDR_addr),
         .DDR_ba(DDR_ba),
         .DDR_cas_n(DDR_cas_n),
@@ -222,18 +221,19 @@ module gpsImode_wrapper
         .UART_rxd(UART_rxd),
         .UART_txd(UART_txd),
         .addr(addr),
-        .clr(clr),
         .csn(csn),
         .data(data),
+        .dir(dir),
         .oen(oen),
         .out_1(out_1),
         .out_2(out_2),
         .out_3(out_3),
         .out_4(out_4),
-        .pwmd(pwmd),
-        .pwmo(pwmo),
+        .pos_pwm(pos_pwm),
+        .raster_a(raster_a),
+        .raster_b(raster_b),
+        .raster_z(raster_z),
         .rdn(rdn),
-        .sig_in(sig_in),
         .switch(switch),
         .tstart_out(tstart_out),
         .wrn(wrn));

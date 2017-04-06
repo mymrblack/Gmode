@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Thu Mar 09 20:38:41 2017
+| Date         : Wed Apr 05 17:51:57 2017
 | Host         : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -warn_on_violation -max_paths 10 -file gpsImode_wrapper_timing_summary_routed.rpt -rpx gpsImode_wrapper_timing_summary_routed.rpx
 | Design       : gpsImode_wrapper
@@ -52,8 +52,6 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 33 register/latch pins with no clock driven by root clock pin: sig_in (HIGH)
-
  There are 15 register/latch pins with no clock driven by root clock pin: gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/decoder/negGet/signal_tem1_reg/C (HIGH)
 
  There are 15 register/latch pins with no clock driven by root clock pin: gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/nolabel_line701/timeCounter/out_reg_reg[0]/C (HIGH)
@@ -133,14 +131,14 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 128 pins that are not constrained for maximum delay. (HIGH)
+ There are 30 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
 5. checking no_input_delay
 --------------------------
- There are 37 input ports with no input delay specified. (HIGH)
+ There are 38 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
@@ -192,7 +190,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      0.274        0.000                      0                18766        0.069        0.000                      0                18766        4.020        0.000                       0                  5773  
+      0.305        0.000                      0                21159        0.037        0.000                      0                21159        4.020        0.000                       0                  6416  
 
 
 All user specified timing constraints are met.
@@ -215,7 +213,7 @@ clk_fpga_0  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-clk_fpga_0          0.274        0.000                      0                18766        0.069        0.000                      0                18766        4.020        0.000                       0                  5773  
+clk_fpga_0          0.305        0.000                      0                21159        0.037        0.000                      0                21159        4.020        0.000                       0                  6416  
 
 
 ------------------------------------------------------------------------------------------------
@@ -246,27 +244,27 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  clk_fpga_0
   To Clock:  clk_fpga_0
 
-Setup :            0  Failing Endpoints,  Worst Slack        0.274ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.069ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        0.305ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.037ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.020ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.274ns  (required time - arrival time)
-  Source:                 gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg11_reg[6]/D
+Slack (MET) :             0.305ns  (required time - arrival time)
+  Source:                 gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_out_reg[10]/CE
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        9.360ns  (logic 1.450ns (15.492%)  route 7.910ns (84.508%))
+  Data Path Delay:        9.185ns  (logic 0.518ns (5.640%)  route 8.667ns (94.360%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.165ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.750ns = ( 12.750 - 10.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
+  Clock Path Skew:        -0.151ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.740ns = ( 12.740 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.006ns
     Clock Pessimism Removal (CPR):    0.115ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -281,13 +279,12 @@ Slack (MET) :             0.274ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.737     3.031    gpsImode_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                         net (fo=6416, routed)        1.712     3.006    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/fifo_axi_aclk
+    SLICE_X58Y95         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[6])
-                                                      1.450     4.481 r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[6]
-                         net (fo=71, routed)          7.910    12.391    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_wdata[6]
-    SLICE_X29Y46         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg11_reg[6]/D
+    SLICE_X58Y95         FDRE (Prop_fdre_C_Q)         0.518     3.524 r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/Q
+                         net (fo=232, routed)         8.667    12.191    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_is_ready_reg[0]
+    SLICE_X28Y18         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_out_reg[10]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -295,30 +292,30 @@ Slack (MET) :             0.274ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088    11.088    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.571    12.750    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_aclk
-    SLICE_X29Y46         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg11_reg[6]/C
-                         clock pessimism              0.115    12.865    
-                         clock uncertainty           -0.154    12.711    
-    SLICE_X29Y46         FDRE (Setup_fdre_C_D)       -0.047    12.664    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg11_reg[6]
+                         net (fo=6416, routed)        1.561    12.740    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/fifo_axi_aclk
+    SLICE_X28Y18         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_out_reg[10]/C
+                         clock pessimism              0.115    12.855    
+                         clock uncertainty           -0.154    12.701    
+    SLICE_X28Y18         FDRE (Setup_fdre_C_CE)      -0.205    12.496    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_out_reg[10]
   -------------------------------------------------------------------
-                         required time                         12.664    
-                         arrival time                         -12.391    
+                         required time                         12.496    
+                         arrival time                         -12.191    
   -------------------------------------------------------------------
-                         slack                                  0.274    
+                         slack                                  0.305    
 
-Slack (MET) :             0.294ns  (required time - arrival time)
-  Source:                 gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg6_reg[6]/D
+Slack (MET) :             0.305ns  (required time - arrival time)
+  Source:                 gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_out_reg[11]/CE
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        9.326ns  (logic 1.450ns (15.548%)  route 7.876ns (84.452%))
+  Data Path Delay:        9.185ns  (logic 0.518ns (5.640%)  route 8.667ns (94.360%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.164ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.751ns = ( 12.752 - 10.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
+  Clock Path Skew:        -0.151ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.740ns = ( 12.740 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.006ns
     Clock Pessimism Removal (CPR):    0.115ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -333,13 +330,12 @@ Slack (MET) :             0.294ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.737     3.031    gpsImode_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                         net (fo=6416, routed)        1.712     3.006    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/fifo_axi_aclk
+    SLICE_X58Y95         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[6])
-                                                      1.450     4.481 r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[6]
-                         net (fo=71, routed)          7.876    12.357    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_wdata[6]
-    SLICE_X28Y48         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg6_reg[6]/D
+    SLICE_X58Y95         FDRE (Prop_fdre_C_Q)         0.518     3.524 r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/Q
+                         net (fo=232, routed)         8.667    12.191    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_is_ready_reg[0]
+    SLICE_X28Y18         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_out_reg[11]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -347,30 +343,30 @@ Slack (MET) :             0.294ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088    11.088    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.572    12.752    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_aclk
-    SLICE_X28Y48         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg6_reg[6]/C
-                         clock pessimism              0.115    12.866    
-                         clock uncertainty           -0.154    12.712    
-    SLICE_X28Y48         FDRE (Setup_fdre_C_D)       -0.061    12.651    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg6_reg[6]
+                         net (fo=6416, routed)        1.561    12.740    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/fifo_axi_aclk
+    SLICE_X28Y18         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_out_reg[11]/C
+                         clock pessimism              0.115    12.855    
+                         clock uncertainty           -0.154    12.701    
+    SLICE_X28Y18         FDRE (Setup_fdre_C_CE)      -0.205    12.496    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_out_reg[11]
   -------------------------------------------------------------------
-                         required time                         12.651    
-                         arrival time                         -12.357    
+                         required time                         12.496    
+                         arrival time                         -12.191    
   -------------------------------------------------------------------
-                         slack                                  0.294    
+                         slack                                  0.305    
 
-Slack (MET) :             0.339ns  (required time - arrival time)
-  Source:                 gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg12_reg[18]/D
+Slack (MET) :             0.354ns  (required time - arrival time)
+  Source:                 gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[14]/CE
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        9.220ns  (logic 1.450ns (15.727%)  route 7.770ns (84.273%))
+  Data Path Delay:        9.139ns  (logic 0.518ns (5.668%)  route 8.621ns (94.332%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.242ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.673ns = ( 12.674 - 10.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
+  Clock Path Skew:        -0.148ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.743ns = ( 12.743 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.006ns
     Clock Pessimism Removal (CPR):    0.115ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -385,13 +381,12 @@ Slack (MET) :             0.339ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.737     3.031    gpsImode_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                         net (fo=6416, routed)        1.712     3.006    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/fifo_axi_aclk
+    SLICE_X58Y95         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[18])
-                                                      1.450     4.481 r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[18]
-                         net (fo=70, routed)          7.770    12.251    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_wdata[18]
-    SLICE_X46Y43         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg12_reg[18]/D
+    SLICE_X58Y95         FDRE (Prop_fdre_C_Q)         0.518     3.524 r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/Q
+                         net (fo=232, routed)         8.621    12.145    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_is_ready_reg[0]
+    SLICE_X28Y16         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[14]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -399,30 +394,82 @@ Slack (MET) :             0.339ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088    11.088    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.494    12.674    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_aclk
-    SLICE_X46Y43         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg12_reg[18]/C
-                         clock pessimism              0.115    12.788    
-                         clock uncertainty           -0.154    12.634    
-    SLICE_X46Y43         FDRE (Setup_fdre_C_D)       -0.045    12.589    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg12_reg[18]
+                         net (fo=6416, routed)        1.564    12.743    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/fifo_axi_aclk
+    SLICE_X28Y16         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[14]/C
+                         clock pessimism              0.115    12.858    
+                         clock uncertainty           -0.154    12.704    
+    SLICE_X28Y16         FDRE (Setup_fdre_C_CE)      -0.205    12.499    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[14]
   -------------------------------------------------------------------
-                         required time                         12.589    
-                         arrival time                         -12.251    
+                         required time                         12.499    
+                         arrival time                         -12.145    
   -------------------------------------------------------------------
-                         slack                                  0.339    
+                         slack                                  0.354    
 
-Slack (MET) :             0.342ns  (required time - arrival time)
+Slack (MET) :             0.390ns  (required time - arrival time)
   Source:                 gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
                             (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg14_reg[6]/D
+  Destination:            gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/slv_reg22_reg[19]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        9.325ns  (logic 1.450ns (15.550%)  route 7.875ns (84.450%))
+  Data Path Delay:        9.182ns  (logic 1.450ns (15.792%)  route 7.732ns (84.208%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.163ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.752ns = ( 12.752 - 10.000 ) 
+  Clock Path Skew:        -0.193ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.709ns = ( 12.709 - 10.000 ) 
     Source Clock Delay      (SCD):    3.031ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6416, routed)        1.737     3.031    gpsImode_i/processing_system7_0/inst/M_AXI_GP0_ACLK
+    PS7_X0Y0             PS7                                          r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+  -------------------------------------------------------------------    -------------------
+    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[19])
+                                                      1.450     4.481 r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[19]
+                         net (fo=77, routed)          7.732    12.213    gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/s00_axi_wdata[19]
+    SLICE_X61Y81         FDRE                                         r  gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/slv_reg22_reg[19]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6416, routed)        1.530    12.709    gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X61Y81         FDRE                                         r  gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/slv_reg22_reg[19]/C
+                         clock pessimism              0.129    12.838    
+                         clock uncertainty           -0.154    12.684    
+    SLICE_X61Y81         FDRE (Setup_fdre_C_D)       -0.081    12.603    gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/slv_reg22_reg[19]
+  -------------------------------------------------------------------
+                         required time                         12.603    
+                         arrival time                         -12.213    
+  -------------------------------------------------------------------
+                         slack                                  0.390    
+
+Slack (MET) :             0.392ns  (required time - arrival time)
+  Source:                 gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[6]/CE
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.137ns  (logic 0.518ns (5.669%)  route 8.619ns (94.331%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.148ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.743ns = ( 12.743 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.006ns
     Clock Pessimism Removal (CPR):    0.115ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -437,13 +484,12 @@ Slack (MET) :             0.342ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.737     3.031    gpsImode_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                         net (fo=6416, routed)        1.712     3.006    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/fifo_axi_aclk
+    SLICE_X58Y95         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[6])
-                                                      1.450     4.481 r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[6]
-                         net (fo=71, routed)          7.875    12.356    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_wdata[6]
-    SLICE_X26Y47         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg14_reg[6]/D
+    SLICE_X58Y95         FDRE (Prop_fdre_C_Q)         0.518     3.524 r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/Q
+                         net (fo=232, routed)         8.619    12.143    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_is_ready_reg[0]
+    SLICE_X30Y16         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[6]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -451,30 +497,30 @@ Slack (MET) :             0.342ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088    11.088    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.573    12.752    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_aclk
-    SLICE_X26Y47         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg14_reg[6]/C
-                         clock pessimism              0.115    12.867    
-                         clock uncertainty           -0.154    12.713    
-    SLICE_X26Y47         FDRE (Setup_fdre_C_D)       -0.016    12.697    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg14_reg[6]
+                         net (fo=6416, routed)        1.564    12.743    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/fifo_axi_aclk
+    SLICE_X30Y16         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[6]/C
+                         clock pessimism              0.115    12.858    
+                         clock uncertainty           -0.154    12.704    
+    SLICE_X30Y16         FDRE (Setup_fdre_C_CE)      -0.169    12.535    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[6]
   -------------------------------------------------------------------
-                         required time                         12.697    
-                         arrival time                         -12.356    
+                         required time                         12.535    
+                         arrival time                         -12.143    
   -------------------------------------------------------------------
-                         slack                                  0.342    
+                         slack                                  0.392    
 
-Slack (MET) :             0.393ns  (required time - arrival time)
-  Source:                 gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/dec_pwm_0/inst/dec_pwm_v1_0_S00_AXI_inst/slv_reg5_reg[6]/D
+Slack (MET) :             0.392ns  (required time - arrival time)
+  Source:                 gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[7]/CE
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        9.231ns  (logic 1.450ns (15.707%)  route 7.781ns (84.293%))
+  Data Path Delay:        9.137ns  (logic 0.518ns (5.669%)  route 8.619ns (94.331%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.163ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.752ns = ( 12.752 - 10.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
+  Clock Path Skew:        -0.148ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.743ns = ( 12.743 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.006ns
     Clock Pessimism Removal (CPR):    0.115ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -489,65 +535,12 @@ Slack (MET) :             0.393ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.737     3.031    gpsImode_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                         net (fo=6416, routed)        1.712     3.006    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/fifo_axi_aclk
+    SLICE_X58Y95         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[6])
-                                                      1.450     4.481 r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[6]
-                         net (fo=71, routed)          7.781    12.262    gpsImode_i/dec_pwm_0/inst/dec_pwm_v1_0_S00_AXI_inst/s00_axi_wdata[6]
-    SLICE_X25Y47         FDRE                                         r  gpsImode_i/dec_pwm_0/inst/dec_pwm_v1_0_S00_AXI_inst/slv_reg5_reg[6]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                     10.000    10.000 r  
-    PS7_X0Y0             PS7                          0.000    10.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088    11.088    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.573    12.752    gpsImode_i/dec_pwm_0/inst/dec_pwm_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X25Y47         FDRE                                         r  gpsImode_i/dec_pwm_0/inst/dec_pwm_v1_0_S00_AXI_inst/slv_reg5_reg[6]/C
-                         clock pessimism              0.115    12.867    
-                         clock uncertainty           -0.154    12.713    
-    SLICE_X25Y47         FDRE (Setup_fdre_C_D)       -0.058    12.655    gpsImode_i/dec_pwm_0/inst/dec_pwm_v1_0_S00_AXI_inst/slv_reg5_reg[6]
-  -------------------------------------------------------------------
-                         required time                         12.655    
-                         arrival time                         -12.262    
-  -------------------------------------------------------------------
-                         slack                                  0.393    
-
-Slack (MET) :             0.396ns  (required time - arrival time)
-  Source:                 gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg8_reg[18]/D
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        9.127ns  (logic 1.450ns (15.888%)  route 7.677ns (84.112%))
-  Logic Levels:           0  
-  Clock Path Skew:        -0.242ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.673ns = ( 12.674 - 10.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
-    Clock Pessimism Removal (CPR):    0.115ns
-  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.300ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.737     3.031    gpsImode_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-  -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[18])
-                                                      1.450     4.481 r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[18]
-                         net (fo=70, routed)          7.677    12.157    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_wdata[18]
-    SLICE_X43Y42         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg8_reg[18]/D
+    SLICE_X58Y95         FDRE (Prop_fdre_C_Q)         0.518     3.524 r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/Q
+                         net (fo=232, routed)         8.619    12.143    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_is_ready_reg[0]
+    SLICE_X30Y16         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[7]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -555,26 +548,26 @@ Slack (MET) :             0.396ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088    11.088    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.494    12.674    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_aclk
-    SLICE_X43Y42         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg8_reg[18]/C
-                         clock pessimism              0.115    12.788    
-                         clock uncertainty           -0.154    12.634    
-    SLICE_X43Y42         FDRE (Setup_fdre_C_D)       -0.081    12.553    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg8_reg[18]
+                         net (fo=6416, routed)        1.564    12.743    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/fifo_axi_aclk
+    SLICE_X30Y16         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[7]/C
+                         clock pessimism              0.115    12.858    
+                         clock uncertainty           -0.154    12.704    
+    SLICE_X30Y16         FDRE (Setup_fdre_C_CE)      -0.169    12.535    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[7]
   -------------------------------------------------------------------
-                         required time                         12.553    
-                         arrival time                         -12.157    
+                         required time                         12.535    
+                         arrival time                         -12.143    
   -------------------------------------------------------------------
-                         slack                                  0.396    
+                         slack                                  0.392    
 
-Slack (MET) :             0.399ns  (required time - arrival time)
+Slack (MET) :             0.463ns  (required time - arrival time)
   Source:                 gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
                             (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/slv_reg4_reg[9]/D
+  Destination:            gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/slv_reg18_reg[19]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        9.177ns  (logic 1.450ns (15.801%)  route 7.727ns (84.199%))
+  Data Path Delay:        9.149ns  (logic 1.450ns (15.849%)  route 7.699ns (84.151%))
   Logic Levels:           0  
   Clock Path Skew:        -0.189ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.713ns = ( 12.713 - 10.000 ) 
@@ -593,13 +586,13 @@ Slack (MET) :             0.399ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.737     3.031    gpsImode_i/processing_system7_0/inst/M_AXI_GP0_ACLK
+                         net (fo=6416, routed)        1.737     3.031    gpsImode_i/processing_system7_0/inst/M_AXI_GP0_ACLK
     PS7_X0Y0             PS7                                          r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[9])
-                                                      1.450     4.481 r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[9]
-                         net (fo=70, routed)          7.727    12.207    gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/s00_axi_wdata[9]
-    SLICE_X85Y78         FDRE                                         r  gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/slv_reg4_reg[9]/D
+    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[19])
+                                                      1.450     4.481 r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[19]
+                         net (fo=77, routed)          7.699    12.180    gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/s00_axi_wdata[19]
+    SLICE_X66Y83         FDRE                                         r  gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/slv_reg18_reg[19]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -607,30 +600,30 @@ Slack (MET) :             0.399ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088    11.088    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.534    12.713    gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/s00_axi_aclk
-    SLICE_X85Y78         FDRE                                         r  gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/slv_reg4_reg[9]/C
+                         net (fo=6416, routed)        1.534    12.713    gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/s00_axi_aclk
+    SLICE_X66Y83         FDRE                                         r  gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/slv_reg18_reg[19]/C
                          clock pessimism              0.129    12.842    
                          clock uncertainty           -0.154    12.688    
-    SLICE_X85Y78         FDRE (Setup_fdre_C_D)       -0.081    12.607    gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/slv_reg4_reg[9]
+    SLICE_X66Y83         FDRE (Setup_fdre_C_D)       -0.045    12.643    gpsImode_i/myGmode_0/inst/myImode_v1_0_S00_AXI_inst/slv_reg18_reg[19]
   -------------------------------------------------------------------
-                         required time                         12.607    
-                         arrival time                         -12.207    
+                         required time                         12.643    
+                         arrival time                         -12.180    
   -------------------------------------------------------------------
-                         slack                                  0.399    
+                         slack                                  0.463    
 
-Slack (MET) :             0.418ns  (required time - arrival time)
-  Source:                 gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/HOUR_READ_reg[8]/D
+Slack (MET) :             0.495ns  (required time - arrival time)
+  Source:                 gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[10]/CE
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        9.217ns  (logic 1.450ns (15.733%)  route 7.767ns (84.267%))
+  Data Path Delay:        8.996ns  (logic 0.518ns (5.758%)  route 8.478ns (94.242%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.180ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.735ns = ( 12.736 - 10.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
+  Clock Path Skew:        -0.151ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.740ns = ( 12.740 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.006ns
     Clock Pessimism Removal (CPR):    0.115ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -645,13 +638,12 @@ Slack (MET) :             0.418ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.737     3.031    gpsImode_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                         net (fo=6416, routed)        1.712     3.006    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/fifo_axi_aclk
+    SLICE_X58Y95         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[8])
-                                                      1.450     4.481 r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[8]
-                         net (fo=70, routed)          7.767    12.247    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_axi_wdata[8]
-    SLICE_X66Y41         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/HOUR_READ_reg[8]/D
+    SLICE_X58Y95         FDRE (Prop_fdre_C_Q)         0.518     3.524 r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/Q
+                         net (fo=232, routed)         8.478    12.002    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_is_ready_reg[0]
+    SLICE_X29Y18         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[10]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -659,30 +651,30 @@ Slack (MET) :             0.418ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088    11.088    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.556    12.736    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_axi_aclk
-    SLICE_X66Y41         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/HOUR_READ_reg[8]/C
-                         clock pessimism              0.115    12.850    
-                         clock uncertainty           -0.154    12.696    
-    SLICE_X66Y41         FDRE (Setup_fdre_C_D)       -0.031    12.665    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/HOUR_READ_reg[8]
+                         net (fo=6416, routed)        1.561    12.740    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/fifo_axi_aclk
+    SLICE_X29Y18         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[10]/C
+                         clock pessimism              0.115    12.855    
+                         clock uncertainty           -0.154    12.701    
+    SLICE_X29Y18         FDRE (Setup_fdre_C_CE)      -0.205    12.496    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[10]
   -------------------------------------------------------------------
-                         required time                         12.665    
-                         arrival time                         -12.247    
+                         required time                         12.496    
+                         arrival time                         -12.002    
   -------------------------------------------------------------------
-                         slack                                  0.418    
+                         slack                                  0.495    
 
-Slack (MET) :             0.432ns  (required time - arrival time)
-  Source:                 gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg10_reg[18]/D
+Slack (MET) :             0.495ns  (required time - arrival time)
+  Source:                 gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[11]/CE
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        9.127ns  (logic 1.450ns (15.888%)  route 7.677ns (84.112%))
+  Data Path Delay:        8.996ns  (logic 0.518ns (5.758%)  route 8.478ns (94.242%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.242ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.673ns = ( 12.674 - 10.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
+  Clock Path Skew:        -0.151ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.740ns = ( 12.740 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.006ns
     Clock Pessimism Removal (CPR):    0.115ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -697,13 +689,12 @@ Slack (MET) :             0.432ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.737     3.031    gpsImode_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                         net (fo=6416, routed)        1.712     3.006    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/fifo_axi_aclk
+    SLICE_X58Y95         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[18])
-                                                      1.450     4.481 r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[18]
-                         net (fo=70, routed)          7.677    12.157    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_wdata[18]
-    SLICE_X42Y42         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg10_reg[18]/D
+    SLICE_X58Y95         FDRE (Prop_fdre_C_Q)         0.518     3.524 r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/Q
+                         net (fo=232, routed)         8.478    12.002    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_is_ready_reg[0]
+    SLICE_X29Y18         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[11]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -711,30 +702,30 @@ Slack (MET) :             0.432ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088    11.088    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.494    12.674    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_aclk
-    SLICE_X42Y42         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg10_reg[18]/C
-                         clock pessimism              0.115    12.788    
-                         clock uncertainty           -0.154    12.634    
-    SLICE_X42Y42         FDRE (Setup_fdre_C_D)       -0.045    12.589    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg10_reg[18]
+                         net (fo=6416, routed)        1.561    12.740    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/fifo_axi_aclk
+    SLICE_X29Y18         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[11]/C
+                         clock pessimism              0.115    12.855    
+                         clock uncertainty           -0.154    12.701    
+    SLICE_X29Y18         FDRE (Setup_fdre_C_CE)      -0.205    12.496    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay4/fifo2_rd/data_out_reg[11]
   -------------------------------------------------------------------
-                         required time                         12.589    
-                         arrival time                         -12.157    
+                         required time                         12.496    
+                         arrival time                         -12.002    
   -------------------------------------------------------------------
-                         slack                                  0.432    
+                         slack                                  0.495    
 
-Slack (MET) :             0.440ns  (required time - arrival time)
-  Source:                 gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg12_reg[6]/D
+Slack (MET) :             0.496ns  (required time - arrival time)
+  Source:                 gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_out_reg[12]/CE
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        9.160ns  (logic 1.450ns (15.829%)  route 7.710ns (84.171%))
+  Data Path Delay:        8.994ns  (logic 0.518ns (5.759%)  route 8.476ns (94.241%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.164ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.751ns = ( 12.752 - 10.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
+  Clock Path Skew:        -0.151ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.740ns = ( 12.740 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.006ns
     Clock Pessimism Removal (CPR):    0.115ns
   Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -749,13 +740,12 @@ Slack (MET) :             0.440ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.737     3.031    gpsImode_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                         net (fo=6416, routed)        1.712     3.006    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/fifo_axi_aclk
+    SLICE_X58Y95         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/C
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0WDATA[6])
-                                                      1.450     4.481 r  gpsImode_i/processing_system7_0/inst/PS7_i/MAXIGP0WDATA[6]
-                         net (fo=71, routed)          7.710    12.191    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_wdata[6]
-    SLICE_X28Y49         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg12_reg[6]/D
+    SLICE_X58Y95         FDRE (Prop_fdre_C_Q)         0.518     3.524 r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/gps1/fifo2_rd__0/data_is_ready_reg/Q
+                         net (fo=232, routed)         8.476    12.000    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_is_ready_reg[0]
+    SLICE_X31Y18         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_out_reg[12]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -763,16 +753,16 @@ Slack (MET) :             0.440ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000    10.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088    11.088    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        1.572    12.752    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_aclk
-    SLICE_X28Y49         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg12_reg[6]/C
-                         clock pessimism              0.115    12.866    
-                         clock uncertainty           -0.154    12.712    
-    SLICE_X28Y49         FDRE (Setup_fdre_C_D)       -0.081    12.631    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg12_reg[6]
+                         net (fo=6416, routed)        1.561    12.740    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/fifo_axi_aclk
+    SLICE_X31Y18         FDRE                                         r  gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_out_reg[12]/C
+                         clock pessimism              0.115    12.855    
+                         clock uncertainty           -0.154    12.701    
+    SLICE_X31Y18         FDRE (Setup_fdre_C_CE)      -0.205    12.496    gpsImode_i/myip_fifo_ctrl_0/inst/myip_fifo_ctrl_v1_0_FIFO_AXI_inst/delay2/fifo2_rd/data_out_reg[12]
   -------------------------------------------------------------------
-                         required time                         12.631    
-                         arrival time                         -12.191    
+                         required time                         12.496    
+                         arrival time                         -12.000    
   -------------------------------------------------------------------
-                         slack                                  0.440    
+                         slack                                  0.496    
 
 
 
@@ -780,20 +770,20 @@ Slack (MET) :             0.440ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.069ns  (arrival time - required time)
-  Source:                 gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[9]/C
+Slack (MET) :             0.037ns  (arrival time - required time)
+  Source:                 gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/MINUTE_READ_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[12]
-                            (rising edge-triggered cell RAMB36E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/out_reg_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.310ns  (logic 0.141ns (45.506%)  route 0.169ns (54.494%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.057ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.279ns
-    Source Clock Delay      (SCD):    0.938ns
-    Clock Pessimism Removal (CPR):    0.284ns
+  Data Path Delay:        0.405ns  (logic 0.186ns (45.967%)  route 0.219ns (54.033%))
+  Logic Levels:           1  (LUT4=1)
+  Clock Path Skew:        0.275ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.219ns
+    Source Clock Delay      (SCD):    0.914ns
+    Clock Pessimism Removal (CPR):    0.030ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -802,12 +792,14 @@ Slack (MET) :             0.069ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.602     0.938    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/clk
-    SLICE_X91Y63         FDRE                                         r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[9]/C
+                         net (fo=6416, routed)        0.578     0.914    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_axi_aclk
+    SLICE_X59Y50         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/MINUTE_READ_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X91Y63         FDRE (Prop_fdre_C_Q)         0.141     1.079 r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[9]/Q
-                         net (fo=8, routed)           0.169     1.247    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/Q[9]
-    RAMB36_X4Y12         RAMB36E1                                     r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[12]
+    SLICE_X59Y50         FDRE (Prop_fdre_C_Q)         0.141     1.055 r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/MINUTE_READ_reg[3]/Q
+                         net (fo=1, routed)           0.219     1.273    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/MINUTE_READ_reg[31][3]
+    SLICE_X59Y49         LUT4 (Prop_lut4_I1_O)        0.045     1.318 r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/out_reg[3]_i_1__3/O
+                         net (fo=1, routed)           0.000     1.318    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/out_reg[3]_i_1__3_n_0
+    SLICE_X59Y49         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/out_reg_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -815,31 +807,30 @@ Slack (MET) :             0.069ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.913     1.279    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/clk
-    RAMB36_X4Y12         RAMB36E1                                     r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
-                         clock pessimism             -0.284     0.995    
-    RAMB36_X4Y12         RAMB36E1 (Hold_ramb36e1_CLKARDCLK_ADDRARDADDR[12])
-                                                      0.183     1.178    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram
+                         net (fo=6416, routed)        0.853     1.219    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/gps_axi_aclk
+    SLICE_X59Y49         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/out_reg_reg[3]/C
+                         clock pessimism             -0.030     1.189    
+    SLICE_X59Y49         FDRE (Hold_fdre_C_D)         0.092     1.281    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/out_reg_reg[3]
   -------------------------------------------------------------------
-                         required time                         -1.178    
-                         arrival time                           1.247    
+                         required time                         -1.281    
+                         arrival time                           1.318    
   -------------------------------------------------------------------
-                         slack                                  0.069    
+                         slack                                  0.037    
 
-Slack (MET) :             0.070ns  (arrival time - required time)
-  Source:                 gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[6]/C
+Slack (MET) :             0.044ns  (arrival time - required time)
+  Source:                 gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/day_count/out_reg_reg[4]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[9]
-                            (rising edge-triggered cell RAMB36E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/GpsAndImode/day_out_reg[4]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.309ns  (logic 0.141ns (45.593%)  route 0.168ns (54.407%))
+  Data Path Delay:        0.384ns  (logic 0.141ns (36.751%)  route 0.243ns (63.249%))
   Logic Levels:           0  
-  Clock Path Skew:        0.056ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.279ns
-    Source Clock Delay      (SCD):    0.939ns
-    Clock Pessimism Removal (CPR):    0.284ns
+  Clock Path Skew:        0.269ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.192ns
+    Source Clock Delay      (SCD):    0.893ns
+    Clock Pessimism Removal (CPR):    0.030ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -848,12 +839,12 @@ Slack (MET) :             0.070ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.603     0.939    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/clk
-    SLICE_X91Y62         FDRE                                         r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[6]/C
+                         net (fo=6416, routed)        0.557     0.893    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/day_count/gps_axi_aclk
+    SLICE_X47Y50         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/day_count/out_reg_reg[4]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X91Y62         FDRE (Prop_fdre_C_Q)         0.141     1.080 r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[6]/Q
-                         net (fo=8, routed)           0.168     1.248    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/Q[6]
-    RAMB36_X4Y12         RAMB36E1                                     r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[9]
+    SLICE_X47Y50         FDRE (Prop_fdre_C_Q)         0.141     1.034 r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/day_count/out_reg_reg[4]/Q
+                         net (fo=4, routed)           0.243     1.276    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/GpsAndImode/out_reg_reg[4][4]
+    SLICE_X52Y49         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/GpsAndImode/day_out_reg[4]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -861,31 +852,268 @@ Slack (MET) :             0.070ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.913     1.279    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/clk
-    RAMB36_X4Y12         RAMB36E1                                     r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
-                         clock pessimism             -0.284     0.995    
-    RAMB36_X4Y12         RAMB36E1 (Hold_ramb36e1_CLKARDCLK_ADDRARDADDR[9])
-                                                      0.183     1.178    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram
+                         net (fo=6416, routed)        0.826     1.192    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/GpsAndImode/gps_axi_aclk
+    SLICE_X52Y49         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/GpsAndImode/day_out_reg[4]/C
+                         clock pessimism             -0.030     1.162    
+    SLICE_X52Y49         FDRE (Hold_fdre_C_D)         0.070     1.232    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/GpsAndImode/day_out_reg[4]
   -------------------------------------------------------------------
-                         required time                         -1.178    
-                         arrival time                           1.248    
+                         required time                         -1.232    
+                         arrival time                           1.276    
   -------------------------------------------------------------------
-                         slack                                  0.070    
+                         slack                                  0.044    
+
+Slack (MET) :             0.059ns  (arrival time - required time)
+  Source:                 gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[12]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.514ns  (logic 0.394ns (76.658%)  route 0.120ns (23.342%))
+  Logic Levels:           3  (CARRY4=3)
+  Clock Path Skew:        0.350ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.301ns
+    Source Clock Delay      (SCD):    0.916ns
+    Clock Pessimism Removal (CPR):    0.035ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6416, routed)        0.580     0.916    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/clk
+    SLICE_X61Y98         FDRE                                         r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X61Y98         FDRE (Prop_fdre_C_Q)         0.141     1.057 r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[7]/Q
+                         net (fo=3, routed)           0.119     1.176    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/p_12_out[7]
+    SLICE_X61Y98         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.160     1.336 r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     1.336    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[4]_i_1_n_0
+    SLICE_X61Y99         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.039     1.375 r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.001     1.376    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[8]_i_1_n_0
+    SLICE_X61Y100        CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.054     1.430 r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[12]_i_1/O[0]
+                         net (fo=1, routed)           0.000     1.430    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[12]_i_1_n_7
+    SLICE_X61Y100        FDRE                                         r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[12]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6416, routed)        0.935     1.301    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/clk
+    SLICE_X61Y100        FDRE                                         r  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[12]/C
+                         clock pessimism             -0.035     1.266    
+    SLICE_X61Y100        FDRE (Hold_fdre_C_D)         0.105     1.371    gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_reg[12]
+  -------------------------------------------------------------------
+                         required time                         -1.371    
+                         arrival time                           1.430    
+  -------------------------------------------------------------------
+                         slack                                  0.059    
+
+Slack (MET) :             0.059ns  (arrival time - required time)
+  Source:                 gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/hour_count/out_reg_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/GpsAndImode/hour_out_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.399ns  (logic 0.141ns (35.335%)  route 0.258ns (64.665%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.270ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.192ns
+    Source Clock Delay      (SCD):    0.892ns
+    Clock Pessimism Removal (CPR):    0.030ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6416, routed)        0.556     0.892    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/hour_count/gps_axi_aclk
+    SLICE_X49Y51         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/hour_count/out_reg_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y51         FDRE (Prop_fdre_C_Q)         0.141     1.033 r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/hour_count/out_reg_reg[3]/Q
+                         net (fo=4, routed)           0.258     1.291    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/GpsAndImode/out_reg_reg[4]_0[3]
+    SLICE_X51Y48         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/GpsAndImode/hour_out_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6416, routed)        0.826     1.192    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/GpsAndImode/gps_axi_aclk
+    SLICE_X51Y48         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/GpsAndImode/hour_out_reg[3]/C
+                         clock pessimism             -0.030     1.162    
+    SLICE_X51Y48         FDRE (Hold_fdre_C_D)         0.070     1.232    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/GpsAndImode/hour_out_reg[3]
+  -------------------------------------------------------------------
+                         required time                         -1.232    
+                         arrival time                           1.291    
+  -------------------------------------------------------------------
+                         slack                                  0.059    
+
+Slack (MET) :             0.067ns  (arrival time - required time)
+  Source:                 gpsImode_i/processing_system7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[25]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][22]_srl32/D
+                            (rising edge-triggered cell SRLC32E clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.520ns  (logic 0.164ns (31.546%)  route 0.356ns (68.454%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.270ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.186ns
+    Source Clock Delay      (SCD):    0.881ns
+    Clock Pessimism Removal (CPR):    0.035ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6416, routed)        0.545     0.881    gpsImode_i/processing_system7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/aclk
+    SLICE_X50Y81         FDRE                                         r  gpsImode_i/processing_system7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[25]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X50Y81         FDRE (Prop_fdre_C_Q)         0.164     1.045 r  gpsImode_i/processing_system7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[25]/Q
+                         net (fo=1, routed)           0.356     1.400    gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/in[22]
+    SLICE_X32Y85         SRLC32E                                      r  gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][22]_srl32/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6416, routed)        0.820     1.186    gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/aclk
+    SLICE_X32Y85         SRLC32E                                      r  gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][22]_srl32/CLK
+                         clock pessimism             -0.035     1.151    
+    SLICE_X32Y85         SRLC32E (Hold_srlc32e_CLK_D)
+                                                      0.183     1.334    gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][22]_srl32
+  -------------------------------------------------------------------
+                         required time                         -1.334    
+                         arrival time                           1.400    
+  -------------------------------------------------------------------
+                         slack                                  0.067    
+
+Slack (MET) :             0.068ns  (arrival time - required time)
+  Source:                 gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/MINUTE_READ_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/out_reg_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.435ns  (logic 0.186ns (42.745%)  route 0.249ns (57.255%))
+  Logic Levels:           1  (LUT4=1)
+  Clock Path Skew:        0.275ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.219ns
+    Source Clock Delay      (SCD):    0.914ns
+    Clock Pessimism Removal (CPR):    0.030ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6416, routed)        0.578     0.914    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_axi_aclk
+    SLICE_X59Y50         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/MINUTE_READ_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X59Y50         FDRE (Prop_fdre_C_Q)         0.141     1.055 r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/MINUTE_READ_reg[0]/Q
+                         net (fo=1, routed)           0.249     1.304    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/MINUTE_READ_reg[31][0]
+    SLICE_X59Y49         LUT4 (Prop_lut4_I1_O)        0.045     1.349 r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/out_reg[0]_i_1__5/O
+                         net (fo=1, routed)           0.000     1.349    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/out_reg[0]_i_1__5_n_0
+    SLICE_X59Y49         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/out_reg_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6416, routed)        0.853     1.219    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/gps_axi_aclk
+    SLICE_X59Y49         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/out_reg_reg[0]/C
+                         clock pessimism             -0.030     1.189    
+    SLICE_X59Y49         FDRE (Hold_fdre_C_D)         0.092     1.281    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/minute_count/out_reg_reg[0]
+  -------------------------------------------------------------------
+                         required time                         -1.281    
+                         arrival time                           1.349    
+  -------------------------------------------------------------------
+                         slack                                  0.068    
+
+Slack (MET) :             0.068ns  (arrival time - required time)
+  Source:                 gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SERIAL_TO_PARALLEL[1].fifo_din_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][7]_srl16/D
+                            (rising edge-triggered cell SRL16E clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.266ns  (logic 0.141ns (53.000%)  route 0.125ns (47.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.015ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.186ns
+    Source Clock Delay      (SCD):    0.889ns
+    Clock Pessimism Removal (CPR):    0.282ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6416, routed)        0.553     0.889    gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/s_axi_aclk
+    SLICE_X37Y87         FDRE                                         r  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SERIAL_TO_PARALLEL[1].fifo_din_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y87         FDRE (Prop_fdre_C_Q)         0.141     1.030 r  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SERIAL_TO_PARALLEL[1].fifo_din_reg[1]/Q
+                         net (fo=3, routed)           0.125     1.155    gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/in[0]
+    SLICE_X38Y87         SRL16E                                       r  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][7]_srl16/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6416, routed)        0.820     1.186    gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/s_axi_aclk
+    SLICE_X38Y87         SRL16E                                       r  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][7]_srl16/CLK
+                         clock pessimism             -0.282     0.904    
+    SLICE_X38Y87         SRL16E (Hold_srl16e_CLK_D)
+                                                      0.183     1.087    gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][7]_srl16
+  -------------------------------------------------------------------
+                         required time                         -1.087    
+                         arrival time                           1.155    
+  -------------------------------------------------------------------
+                         slack                                  0.068    
 
 Slack (MET) :             0.076ns  (arrival time - required time)
-  Source:                 gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_data_reg[5]/C
+  Source:                 gpsImode_i/delay2_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[2]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/DIADI[3]
+  Destination:            gpsImode_i/delay2_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[5]
                             (rising edge-triggered cell RAMB36E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.450ns  (logic 0.141ns (31.360%)  route 0.309ns (68.640%))
+  Data Path Delay:        0.318ns  (logic 0.141ns (44.301%)  route 0.177ns (55.699%))
   Logic Levels:           0  
-  Clock Path Skew:        0.077ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.238ns
-    Source Clock Delay      (SCD):    0.898ns
-    Clock Pessimism Removal (CPR):    0.263ns
+  Clock Path Skew:        0.059ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.269ns
+    Source Clock Delay      (SCD):    0.928ns
+    Clock Pessimism Removal (CPR):    0.282ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -894,12 +1122,12 @@ Slack (MET) :             0.076ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.562     0.898    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/delay_axi_aclk
-    SLICE_X43Y45         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_data_reg[5]/C
+                         net (fo=6416, routed)        0.592     0.928    gpsImode_i/delay2_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/clk
+    SLICE_X23Y37         FDRE                                         r  gpsImode_i/delay2_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[2]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y45         FDRE (Prop_fdre_C_Q)         0.141     1.039 r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_data_reg[5]/Q
-                         net (fo=2, routed)           0.309     1.347    gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/din[3]
-    RAMB36_X2Y8          RAMB36E1                                     r  gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/DIADI[3]
+    SLICE_X23Y37         FDRE (Prop_fdre_C_Q)         0.141     1.069 r  gpsImode_i/delay2_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[2]/Q
+                         net (fo=7, routed)           0.177     1.246    gpsImode_i/delay2_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/Q[2]
+    RAMB36_X1Y7          RAMB36E1                                     r  gpsImode_i/delay2_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[5]
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -907,30 +1135,30 @@ Slack (MET) :             0.076ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.872     1.238    gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/clk
-    RAMB36_X2Y8          RAMB36E1                                     r  gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
-                         clock pessimism             -0.263     0.975    
-    RAMB36_X2Y8          RAMB36E1 (Hold_ramb36e1_CLKARDCLK_DIADI[3])
-                                                      0.296     1.271    gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram
+                         net (fo=6416, routed)        0.903     1.269    gpsImode_i/delay2_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/clk
+    RAMB36_X1Y7          RAMB36E1                                     r  gpsImode_i/delay2_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
+                         clock pessimism             -0.282     0.987    
+    RAMB36_X1Y7          RAMB36E1 (Hold_ramb36e1_CLKARDCLK_ADDRARDADDR[5])
+                                                      0.183     1.170    gpsImode_i/delay2_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram
   -------------------------------------------------------------------
-                         required time                         -1.271    
-                         arrival time                           1.347    
+                         required time                         -1.170    
+                         arrival time                           1.246    
   -------------------------------------------------------------------
                          slack                                  0.076    
 
-Slack (MET) :             0.081ns  (arrival time - required time)
-  Source:                 gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_1_delay_reg[10]/C
+Slack (MET) :             0.077ns  (arrival time - required time)
+  Source:                 gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/dayOver_check/monthOver_reg/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_data_reg[10]/D
+  Destination:            gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/day_count/out_reg_reg[1]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.455ns  (logic 0.252ns (55.358%)  route 0.203ns (44.642%))
-  Logic Levels:           2  (CARRY4=1 LUT2=1)
-  Clock Path Skew:        0.272ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.195ns
-    Source Clock Delay      (SCD):    0.893ns
+  Data Path Delay:        0.433ns  (logic 0.186ns (42.976%)  route 0.247ns (57.024%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.263ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.191ns
+    Source Clock Delay      (SCD):    0.898ns
     Clock Pessimism Removal (CPR):    0.030ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -940,17 +1168,14 @@ Slack (MET) :             0.081ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.557     0.893    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/delay_axi_aclk
-    SLICE_X45Y51         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_1_delay_reg[10]/C
+                         net (fo=6416, routed)        0.562     0.898    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/dayOver_check/gps_axi_aclk
+    SLICE_X48Y49         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/dayOver_check/monthOver_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X45Y51         FDRE (Prop_fdre_C_Q)         0.141     1.034 r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_1_delay_reg[10]/Q
-                         net (fo=11, routed)          0.203     1.237    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_1_delay[10]
-    SLICE_X43Y46         LUT2 (Prop_lut2_I0_O)        0.045     1.282 r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_carry__1_i_2/O
-                         net (fo=1, routed)           0.000     1.282    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_carry__1_i_2_n_0
-    SLICE_X43Y46         CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.066     1.348 r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_carry__1/O[2]
-                         net (fo=5, routed)           0.000     1.348    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay[10]
-    SLICE_X43Y46         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_data_reg[10]/D
+    SLICE_X48Y49         FDRE (Prop_fdre_C_Q)         0.141     1.039 f  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/dayOver_check/monthOver_reg/Q
+                         net (fo=98, routed)          0.247     1.285    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/hour_count/monthOver_reg
+    SLICE_X47Y50         LUT6 (Prop_lut6_I4_O)        0.045     1.330 r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/hour_count/out_reg[1]_i_1__1/O
+                         net (fo=1, routed)           0.000     1.330    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/day_count/D[0]
+    SLICE_X47Y50         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/day_count/out_reg_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -958,122 +1183,30 @@ Slack (MET) :             0.081ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.829     1.195    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/delay_axi_aclk
-    SLICE_X43Y46         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_data_reg[10]/C
-                         clock pessimism             -0.030     1.165    
-    SLICE_X43Y46         FDRE (Hold_fdre_C_D)         0.102     1.267    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_data_reg[10]
+                         net (fo=6416, routed)        0.825     1.191    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/day_count/gps_axi_aclk
+    SLICE_X47Y50         FDRE                                         r  gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/day_count/out_reg_reg[1]/C
+                         clock pessimism             -0.030     1.161    
+    SLICE_X47Y50         FDRE (Hold_fdre_C_D)         0.092     1.253    gpsImode_i/newGpsIp_0/inst/newGpsIp_v1_0_GPS_AXI_inst/gps_module/day_count/out_reg_reg[1]
   -------------------------------------------------------------------
-                         required time                         -1.267    
-                         arrival time                           1.348    
+                         required time                         -1.253    
+                         arrival time                           1.330    
   -------------------------------------------------------------------
-                         slack                                  0.081    
+                         slack                                  0.077    
 
-Slack (MET) :             0.081ns  (arrival time - required time)
-  Source:                 gpsImode_i/delay1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[5]/C
+Slack (MET) :             0.079ns  (arrival time - required time)
+  Source:                 gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[2]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[7]
+  Destination:            gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[5]
                             (rising edge-triggered cell RAMB36E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.320ns  (logic 0.141ns (44.101%)  route 0.179ns (55.899%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.055ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.223ns
-    Source Clock Delay      (SCD):    0.888ns
-    Clock Pessimism Removal (CPR):    0.280ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.552     0.887    gpsImode_i/delay1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/clk
-    SLICE_X33Y23         FDRE                                         r  gpsImode_i/delay1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[5]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X33Y23         FDRE (Prop_fdre_C_Q)         0.141     1.028 r  gpsImode_i/delay1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[5]/Q
-                         net (fo=7, routed)           0.179     1.207    gpsImode_i/delay1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/Q[5]
-    RAMB36_X2Y4          RAMB36E1                                     r  gpsImode_i/delay1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[7]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.857     1.223    gpsImode_i/delay1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/clk
-    RAMB36_X2Y4          RAMB36E1                                     r  gpsImode_i/delay1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
-                         clock pessimism             -0.280     0.943    
-    RAMB36_X2Y4          RAMB36E1 (Hold_ramb36e1_CLKARDCLK_ADDRARDADDR[7])
-                                                      0.183     1.126    gpsImode_i/delay1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram
-  -------------------------------------------------------------------
-                         required time                         -1.126    
-                         arrival time                           1.207    
-  -------------------------------------------------------------------
-                         slack                                  0.081    
-
-Slack (MET) :             0.082ns  (arrival time - required time)
-  Source:                 gpsImode_i/gps1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[10]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/gps1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[13]
-                            (rising edge-triggered cell RAMB36E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.322ns  (logic 0.141ns (43.774%)  route 0.181ns (56.226%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.057ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.284ns
-    Source Clock Delay      (SCD):    0.943ns
-    Clock Pessimism Removal (CPR):    0.284ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.607     0.943    gpsImode_i/gps1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/clk
-    SLICE_X91Y52         FDRE                                         r  gpsImode_i/gps1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[10]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X91Y52         FDRE (Prop_fdre_C_Q)         0.141     1.084 r  gpsImode_i/gps1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[10]/Q
-                         net (fo=11, routed)          0.181     1.265    gpsImode_i/gps1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/Q[10]
-    RAMB36_X4Y10         RAMB36E1                                     r  gpsImode_i/gps1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[13]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.918     1.284    gpsImode_i/gps1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/clk
-    RAMB36_X4Y10         RAMB36E1                                     r  gpsImode_i/gps1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
-                         clock pessimism             -0.284     1.000    
-    RAMB36_X4Y10         RAMB36E1 (Hold_ramb36e1_CLKARDCLK_ADDRARDADDR[13])
-                                                      0.183     1.183    gpsImode_i/gps1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram
-  -------------------------------------------------------------------
-                         required time                         -1.183    
-                         arrival time                           1.265    
-  -------------------------------------------------------------------
-                         slack                                  0.082    
-
-Slack (MET) :             0.082ns  (arrival time - required time)
-  Source:                 gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[5]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRBWRADDR[8]
-                            (rising edge-triggered cell RAMB36E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.321ns  (logic 0.141ns (43.863%)  route 0.180ns (56.137%))
+  Data Path Delay:        0.318ns  (logic 0.141ns (44.294%)  route 0.177ns (55.706%))
   Logic Levels:           0  
   Clock Path Skew:        0.056ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.258ns
-    Source Clock Delay      (SCD):    0.919ns
-    Clock Pessimism Removal (CPR):    0.283ns
+    Destination Clock Delay (DCD):    1.259ns
+    Source Clock Delay      (SCD):    0.921ns
+    Clock Pessimism Removal (CPR):    0.282ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1082,58 +1215,12 @@ Slack (MET) :             0.082ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.583     0.919    gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/clk
-    SLICE_X9Y25          FDRE                                         r  gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[5]/C
+                         net (fo=6416, routed)        0.585     0.921    gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/clk
+    SLICE_X23Y27         FDRE                                         r  gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[2]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X9Y25          FDRE (Prop_fdre_C_Q)         0.141     1.059 r  gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[5]/Q
-                         net (fo=7, routed)           0.180     1.240    gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/gc0.count_d1_reg[11][5]
-    RAMB36_X0Y5          RAMB36E1                                     r  gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRBWRADDR[8]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.892     1.258    gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/clk
-    RAMB36_X0Y5          RAMB36E1                                     r  gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKBWRCLK
-                         clock pessimism             -0.283     0.975    
-    RAMB36_X0Y5          RAMB36E1 (Hold_ramb36e1_CLKBWRCLK_ADDRBWRADDR[8])
-                                                      0.183     1.158    gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram
-  -------------------------------------------------------------------
-                         required time                         -1.158    
-                         arrival time                           1.240    
-  -------------------------------------------------------------------
-                         slack                                  0.082    
-
-Slack (MET) :             0.082ns  (arrival time - required time)
-  Source:                 gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[11]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[14]
-                            (rising edge-triggered cell RAMB36E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.570ns  (logic 0.164ns (28.759%)  route 0.406ns (71.241%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.305ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.233ns
-    Source Clock Delay      (SCD):    0.899ns
-    Clock Pessimism Removal (CPR):    0.030ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.563     0.899    gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/clk
-    SLICE_X32Y42         FDRE                                         r  gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[11]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X32Y42         FDRE (Prop_fdre_C_Q)         0.164     1.063 r  gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[11]/Q
-                         net (fo=7, routed)           0.406     1.469    gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/Q[11]
-    RAMB36_X2Y10         RAMB36E1                                     r  gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[14]
+    SLICE_X23Y27         FDRE (Prop_fdre_C_Q)         0.141     1.062 r  gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/gcc0.gc0.count_d1_reg[2]/Q
+                         net (fo=7, routed)           0.177     1.239    gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/Q[2]
+    RAMB36_X1Y5          RAMB36E1                                     r  gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ADDRARDADDR[5]
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1141,116 +1228,16 @@ Slack (MET) :             0.082ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.867     1.233    gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/clk
-    RAMB36_X2Y10         RAMB36E1                                     r  gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
-                         clock pessimism             -0.030     1.203    
-    RAMB36_X2Y10         RAMB36E1 (Hold_ramb36e1_CLKARDCLK_ADDRARDADDR[14])
-                                                      0.183     1.386    gpsImode_i/delay4_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram
+                         net (fo=6416, routed)        0.893     1.259    gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/clk
+    RAMB36_X1Y5          RAMB36E1                                     r  gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
+                         clock pessimism             -0.282     0.977    
+    RAMB36_X1Y5          RAMB36E1 (Hold_ramb36e1_CLKARDCLK_ADDRARDADDR[5])
+                                                      0.183     1.160    gpsImode_i/delay3_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram
   -------------------------------------------------------------------
-                         required time                         -1.386    
-                         arrival time                           1.469    
+                         required time                         -1.160    
+                         arrival time                           1.239    
   -------------------------------------------------------------------
-                         slack                                  0.082    
-
-Slack (MET) :             0.083ns  (arrival time - required time)
-  Source:                 gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg3_reg[26]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_3_delay_data_reg[10]/D
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.485ns  (logic 0.251ns (51.752%)  route 0.234ns (48.248%))
-  Logic Levels:           2  (CARRY4=1 LUT2=1)
-  Clock Path Skew:        0.272ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.195ns
-    Source Clock Delay      (SCD):    0.893ns
-    Clock Pessimism Removal (CPR):    0.030ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.557     0.893    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_aclk
-    SLICE_X43Y51         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg3_reg[26]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X43Y51         FDRE (Prop_fdre_C_Q)         0.141     1.034 r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg3_reg[26]/Q
-                         net (fo=2, routed)           0.234     1.268    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/slv_reg3_reg[30][24]
-    SLICE_X38Y45         LUT2 (Prop_lut2_I1_O)        0.045     1.313 r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_3_delay_carry__1_i_2/O
-                         net (fo=1, routed)           0.000     1.313    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_3_delay_carry__1_i_2_n_0
-    SLICE_X38Y45         CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.065     1.378 r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_3_delay_carry__1/O[2]
-                         net (fo=5, routed)           0.000     1.378    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_3_delay[10]
-    SLICE_X38Y45         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_3_delay_data_reg[10]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.829     1.195    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/delay_axi_aclk
-    SLICE_X38Y45         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_3_delay_data_reg[10]/C
-                         clock pessimism             -0.030     1.165    
-    SLICE_X38Y45         FDRE (Hold_fdre_C_D)         0.130     1.295    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_3_delay_data_reg[10]
-  -------------------------------------------------------------------
-                         required time                         -1.295    
-                         arrival time                           1.378    
-  -------------------------------------------------------------------
-                         slack                                  0.083    
-
-Slack (MET) :             0.083ns  (arrival time - required time)
-  Source:                 gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg4_reg[27]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_data_reg[11]/D
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.458ns  (logic 0.249ns (54.403%)  route 0.209ns (45.597%))
-  Logic Levels:           2  (CARRY4=1 LUT2=1)
-  Clock Path Skew:        0.272ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.195ns
-    Source Clock Delay      (SCD):    0.893ns
-    Clock Pessimism Removal (CPR):    0.030ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.557     0.893    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/delay_axi_aclk
-    SLICE_X43Y52         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg4_reg[27]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X43Y52         FDRE (Prop_fdre_C_Q)         0.141     1.034 r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/slv_reg4_reg[27]/Q
-                         net (fo=2, routed)           0.209     1.242    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/slv_reg4_reg[30][25]
-    SLICE_X43Y46         LUT2 (Prop_lut2_I1_O)        0.045     1.287 r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_carry__1_i_1/O
-                         net (fo=1, routed)           0.000     1.287    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_carry__1_i_1_n_0
-    SLICE_X43Y46         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.063     1.350 r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_carry__1/O[3]
-                         net (fo=5, routed)           0.000     1.350    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay[11]
-    SLICE_X43Y46         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_data_reg[11]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    gpsImode_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  gpsImode_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=5773, routed)        0.829     1.195    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/delay_axi_aclk
-    SLICE_X43Y46         FDRE                                         r  gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_data_reg[11]/C
-                         clock pessimism             -0.030     1.165    
-    SLICE_X43Y46         FDRE (Hold_fdre_C_D)         0.102     1.267    gpsImode_i/delay_0/inst/delay_v1_0_DELAY_AXI_inst/out/out_4_delay_data_reg[11]
-  -------------------------------------------------------------------
-                         required time                         -1.267    
-                         arrival time                           1.350    
-  -------------------------------------------------------------------
-                         slack                                  0.083    
+                         slack                                  0.079    
 
 
 
@@ -1263,37 +1250,37 @@ Waveform(ns):       { 0.000 5.000 }
 Period(ns):         10.000
 Sources:            { gpsImode_i/processing_system7_0/inst/PS7_i/FCLKCLK[0] }
 
-Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424      RAMB36_X5Y12  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X5Y12  gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKBWRCLK
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424      RAMB36_X0Y8   gpsImode_i/delay3_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X0Y8   gpsImode_i/delay3_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKBWRCLK
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424      RAMB36_X3Y9   gpsImode_i/delay4_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X3Y9   gpsImode_i/delay4_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKBWRCLK
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424      RAMB36_X5Y8   gpsImode_i/gps1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X5Y8   gpsImode_i/gps1_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKBWRCLK
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424      RAMB36_X5Y7   gpsImode_i/gps1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
-Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X5Y7   gpsImode_i/gps1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKBWRCLK
-Low Pulse Width   Fast    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X36Y78  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][0]_srl16/CLK
-Low Pulse Width   Fast    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X36Y78  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][1]_srl16/CLK
-Low Pulse Width   Fast    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X36Y78  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][2]_srl16/CLK
-Low Pulse Width   Fast    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X36Y78  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][3]_srl16/CLK
-Low Pulse Width   Fast    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X36Y78  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][4]_srl16/CLK
-Low Pulse Width   Fast    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X36Y78  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][5]_srl16/CLK
-Low Pulse Width   Fast    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X36Y78  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][6]_srl16/CLK
-Low Pulse Width   Fast    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X36Y78  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][7]_srl16/CLK
-Low Pulse Width   Slow    SRLC32E/CLK         n/a            0.980         5.000       4.020      SLICE_X32Y81  gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][16]_srl32/CLK
-Low Pulse Width   Slow    SRLC32E/CLK         n/a            0.980         5.000       4.020      SLICE_X32Y81  gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][21]_srl32/CLK
-High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X38Y76  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/DELAY_16_I/INFERRED_GEN.data_reg[14][0]_srl15/CLK
-High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X38Y75  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][0]_srl16/CLK
-High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X38Y75  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][1]_srl16/CLK
-High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X38Y75  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][2]_srl16/CLK
-High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X38Y75  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][3]_srl16/CLK
-High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X38Y75  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][4]_srl16/CLK
-High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X38Y75  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][5]_srl16/CLK
-High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X38Y75  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][6]_srl16/CLK
-High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X38Y75  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_RX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][7]_srl16/CLK
-High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X38Y76  gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/MID_START_BIT_SRL16_I/INFERRED_GEN.data_reg[14][0]_srl15/CLK
+Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424      RAMB36_X4Y19   gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X4Y19   gpsImode_i/ch1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424      RAMB36_X3Y17   gpsImode_i/ch2_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X3Y17   gpsImode_i/ch2_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424      RAMB36_X5Y22   gpsImode_i/delay1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X5Y22   gpsImode_i/delay1_fifo2/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424      RAMB36_X1Y2    gpsImode_i/delay4_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X1Y2    gpsImode_i/delay4_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424      RAMB36_X5Y9    gpsImode_i/gps2_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         10.000      7.424      RAMB36_X5Y9    gpsImode_i/gps2_fifo1/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/CLKBWRCLK
+Low Pulse Width   Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X32Y103  gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][0]_srl4/CLK
+Low Pulse Width   Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X32Y103  gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][1]_srl4/CLK
+Low Pulse Width   Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X32Y103  gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][2]_srl4/CLK
+Low Pulse Width   Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X32Y103  gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][3]_srl4/CLK
+Low Pulse Width   Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X32Y103  gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][4]_srl4/CLK
+Low Pulse Width   Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X32Y103  gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/WR.b_channel_0/bid_fifo_0/memory_reg[3][5]_srl4/CLK
+Low Pulse Width   Fast    SRLC32E/CLK         n/a            0.980         5.000       4.020      SLICE_X30Y94   gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][0]_srl32/CLK
+Low Pulse Width   Fast    SRLC32E/CLK         n/a            0.980         5.000       4.020      SLICE_X30Y97   gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][10]_srl32/CLK
+Low Pulse Width   Fast    SRLC32E/CLK         n/a            0.980         5.000       4.020      SLICE_X30Y95   gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][11]_srl32/CLK
+Low Pulse Width   Fast    SRLC32E/CLK         n/a            0.980         5.000       4.020      SLICE_X30Y93   gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/transaction_fifo_0/memory_reg[31][12]_srl32/CLK
+High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X42Y85   gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][0]_srl16/CLK
+High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X42Y85   gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][1]_srl16/CLK
+High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X42Y85   gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][2]_srl16/CLK
+High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X42Y85   gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][3]_srl16/CLK
+High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X42Y85   gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][4]_srl16/CLK
+High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X42Y85   gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][5]_srl16/CLK
+High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X42Y85   gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][6]_srl16/CLK
+High Pulse Width  Slow    SRL16E/CLK          n/a            0.980         5.000       4.020      SLICE_X42Y85   gpsImode_i/axi_uartlite_0/U0/UARTLITE_CORE_I/UARTLITE_TX_I/SRL_FIFO_I/I_SRL_FIFO_RBU_F/DYNSHREG_F_I/INFERRED_GEN.data_reg[15][7]_srl16/CLK
+High Pulse Width  Slow    SRLC32E/CLK         n/a            0.980         5.000       4.020      SLICE_X30Y87   gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][0]_srl32/CLK
+High Pulse Width  Slow    SRLC32E/CLK         n/a            0.980         5.000       4.020      SLICE_X30Y85   gpsImode_i/processing_system7_0_axi_periph/s00_couplers/auto_pc/inst/gen_axilite.gen_b2s_conv.axilite_b2s/RD.r_channel_0/rd_data_fifo_0/memory_reg[31][10]_srl32/CLK
 
 
 

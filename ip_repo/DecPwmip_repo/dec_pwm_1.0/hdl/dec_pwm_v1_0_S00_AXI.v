@@ -15,12 +15,14 @@
 	)
 	(
 		// Users to add ports here
+        input time_record_flag,
         input sig_in,       // input decoder signal
         input B,            // input decoder level
         input clr, 
         
         output pwmo,
         output pwmd,
+        output reg [31:0] motor_angle_data,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -438,25 +440,34 @@
 	    end
 	end    
 
-	// Add user logic here
+    // Add user logic here
 
-wire [31:0]  ref_cntr;
-wire [31:0]  sig_cntr;
+    wire [31:0]  ref_cntr;
+    wire [31:0]  sig_cntr;
 
-frc_cal u1(
- .ref_clk( S_AXI_ACLK ),
- .sig_clk( sig_in   ),
- .ref_c ( ref_cntr  ),
- .sig_c ( sig_cntr  ),
- .clr   ( clr ),
- .cal_en( slv_reg2[0] ),
- .B(B)
-);
+    frc_cal u1(
+        .ref_clk( S_AXI_ACLK ),
+        .sig_clk( sig_in   ),
+        .ref_c ( ref_cntr  ),
+        .sig_c ( sig_cntr  ),
+        .clr   ( clr ),
+        .cal_en( slv_reg2[0] ),
+        .B(B)
+    );
 
-pwm LED0( .clk( S_AXI_ACLK ) , .pwm_val( slv_reg3[7:0] ) ,.divide_num(slv_reg4[31:0]),.pwm_en(slv_reg5[0]), .pwm_pin( pwmo)  );
+    pwm LED0( .clk( S_AXI_ACLK ) , .pwm_val( slv_reg3[7:0] ) ,.divide_num(slv_reg4[31:0]),.pwm_en(slv_reg5[0]), .pwm_pin( pwmo)  );
 
-assign pwmd = slv_reg6[0];
+    always @(posedge S_AXI_ACLK) begin
+        if(! S_AXI_ARESETN)
+            motor_angle_data <= 0;
+        else if(time_record_flag)
+            motor_angle_data <= sig_cntr;
+        else
+            motor_angle_data <= motor_angle_data;
+    end
 
-	// User logic ends
+    assign pwmd = slv_reg6[0];
 
-	endmodule
+    // User logic ends
+
+endmodule

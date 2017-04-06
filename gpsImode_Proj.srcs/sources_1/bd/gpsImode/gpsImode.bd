@@ -319,33 +319,33 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>pwmo</spirit:name>
+          <spirit:name>raster_a</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>raster_b</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>raster_z</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>pos_pwm</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>pwmd</spirit:name>
+          <spirit:name>dir</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>sig_in</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>B</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>clr</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
           </spirit:wire>
         </spirit:port>
       </spirit:ports>
@@ -507,20 +507,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>dec_pwm_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="dec_pwm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_dec_pwm_0_0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>myip_fifo_ctrl_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="myip_fifo_ctrl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_myip_fifo_ctrl_0_0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>delay1_fifo1</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.1"/>
         <spirit:configurableElementValues>
@@ -607,6 +593,40 @@
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_delay_0_1</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>myip_fifo_ctrl_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="myip_fifo_ctrl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_myip_fifo_ctrl_0_0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>motor_angle_fifo1</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_start_tri_fifo1_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Data_Width">32</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Depth">8192</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Output_Data_Width">32</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>motor_angle_fifo2</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_motor_angle_fifo1_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Data_Width">32</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Depth">8192</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Output_Data_Width">32</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>motor_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="motor" spirit:vendor="xilinx.com" spirit:version="2.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">gpsImode_motor_0_0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
     </spirit:componentInstances>
     <spirit:interconnections>
       <spirit:interconnection>
@@ -642,7 +662,7 @@
       <spirit:interconnection>
         <spirit:name>processing_system7_0_axi_periph_M05_AXI</spirit:name>
         <spirit:activeInterface spirit:busRef="M05_AXI" spirit:componentRef="processing_system7_0_axi_periph"/>
-        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="dec_pwm_0"/>
+        <spirit:activeInterface spirit:busRef="MOTOR_AXI" spirit:componentRef="motor_0"/>
       </spirit:interconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
@@ -669,8 +689,6 @@
         <spirit:internalPortReference spirit:componentRef="gps1_fifo1" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="newGpsIp_0" spirit:portRef="gps_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="dec_pwm_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="delay1_fifo1" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="delay1_fifo2" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="delay2_fifo1" spirit:portRef="clk"/>
@@ -679,6 +697,10 @@
         <spirit:internalPortReference spirit:componentRef="delay3_fifo2" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="delay4_fifo1" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="delay4_fifo2" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="delay_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="motor_angle_fifo1" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="motor_angle_fifo2" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="S00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M00_ACLK"/>
@@ -687,7 +709,7 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M03_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M04_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M05_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="delay_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="motor_0" spirit:portRef="motor_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_RESET0_N</spirit:name>
@@ -700,7 +722,7 @@
         <spirit:internalPortReference spirit:componentRef="axi_uartlite_0" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="newGpsIp_0" spirit:portRef="gps_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="dec_pwm_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="delay_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M00_ARESETN"/>
@@ -709,7 +731,7 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M03_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M04_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M05_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="delay_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="motor_0" spirit:portRef="motor_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>rst_processing_system7_0_100M_interconnect_aresetn</spirit:name>
@@ -806,6 +828,7 @@
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="set_zero"/>
         <spirit:internalPortReference spirit:componentRef="newGpsIp_0" spirit:portRef="tstartCome"/>
         <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="time_record_flag"/>
+        <spirit:internalPortReference spirit:componentRef="motor_0" spirit:portRef="record_flag"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>EF2_1</spirit:name>
@@ -859,6 +882,7 @@
         <spirit:internalPortReference spirit:componentRef="delay3_fifo2" spirit:portRef="wr_en"/>
         <spirit:internalPortReference spirit:componentRef="delay4_fifo2" spirit:portRef="wr_en"/>
         <spirit:internalPortReference spirit:componentRef="delay1_fifo2" spirit:portRef="wr_en"/>
+        <spirit:internalPortReference spirit:componentRef="motor_angle_fifo2" spirit:portRef="wr_en"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>fifo_generator_0_full</spirit:name>
@@ -906,6 +930,8 @@
         <spirit:internalPortReference spirit:componentRef="delay3_fifo2" spirit:portRef="srst"/>
         <spirit:internalPortReference spirit:componentRef="delay4_fifo1" spirit:portRef="srst"/>
         <spirit:internalPortReference spirit:componentRef="delay4_fifo2" spirit:portRef="srst"/>
+        <spirit:internalPortReference spirit:componentRef="motor_angle_fifo1" spirit:portRef="srst"/>
+        <spirit:internalPortReference spirit:componentRef="motor_angle_fifo2" spirit:portRef="srst"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>fifo_generator_2_dout</spirit:name>
@@ -939,6 +965,7 @@
         <spirit:internalPortReference spirit:componentRef="delay1_fifo1" spirit:portRef="rd_en"/>
         <spirit:internalPortReference spirit:componentRef="delay3_fifo1" spirit:portRef="rd_en"/>
         <spirit:internalPortReference spirit:componentRef="delay4_fifo1" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="motor_angle_fifo1" spirit:portRef="rd_en"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>fifo_generator_1_dout</spirit:name>
@@ -963,8 +990,8 @@
       <spirit:adHocConnection>
         <spirit:name>myImode_0_ch1_data</spirit:name>
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="ch1_data"/>
-        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="ch1_data_to_be_wr"/>
         <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="ch1_time_data"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="ch1_data_to_be_wr"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>myImode_0_ch2_data</spirit:name>
@@ -989,8 +1016,8 @@
       <spirit:adHocConnection>
         <spirit:name>myImode_0_timeDataWrEn</spirit:name>
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="timeDataWrEn"/>
-        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="data_in_flag"/>
         <spirit:internalPortReference spirit:componentRef="delay_0" spirit:portRef="data_flag"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="data_in_flag"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>myip_fifo_ctrl_0_fifo1_wr</spirit:name>
@@ -1004,6 +1031,7 @@
         <spirit:internalPortReference spirit:componentRef="delay1_fifo1" spirit:portRef="wr_en"/>
         <spirit:internalPortReference spirit:componentRef="delay3_fifo1" spirit:portRef="wr_en"/>
         <spirit:internalPortReference spirit:componentRef="delay4_fifo1" spirit:portRef="wr_en"/>
+        <spirit:internalPortReference spirit:componentRef="motor_angle_fifo1" spirit:portRef="wr_en"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>ch2_fifo2_dout</spirit:name>
@@ -1048,31 +1076,6 @@
         <spirit:internalPortReference spirit:componentRef="myGmode_0" spirit:portRef="StopTrigger1"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>dec_pwm_0_pwmo</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="dec_pwm_0" spirit:portRef="pwmo"/>
-        <spirit:externalPortReference spirit:portRef="pwmo"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>dec_pwm_0_pwmd</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="dec_pwm_0" spirit:portRef="pwmd"/>
-        <spirit:externalPortReference spirit:portRef="pwmd"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>sig_in_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="sig_in"/>
-        <spirit:internalPortReference spirit:componentRef="dec_pwm_0" spirit:portRef="sig_in"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>B_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="B"/>
-        <spirit:internalPortReference spirit:componentRef="dec_pwm_0" spirit:portRef="B"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>clr_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="clr"/>
-        <spirit:internalPortReference spirit:componentRef="dec_pwm_0" spirit:portRef="clr"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>myip_fifo_ctrl_0_gps2_fifo2_rd</spirit:name>
         <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="fifo2_rd"/>
         <spirit:internalPortReference spirit:componentRef="gps2_fifo2" spirit:portRef="rd_en"/>
@@ -1084,6 +1087,7 @@
         <spirit:internalPortReference spirit:componentRef="delay3_fifo2" spirit:portRef="rd_en"/>
         <spirit:internalPortReference spirit:componentRef="delay4_fifo2" spirit:portRef="rd_en"/>
         <spirit:internalPortReference spirit:componentRef="delay1_fifo2" spirit:portRef="rd_en"/>
+        <spirit:internalPortReference spirit:componentRef="motor_angle_fifo2" spirit:portRef="rd_en"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>delay_0_out_1_delay_data</spirit:name>
@@ -1168,6 +1172,52 @@
         <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="delay4_fifo_wr_data"/>
         <spirit:internalPortReference spirit:componentRef="delay4_fifo1" spirit:portRef="din"/>
         <spirit:internalPortReference spirit:componentRef="delay4_fifo2" spirit:portRef="din"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>myip_fifo_ctrl_0_motor_angle_fifo_wr_data</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="motor_angle_fifo_wr_data"/>
+        <spirit:internalPortReference spirit:componentRef="motor_angle_fifo2" spirit:portRef="din"/>
+        <spirit:internalPortReference spirit:componentRef="motor_angle_fifo1" spirit:portRef="din"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>motor_angle_fifo1_dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="motor_angle_fifo1" spirit:portRef="dout"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="motor_angle_fifo1_rd_data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>motor_angle_fifo2_dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="motor_angle_fifo2" spirit:portRef="dout"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="motor_angle_fifo2_rd_data"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>motor_0_raster_val</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="motor_0" spirit:portRef="raster_val"/>
+        <spirit:internalPortReference spirit:componentRef="myip_fifo_ctrl_0" spirit:portRef="motor_angle_data_to_be_wr"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>raster_a_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="raster_a"/>
+        <spirit:internalPortReference spirit:componentRef="motor_0" spirit:portRef="raster_a"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>raster_b_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="raster_b"/>
+        <spirit:internalPortReference spirit:componentRef="motor_0" spirit:portRef="raster_b"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>raster_z_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="raster_z"/>
+        <spirit:internalPortReference spirit:componentRef="motor_0" spirit:portRef="raster_z"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>motor_0_pos_pwm</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="motor_0" spirit:portRef="pos_pwm"/>
+        <spirit:externalPortReference spirit:portRef="pos_pwm"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>motor_0_dir</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="motor_0" spirit:portRef="dir"/>
+        <spirit:externalPortReference spirit:portRef="dir"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -3389,9 +3439,9 @@
             <spirit:range>64K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_dec_pwm_0_S00_AXI_reg</spirit:name>
-            <spirit:displayName>/dec_pwm_0/S00_AXI/S00_AXI_reg</spirit:displayName>
-            <spirit:addressOffset>0x43C40000</spirit:addressOffset>
+            <spirit:name>SEG_delay_0_DELAY_AXI_reg</spirit:name>
+            <spirit:displayName>/delay_0/DELAY_AXI/DELAY_AXI_reg</spirit:displayName>
+            <spirit:addressOffset>0x43C30000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
           <spirit:segment>
@@ -3401,9 +3451,9 @@
             <spirit:range>64K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_delay_0_DELAY_AXI_reg</spirit:name>
-            <spirit:displayName>/delay_0/DELAY_AXI/DELAY_AXI_reg</spirit:displayName>
-            <spirit:addressOffset>0x43C30000</spirit:addressOffset>
+            <spirit:name>SEG_motor_0_MOTOR_AXI_reg</spirit:name>
+            <spirit:displayName>/motor_0/MOTOR_AXI/MOTOR_AXI_reg</spirit:displayName>
+            <spirit:addressOffset>0x43C40000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
         </spirit:segments>

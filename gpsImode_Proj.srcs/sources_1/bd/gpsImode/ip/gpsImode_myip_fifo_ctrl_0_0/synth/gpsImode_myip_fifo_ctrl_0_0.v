@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:myip_fifo_ctrl:1.0
-// IP Revision: 7
+// IP Revision: 8
 
 (* X_CORE_INFO = "myip_fifo_ctrl_v1_0,Vivado 2016.2" *)
 (* CHECK_LICENSE_TYPE = "gpsImode_myip_fifo_ctrl_0_0,myip_fifo_ctrl_v1_0,{}" *)
-(* CORE_GENERATION_INFO = "gpsImode_myip_fifo_ctrl_0_0,myip_fifo_ctrl_v1_0,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=myip_fifo_ctrl,x_ipVersion=1.0,x_ipCoreRevision=7,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FIFO_AXI_DATA_WIDTH=32,C_FIFO_AXI_ADDR_WIDTH=8}" *)
+(* CORE_GENERATION_INFO = "gpsImode_myip_fifo_ctrl_0_0,myip_fifo_ctrl_v1_0,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=myip_fifo_ctrl,x_ipVersion=1.0,x_ipCoreRevision=8,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FIFO_AXI_DATA_WIDTH=32,C_FIFO_AXI_ADDR_WIDTH=8}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module gpsImode_myip_fifo_ctrl_0_0 (
   data_in_flag,
@@ -69,6 +69,7 @@ module gpsImode_myip_fifo_ctrl_0_0 (
   delay2_data_to_be_wr,
   delay3_data_to_be_wr,
   delay4_data_to_be_wr,
+  motor_angle_data_to_be_wr,
   ch1_fifo1_rd_data,
   ch2_fifo1_rd_data,
   gps1_fifo1_rd_data,
@@ -78,6 +79,7 @@ module gpsImode_myip_fifo_ctrl_0_0 (
   delay2_fifo1_rd_data,
   delay3_fifo1_rd_data,
   delay4_fifo1_rd_data,
+  motor_angle_fifo1_rd_data,
   ch1_fifo2_rd_data,
   ch2_fifo2_rd_data,
   gps1_fifo2_rd_data,
@@ -87,6 +89,7 @@ module gpsImode_myip_fifo_ctrl_0_0 (
   delay2_fifo2_rd_data,
   delay3_fifo2_rd_data,
   delay4_fifo2_rd_data,
+  motor_angle_fifo2_rd_data,
   ch1_fifo_wr_data,
   ch2_fifo_wr_data,
   gps1_fifo_wr_data,
@@ -96,6 +99,7 @@ module gpsImode_myip_fifo_ctrl_0_0 (
   delay2_fifo_wr_data,
   delay3_fifo_wr_data,
   delay4_fifo_wr_data,
+  motor_angle_fifo_wr_data,
   fifo1_rd,
   fifo2_rd,
   fifo1_wr,
@@ -138,6 +142,7 @@ input wire [14 : 0] delay1_data_to_be_wr;
 input wire [14 : 0] delay2_data_to_be_wr;
 input wire [14 : 0] delay3_data_to_be_wr;
 input wire [14 : 0] delay4_data_to_be_wr;
+input wire [31 : 0] motor_angle_data_to_be_wr;
 input wire [21 : 0] ch1_fifo1_rd_data;
 input wire [21 : 0] ch2_fifo1_rd_data;
 input wire [31 : 0] gps1_fifo1_rd_data;
@@ -147,6 +152,7 @@ input wire [14 : 0] delay1_fifo1_rd_data;
 input wire [14 : 0] delay2_fifo1_rd_data;
 input wire [14 : 0] delay3_fifo1_rd_data;
 input wire [14 : 0] delay4_fifo1_rd_data;
+input wire [31 : 0] motor_angle_fifo1_rd_data;
 input wire [21 : 0] ch1_fifo2_rd_data;
 input wire [21 : 0] ch2_fifo2_rd_data;
 input wire [31 : 0] gps1_fifo2_rd_data;
@@ -156,6 +162,7 @@ input wire [14 : 0] delay1_fifo2_rd_data;
 input wire [14 : 0] delay2_fifo2_rd_data;
 input wire [14 : 0] delay3_fifo2_rd_data;
 input wire [14 : 0] delay4_fifo2_rd_data;
+input wire [31 : 0] motor_angle_fifo2_rd_data;
 output wire [21 : 0] ch1_fifo_wr_data;
 output wire [21 : 0] ch2_fifo_wr_data;
 output wire [31 : 0] gps1_fifo_wr_data;
@@ -165,6 +172,7 @@ output wire [14 : 0] delay1_fifo_wr_data;
 output wire [14 : 0] delay2_fifo_wr_data;
 output wire [14 : 0] delay3_fifo_wr_data;
 output wire [14 : 0] delay4_fifo_wr_data;
+output wire [31 : 0] motor_angle_fifo_wr_data;
 output wire fifo1_rd;
 output wire fifo2_rd;
 output wire fifo1_wr;
@@ -231,6 +239,7 @@ input wire fifo_axi_aresetn;
     .delay2_data_to_be_wr(delay2_data_to_be_wr),
     .delay3_data_to_be_wr(delay3_data_to_be_wr),
     .delay4_data_to_be_wr(delay4_data_to_be_wr),
+    .motor_angle_data_to_be_wr(motor_angle_data_to_be_wr),
     .ch1_fifo1_rd_data(ch1_fifo1_rd_data),
     .ch2_fifo1_rd_data(ch2_fifo1_rd_data),
     .gps1_fifo1_rd_data(gps1_fifo1_rd_data),
@@ -240,6 +249,7 @@ input wire fifo_axi_aresetn;
     .delay2_fifo1_rd_data(delay2_fifo1_rd_data),
     .delay3_fifo1_rd_data(delay3_fifo1_rd_data),
     .delay4_fifo1_rd_data(delay4_fifo1_rd_data),
+    .motor_angle_fifo1_rd_data(motor_angle_fifo1_rd_data),
     .ch1_fifo2_rd_data(ch1_fifo2_rd_data),
     .ch2_fifo2_rd_data(ch2_fifo2_rd_data),
     .gps1_fifo2_rd_data(gps1_fifo2_rd_data),
@@ -249,6 +259,7 @@ input wire fifo_axi_aresetn;
     .delay2_fifo2_rd_data(delay2_fifo2_rd_data),
     .delay3_fifo2_rd_data(delay3_fifo2_rd_data),
     .delay4_fifo2_rd_data(delay4_fifo2_rd_data),
+    .motor_angle_fifo2_rd_data(motor_angle_fifo2_rd_data),
     .ch1_fifo_wr_data(ch1_fifo_wr_data),
     .ch2_fifo_wr_data(ch2_fifo_wr_data),
     .gps1_fifo_wr_data(gps1_fifo_wr_data),
@@ -258,6 +269,7 @@ input wire fifo_axi_aresetn;
     .delay2_fifo_wr_data(delay2_fifo_wr_data),
     .delay3_fifo_wr_data(delay3_fifo_wr_data),
     .delay4_fifo_wr_data(delay4_fifo_wr_data),
+    .motor_angle_fifo_wr_data(motor_angle_fifo_wr_data),
     .fifo1_rd(fifo1_rd),
     .fifo2_rd(fifo2_rd),
     .fifo1_wr(fifo1_wr),

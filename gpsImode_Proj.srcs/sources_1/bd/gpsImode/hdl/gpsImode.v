@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-//Date        : Thu Mar 09 16:55:06 2017
+//Date        : Wed Apr 05 17:35:14 2017
 //Host        : DESKTOP-G26N4G8 running 64-bit major release  (build 9200)
 //Command     : generate_target gpsImode.bd
 //Design      : gpsImode
@@ -9,10 +9,9 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "gpsImode,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=gpsImode,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=36,numReposBlks=28,numNonXlnxBlks=0,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=10,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "gpsImode.hwdef" *) 
+(* CORE_GENERATION_INFO = "gpsImode,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=gpsImode,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=38,numReposBlks=30,numNonXlnxBlks=0,numHierBlks=8,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=11,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "gpsImode.hwdef" *) 
 module gpsImode
    (AluTrigger,
-    B,
     DDR_addr,
     DDR_ba,
     DDR_cas_n,
@@ -52,23 +51,23 @@ module gpsImode
     UART_rxd,
     UART_txd,
     addr,
-    clr,
     csn,
     data,
+    dir,
     oen,
     out_1,
     out_2,
     out_3,
     out_4,
-    pwmd,
-    pwmo,
+    pos_pwm,
+    raster_a,
+    raster_b,
+    raster_z,
     rdn,
-    sig_in,
     switch,
     tstart_out,
     wrn);
   output AluTrigger;
-  input B;
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -108,23 +107,23 @@ module gpsImode
   input UART_rxd;
   output UART_txd;
   output [3:0]addr;
-  input clr;
   output csn;
   inout [27:0]data;
+  output dir;
   output oen;
   output out_1;
   output out_2;
   output out_3;
   output out_4;
-  output pwmd;
-  output pwmo;
+  output pos_pwm;
+  input raster_a;
+  input raster_b;
+  input raster_z;
   output rdn;
-  input sig_in;
   input switch;
   output tstart_out;
   output wrn;
 
-  wire B_1;
   wire EF1_1;
   wire EF2_1;
   wire ErrFlag_1;
@@ -135,9 +134,6 @@ module gpsImode
   wire axi_uartlite_0_UART_RxD;
   wire axi_uartlite_0_UART_TxD;
   wire [21:0]ch2_fifo2_dout;
-  wire clr_1;
-  wire dec_pwm_0_pwmd;
-  wire dec_pwm_0_pwmo;
   wire [14:0]delay1_fifo1_dout;
   wire [14:0]delay1_fifo2_dout;
   wire [14:0]delay2_fifo1_dout;
@@ -168,6 +164,11 @@ module gpsImode
   wire [31:0]fifo_generator_20_dout;
   wire [31:0]fifo_generator_21_dout;
   wire [21:0]fifo_generator_2_dout;
+  wire motor_0_dir;
+  wire motor_0_pos_pwm;
+  wire [31:0]motor_0_raster_val;
+  wire [31:0]motor_angle_fifo1_dout;
+  wire [31:0]motor_angle_fifo2_dout;
   wire myImode_0_AluTrigger;
   wire myImode_0_StartDis;
   wire myImode_0_StopDis1;
@@ -198,6 +199,7 @@ module gpsImode
   wire [31:0]myip_fifo_ctrl_0_gps1_fifo_wr_data;
   wire myip_fifo_ctrl_0_gps2_fifo2_rd;
   wire [31:0]myip_fifo_ctrl_0_gps2_fifo_wr_data;
+  wire [31:0]myip_fifo_ctrl_0_motor_angle_fifo_wr_data;
   wire myip_fifo_ctrl_0_start_tri_fifo1_rd;
   wire myip_fifo_ctrl_0_start_tri_fifo2_wr;
   wire [31:0]myip_fifo_ctrl_0_start_tri_fifo_wr_data;
@@ -376,13 +378,14 @@ module gpsImode
   wire processing_system7_0_axi_periph_M05_AXI_WREADY;
   wire [3:0]processing_system7_0_axi_periph_M05_AXI_WSTRB;
   wire processing_system7_0_axi_periph_M05_AXI_WVALID;
+  wire raster_a_1;
+  wire raster_b_1;
+  wire raster_z_1;
   wire [0:0]rst_processing_system7_0_100M_interconnect_aresetn;
   wire [0:0]rst_processing_system7_0_100M_peripheral_aresetn;
-  wire sig_in_1;
   wire switch_1;
 
   assign AluTrigger = myImode_0_AluTrigger;
-  assign B_1 = B;
   assign EF1_1 = EF1;
   assign EF2_1 = EF2;
   assign ErrFlag_1 = ErrFlag;
@@ -400,17 +403,18 @@ module gpsImode
   assign UART_txd = axi_uartlite_0_UART_TxD;
   assign addr[3:0] = myImode_0_addr;
   assign axi_uartlite_0_UART_RxD = UART_rxd;
-  assign clr_1 = clr;
   assign csn = myImode_0_csn;
+  assign dir = motor_0_dir;
   assign oen = myImode_0_oen;
   assign out_1 = delay_0_out_1;
   assign out_2 = delay_0_out_2;
   assign out_3 = delay_0_out_3;
   assign out_4 = delay_0_out_4;
-  assign pwmd = dec_pwm_0_pwmd;
-  assign pwmo = dec_pwm_0_pwmo;
+  assign pos_pwm = motor_0_pos_pwm;
+  assign raster_a_1 = raster_a;
+  assign raster_b_1 = raster_b;
+  assign raster_z_1 = raster_z;
   assign rdn = myImode_0_rdn;
-  assign sig_in_1 = sig_in;
   assign switch_1 = switch;
   assign tstart_out = delay_0_tstart_out;
   assign wrn = myImode_0_wrn;
@@ -468,33 +472,6 @@ module gpsImode
         .rd_en(myip_fifo_ctrl_0_gps2_fifo2_rd),
         .srst(myip_fifo_ctrl_0_fifo_rst),
         .wr_en(myip_fifo_ctrl_0_start_tri_fifo2_wr));
-  gpsImode_dec_pwm_0_0 dec_pwm_0
-       (.B(B_1),
-        .clr(clr_1),
-        .pwmd(dec_pwm_0_pwmd),
-        .pwmo(dec_pwm_0_pwmo),
-        .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
-        .s00_axi_araddr(processing_system7_0_axi_periph_M05_AXI_ARADDR[4:0]),
-        .s00_axi_aresetn(rst_processing_system7_0_100M_peripheral_aresetn),
-        .s00_axi_arprot(processing_system7_0_axi_periph_M05_AXI_ARPROT),
-        .s00_axi_arready(processing_system7_0_axi_periph_M05_AXI_ARREADY),
-        .s00_axi_arvalid(processing_system7_0_axi_periph_M05_AXI_ARVALID),
-        .s00_axi_awaddr(processing_system7_0_axi_periph_M05_AXI_AWADDR[4:0]),
-        .s00_axi_awprot(processing_system7_0_axi_periph_M05_AXI_AWPROT),
-        .s00_axi_awready(processing_system7_0_axi_periph_M05_AXI_AWREADY),
-        .s00_axi_awvalid(processing_system7_0_axi_periph_M05_AXI_AWVALID),
-        .s00_axi_bready(processing_system7_0_axi_periph_M05_AXI_BREADY),
-        .s00_axi_bresp(processing_system7_0_axi_periph_M05_AXI_BRESP),
-        .s00_axi_bvalid(processing_system7_0_axi_periph_M05_AXI_BVALID),
-        .s00_axi_rdata(processing_system7_0_axi_periph_M05_AXI_RDATA),
-        .s00_axi_rready(processing_system7_0_axi_periph_M05_AXI_RREADY),
-        .s00_axi_rresp(processing_system7_0_axi_periph_M05_AXI_RRESP),
-        .s00_axi_rvalid(processing_system7_0_axi_periph_M05_AXI_RVALID),
-        .s00_axi_wdata(processing_system7_0_axi_periph_M05_AXI_WDATA),
-        .s00_axi_wready(processing_system7_0_axi_periph_M05_AXI_WREADY),
-        .s00_axi_wstrb(processing_system7_0_axi_periph_M05_AXI_WSTRB),
-        .s00_axi_wvalid(processing_system7_0_axi_periph_M05_AXI_WVALID),
-        .sig_in(sig_in_1));
   gpsImode_ch2_fifo2_0 delay1_fifo1
        (.clk(processing_system7_0_FCLK_CLK0),
         .din(myip_fifo_ctrl_0_delay1_fifo_wr_data),
@@ -613,6 +590,49 @@ module gpsImode
         .rd_en(myip_fifo_ctrl_0_gps2_fifo2_rd),
         .srst(myip_fifo_ctrl_0_fifo_rst),
         .wr_en(myip_fifo_ctrl_0_start_tri_fifo2_wr));
+  gpsImode_motor_0_0 motor_0
+       (.dir(motor_0_dir),
+        .motor_axi_aclk(processing_system7_0_FCLK_CLK0),
+        .motor_axi_araddr(processing_system7_0_axi_periph_M05_AXI_ARADDR[5:0]),
+        .motor_axi_aresetn(rst_processing_system7_0_100M_peripheral_aresetn),
+        .motor_axi_arprot(processing_system7_0_axi_periph_M05_AXI_ARPROT),
+        .motor_axi_arready(processing_system7_0_axi_periph_M05_AXI_ARREADY),
+        .motor_axi_arvalid(processing_system7_0_axi_periph_M05_AXI_ARVALID),
+        .motor_axi_awaddr(processing_system7_0_axi_periph_M05_AXI_AWADDR[5:0]),
+        .motor_axi_awprot(processing_system7_0_axi_periph_M05_AXI_AWPROT),
+        .motor_axi_awready(processing_system7_0_axi_periph_M05_AXI_AWREADY),
+        .motor_axi_awvalid(processing_system7_0_axi_periph_M05_AXI_AWVALID),
+        .motor_axi_bready(processing_system7_0_axi_periph_M05_AXI_BREADY),
+        .motor_axi_bresp(processing_system7_0_axi_periph_M05_AXI_BRESP),
+        .motor_axi_bvalid(processing_system7_0_axi_periph_M05_AXI_BVALID),
+        .motor_axi_rdata(processing_system7_0_axi_periph_M05_AXI_RDATA),
+        .motor_axi_rready(processing_system7_0_axi_periph_M05_AXI_RREADY),
+        .motor_axi_rresp(processing_system7_0_axi_periph_M05_AXI_RRESP),
+        .motor_axi_rvalid(processing_system7_0_axi_periph_M05_AXI_RVALID),
+        .motor_axi_wdata(processing_system7_0_axi_periph_M05_AXI_WDATA),
+        .motor_axi_wready(processing_system7_0_axi_periph_M05_AXI_WREADY),
+        .motor_axi_wstrb(processing_system7_0_axi_periph_M05_AXI_WSTRB),
+        .motor_axi_wvalid(processing_system7_0_axi_periph_M05_AXI_WVALID),
+        .pos_pwm(motor_0_pos_pwm),
+        .raster_a(raster_a_1),
+        .raster_b(raster_b_1),
+        .raster_val(motor_0_raster_val),
+        .raster_z(raster_z_1),
+        .record_flag(myImode_0_set_zero));
+  gpsImode_start_tri_fifo1_0 motor_angle_fifo1
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .din(myip_fifo_ctrl_0_motor_angle_fifo_wr_data),
+        .dout(motor_angle_fifo1_dout),
+        .rd_en(myip_fifo_ctrl_0_start_tri_fifo1_rd),
+        .srst(myip_fifo_ctrl_0_fifo_rst),
+        .wr_en(myip_fifo_ctrl_0_fifo1_wr));
+  gpsImode_motor_angle_fifo1_0 motor_angle_fifo2
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .din(myip_fifo_ctrl_0_motor_angle_fifo_wr_data),
+        .dout(motor_angle_fifo2_dout),
+        .rd_en(myip_fifo_ctrl_0_gps2_fifo2_rd),
+        .srst(myip_fifo_ctrl_0_fifo_rst),
+        .wr_en(myip_fifo_ctrl_0_start_tri_fifo2_wr));
   gpsImode_myImode_0_1 myGmode_0
        (.AluTrigger(myImode_0_AluTrigger),
         .EF1(EF1_1),
@@ -727,6 +747,10 @@ module gpsImode
         .gps2_fifo1_rd_data(fifo_generator_18_dout),
         .gps2_fifo2_rd_data(fifo_generator_19_dout),
         .gps2_fifo_wr_data(myip_fifo_ctrl_0_gps2_fifo_wr_data),
+        .motor_angle_data_to_be_wr(motor_0_raster_val),
+        .motor_angle_fifo1_rd_data(motor_angle_fifo1_dout),
+        .motor_angle_fifo2_rd_data(motor_angle_fifo2_dout),
+        .motor_angle_fifo_wr_data(myip_fifo_ctrl_0_motor_angle_fifo_wr_data),
         .start_tri_data_to_be_wr(myImode_0_Tstart_counter),
         .start_tri_fifo1_rd_data(fifo_generator_20_dout),
         .start_tri_fifo2_rd_data(fifo_generator_21_dout),

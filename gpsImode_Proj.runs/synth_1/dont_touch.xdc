@@ -7,7 +7,7 @@
 
 # XDC: new/delay.xdc
 
-# XDC: new/motor.xdc
+# XDC: imports/new/motor.xdc
 
 # Block Designs: bd/gpsImode/gpsImode.bd
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gpsImode || ORIG_REF_NAME==gpsImode}]
@@ -69,9 +69,6 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gpsImode_fifo_g
 # IP: bd/gpsImode/ip/gpsImode_delay_0_1/gpsImode_delay_0_1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gpsImode_delay_0_1 || ORIG_REF_NAME==gpsImode_delay_0_1}]
 
-# IP: bd/gpsImode/ip/gpsImode_dec_pwm_0_0/gpsImode_dec_pwm_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gpsImode_dec_pwm_0_0 || ORIG_REF_NAME==gpsImode_dec_pwm_0_0}]
-
 # IP: bd/gpsImode/ip/gpsImode_ch2_fifo2_0/gpsImode_ch2_fifo2_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gpsImode_ch2_fifo2_0 || ORIG_REF_NAME==gpsImode_ch2_fifo2_0}]
 
@@ -95,6 +92,15 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gpsImode_delay3
 
 # IP: bd/gpsImode/ip/gpsImode_delay4_fifo1_0/gpsImode_delay4_fifo1_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gpsImode_delay4_fifo1_0 || ORIG_REF_NAME==gpsImode_delay4_fifo1_0}]
+
+# IP: bd/gpsImode/ip/gpsImode_start_tri_fifo1_0/gpsImode_start_tri_fifo1_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gpsImode_start_tri_fifo1_0 || ORIG_REF_NAME==gpsImode_start_tri_fifo1_0}]
+
+# IP: bd/gpsImode/ip/gpsImode_motor_angle_fifo1_0/gpsImode_motor_angle_fifo1_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gpsImode_motor_angle_fifo1_0 || ORIG_REF_NAME==gpsImode_motor_angle_fifo1_0}]
+
+# IP: bd/gpsImode/ip/gpsImode_motor_0_0/gpsImode_motor_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gpsImode_motor_0_0 || ORIG_REF_NAME==gpsImode_motor_0_0}]
 
 # IP: bd/gpsImode/ip/gpsImode_auto_pc_0/gpsImode_auto_pc_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gpsImode_auto_pc_0 || ORIG_REF_NAME==gpsImode_auto_pc_0}]
@@ -209,6 +215,16 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==gpsImode_delay4_fifo1_0 || ORIG_REF_NAME==gpsImode_delay4_fifo1_0}] {/U0 }]/U0 ]]
 
 # XDC: bd/gpsImode/ip/gpsImode_delay4_fifo1_0/gpsImode_delay4_fifo1_0_ooc.xdc
+
+# XDC: bd/gpsImode/ip/gpsImode_start_tri_fifo1_0/gpsImode_start_tri_fifo1_0/gpsImode_start_tri_fifo1_0.xdc
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==gpsImode_start_tri_fifo1_0 || ORIG_REF_NAME==gpsImode_start_tri_fifo1_0}] {/U0 }]/U0 ]]
+
+# XDC: bd/gpsImode/ip/gpsImode_start_tri_fifo1_0/gpsImode_start_tri_fifo1_0_ooc.xdc
+
+# XDC: bd/gpsImode/ip/gpsImode_motor_angle_fifo1_0/gpsImode_motor_angle_fifo1_0/gpsImode_motor_angle_fifo1_0.xdc
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==gpsImode_motor_angle_fifo1_0 || ORIG_REF_NAME==gpsImode_motor_angle_fifo1_0}] {/U0 }]/U0 ]]
+
+# XDC: bd/gpsImode/ip/gpsImode_motor_angle_fifo1_0/gpsImode_motor_angle_fifo1_0_ooc.xdc
 
 # XDC: bd/gpsImode/ip/gpsImode_auto_pc_0/gpsImode_auto_pc_0_ooc.xdc
 

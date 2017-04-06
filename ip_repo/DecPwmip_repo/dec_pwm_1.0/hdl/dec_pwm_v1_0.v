@@ -15,12 +15,14 @@
 	)
 	(
 		// Users to add ports here
-       input sig_in,       // input decoder signal
-       input B,            // input decoder level
-       input clr,         // input interrupt signal
-       
-       output pwmo,        // output motor pulse
-       output pwmd,        //output motor direction
+        input time_record_flag,
+        input sig_in,       // input decoder signal
+        input B,            // input decoder level
+        input clr,         // input interrupt signal
+
+        output pwmo,        // output motor pulse
+        output pwmd,        //output motor direction
+        output [31:0] motor_angle_data,
        
        //
        
@@ -77,6 +79,8 @@
 		.S_AXI_RRESP(s00_axi_rresp),
 		.S_AXI_RVALID(s00_axi_rvalid),
 		.S_AXI_RREADY(s00_axi_rready),
+        .time_record_flag(time_record_flag),
+        .motor_angle_data(motor_angle_data),
 		.sig_in(sig_in),       // input decoder signal
         .B(B),            // input decoder level
         .clr(clr) ,

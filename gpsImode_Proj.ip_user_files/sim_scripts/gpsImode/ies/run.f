@@ -162,11 +162,6 @@
   "../../../bd/gpsImode/ipshared/xilinx.com/delay_v1_0/hdl/delay_v1_0_DELAY_AXI.v" \
   "../../../bd/gpsImode/ipshared/xilinx.com/delay_v1_0/hdl/delay_v1_0.v" \
   "../../../bd/gpsImode/ip/gpsImode_delay_0_1/sim/gpsImode_delay_0_1.v" \
-  "../../../bd/gpsImode/ipshared/xilinx.com/dec_pwm_v1_0/hdl/frq_cal.v" \
-  "../../../bd/gpsImode/ipshared/xilinx.com/dec_pwm_v1_0/hdl/pwm.v" \
-  "../../../bd/gpsImode/ipshared/xilinx.com/dec_pwm_v1_0/hdl/dec_pwm_v1_0_S00_AXI.v" \
-  "../../../bd/gpsImode/ipshared/xilinx.com/dec_pwm_v1_0/hdl/dec_pwm_v1_0.v" \
-  "../../../bd/gpsImode/ip/gpsImode_dec_pwm_0_0/sim/gpsImode_dec_pwm_0_0.v" \
   "../../../bd/gpsImode/ip/gpsImode_ch2_fifo2_0/sim/gpsImode_ch2_fifo2_0.v" \
   "../../../bd/gpsImode/ip/gpsImode_delay1_fifo1_1/sim/gpsImode_delay1_fifo1_1.v" \
   "../../../bd/gpsImode/ip/gpsImode_delay1_fifo1_2/sim/gpsImode_delay1_fifo1_2.v" \
@@ -175,6 +170,11 @@
   "../../../bd/gpsImode/ip/gpsImode_delay3_fifo1_0/sim/gpsImode_delay3_fifo1_0.v" \
   "../../../bd/gpsImode/ip/gpsImode_delay3_fifo2_0/sim/gpsImode_delay3_fifo2_0.v" \
   "../../../bd/gpsImode/ip/gpsImode_delay4_fifo1_0/sim/gpsImode_delay4_fifo1_0.v" \
+  "../../../bd/gpsImode/ip/gpsImode_start_tri_fifo1_0/sim/gpsImode_start_tri_fifo1_0.v" \
+  "../../../bd/gpsImode/ip/gpsImode_motor_angle_fifo1_0/sim/gpsImode_motor_angle_fifo1_0.v" \
+  "../../../bd/gpsImode/ipshared/xilinx.com/motor_v2_0/hdl/motor_v2_0_MOTOR_AXI.v" \
+  "../../../bd/gpsImode/ipshared/xilinx.com/motor_v2_0/hdl/motor_v2_0.v" \
+  "../../../bd/gpsImode/ip/gpsImode_motor_0_0/sim/gpsImode_motor_0_0.v" \
 -endlib
 -makelib ies/axi_protocol_converter_v2_1_9 \
   "../../../ipstatic/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_a_axi3_conv.v" \

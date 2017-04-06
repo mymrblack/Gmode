@@ -30,6 +30,7 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
         input [14:0] delay2_data_to_be_wr,
         input [14:0] delay3_data_to_be_wr,
         input [14:0] delay4_data_to_be_wr,
+        input [31:0] motor_angle_data_to_be_wr,
 
         input [21:0] ch1_fifo1_rd_data,
         input [21:0] ch2_fifo1_rd_data,
@@ -40,6 +41,7 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
         input [14:0] delay2_fifo1_rd_data,
         input [14:0] delay3_fifo1_rd_data,
         input [14:0] delay4_fifo1_rd_data,
+        input [31:0] motor_angle_fifo1_rd_data,
 
         input [21:0] ch1_fifo2_rd_data,
         input [21:0] ch2_fifo2_rd_data,
@@ -50,6 +52,7 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
         input [14:0] delay2_fifo2_rd_data,
         input [14:0] delay3_fifo2_rd_data,
         input [14:0] delay4_fifo2_rd_data,
+        input [31:0] motor_angle_fifo2_rd_data,
 
         output [21:0] ch1_fifo_wr_data,
         output [21:0] ch2_fifo_wr_data,
@@ -60,6 +63,7 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
         output [14:0] delay2_fifo_wr_data,
         output [14:0] delay3_fifo_wr_data,
         output [14:0] delay4_fifo_wr_data,
+        output [31:0] motor_angle_fifo_wr_data,
 
         output fifo1_rd,
         output fifo2_rd,
@@ -162,6 +166,7 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
     wire delay2_fifo1_wr;
     wire delay3_fifo1_wr;
     wire delay4_fifo1_wr;
+    wire motor_angle_fifo1_wr;
 
     wire ch1_fifo2_wr;
     wire ch2_fifo2_wr;
@@ -172,6 +177,7 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
     wire delay2_fifo2_wr;
     wire delay3_fifo2_wr;
     wire delay4_fifo2_wr;
+    wire motor_angle_fifo2_wr;
 
     wire ch1_fifo1_rd;
     wire ch2_fifo1_rd;
@@ -182,6 +188,7 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
     wire delay2_fifo1_rd;
     wire delay3_fifo1_rd;
     wire delay4_fifo1_rd;
+    wire motor_angle_fifo1_rd;
 
     wire ch1_fifo2_rd;
     wire ch2_fifo2_rd;
@@ -192,6 +199,7 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
     wire delay2_fifo2_rd;
     wire delay3_fifo2_rd;
     wire delay4_fifo2_rd;
+    wire motor_angle_fifo2_rd;
 
     wire rd_command1;
     wire rd_command2;
@@ -206,6 +214,7 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
     wire [14:0] delay2_fifo1_data_to_sw;
     wire [14:0] delay3_fifo1_data_to_sw;
     wire [14:0] delay4_fifo1_data_to_sw;
+    wire [31:0] motor_angle_fifo1_data_to_sw;
 
     wire [31:0] ch1_fifo2_data_to_sw;
     wire [31:0] ch2_fifo2_data_to_sw;
@@ -216,6 +225,7 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
     wire [14:0] delay2_fifo2_data_to_sw;
     wire [14:0] delay3_fifo2_data_to_sw;
     wire [14:0] delay4_fifo2_data_to_sw;
+    wire [31:0] motor_angle_fifo2_data_to_sw;
 	//------------------------------------------------
 	//-- Number of Slave Registers 43
 	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg0;
@@ -882,7 +892,7 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
 	        6'h0D   : reg_data_out <= delay2_fifo1_data_to_sw;
 	        6'h0E   : reg_data_out <= delay3_fifo1_data_to_sw;
 	        6'h0F   : reg_data_out <= delay4_fifo1_data_to_sw;
-	        6'h10   : reg_data_out <= slv_reg16;
+	        6'h10   : reg_data_out <= motor_angle_fifo1_data_to_sw;
 	        6'h11   : reg_data_out <= slv_reg17;
 	        6'h12   : reg_data_out <= slv_reg18;
 	        6'h13   : reg_data_out <= slv_reg19;
@@ -903,7 +913,7 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
 	        6'h22   : reg_data_out <= delay2_fifo2_data_to_sw;
 	        6'h23   : reg_data_out <= delay3_fifo2_data_to_sw;
 	        6'h24   : reg_data_out <= delay4_fifo2_data_to_sw;
-	        6'h25   : reg_data_out <= slv_reg37;
+	        6'h25   : reg_data_out <= motor_angle_fifo2_data_to_sw;
 	        6'h26   : reg_data_out <= slv_reg38;
 	        6'h27   : reg_data_out <= slv_reg39;
 	        6'h28   : reg_data_out <= slv_reg40;
@@ -1030,6 +1040,16 @@ module myip_fifo_ctrl_v1_0_FIFO_AXI #
         .wr_fifo_num(wr_fifo_num),
         .fifo1_data_to_sw(delay4_fifo1_data_to_sw), .fifo2_data_to_sw(delay4_fifo2_data_to_sw), 
         .fifo_wr_data(delay4_fifo_wr_data));
+
+    fifo_block_ctrl motor_angle(.clk(S_AXI_ACLK), .resetn(S_AXI_ARESETN), 
+        .rd_command1(rd_command1), .rd_command2(rd_command2), 
+        .wr(data_in_flag), .full1(fifo1_full), .full2(fifo2_full), 
+        .data_to_be_wr(motor_angle_data_to_be_wr), 
+        .fifo1_rd_data(motor_angle_fifo1_rd_data), .fifo2_rd_data(motor_angle_fifo2_rd_data), 
+        .wr1(motor_angle_fifo1_wr), .wr2(motor_angle_fifo2_wr), .rd1(motor_angle_fifo1_rd), .rd2(motor_angle_fifo2_rd),
+        .wr_fifo_num(wr_fifo_num),
+        .fifo1_data_to_sw(motor_angle_fifo1_data_to_sw), .fifo2_data_to_sw(motor_angle_fifo2_data_to_sw), 
+        .fifo_wr_data(motor_angle_fifo_wr_data));
 	// User logic ends
 endmodule
 

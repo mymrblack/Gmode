@@ -1,0 +1,80 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Wed Mar 08 10:20:44 2017
+# Process ID: 5760
+# Current directory: E:/Lin/vivado_learing/Gmode
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12840 E:\Lin\vivado_learing\Gmode\gpsImode_Proj.xpr
+# Log file: E:/Lin/vivado_learing/Gmode/vivado.log
+# Journal file: E:/Lin/vivado_learing/Gmode\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/Lin/vivado_learing/Gmode/gpsImode_Proj.xpr
+update_compile_order -fileset sources_1
+open_bd_design {E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/gpsImode.bd}
+update_ip_catalog -delete_ip xilinx.com:user:delay_module:1.0 -repo_path e:/Lin/vivado_learing/Gmode/ip_repo
+update_ip_catalog -delete_ip xilinx.com:user:DELAY_OUT:1.0 -repo_path e:/Lin/vivado_learing/Gmode/ip_repo
+update_ip_catalog -delete_ip xilinx.com:user:TDC_TO_DELAY:1.0 -repo_path e:/Lin/vivado_learing/Gmode/ip_repo
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:time_data_mapper:1.0 time_data_mapper_0
+endgroup
+delete_bd_objs [get_bd_cells time_data_mapper_0]
+update_ip_catalog -delete_ip xilinx.com:user:time_data_mapper:1.0 -repo_path e:/Lin/vivado_learing/Gmode/ip_repo
+update_ip_catalog -delete_ip xilinx.com:user:gpsIpSimulatedLynn:1.0 -repo_path e:/Lin/vivado_learing/Gmode/ip_repo
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:dec_pwm:1.0 dec_pwm_0
+endgroup
+set_property location {2 659 1332} [get_bd_cells dec_pwm_0]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config {Master "/processing_system7_0/M_AXI_GP0" Clk "Auto" }  [get_bd_intf_pins dec_pwm_0/S00_AXI]
+set_property location {1.5 672 1358} [get_bd_cells dec_pwm_0]
+startgroup
+create_bd_port -dir O pwmo
+connect_bd_net [get_bd_pins /dec_pwm_0/pwmo] [get_bd_ports pwmo]
+endgroup
+startgroup
+create_bd_port -dir O pwmd
+connect_bd_net [get_bd_pins /dec_pwm_0/pwmd] [get_bd_ports pwmd]
+endgroup
+startgroup
+create_bd_port -dir I sig_in
+connect_bd_net [get_bd_pins /dec_pwm_0/sig_in] [get_bd_ports sig_in]
+endgroup
+startgroup
+create_bd_port -dir I B
+connect_bd_net [get_bd_pins /dec_pwm_0/B] [get_bd_ports B]
+endgroup
+startgroup
+create_bd_port -dir I clr
+connect_bd_net [get_bd_pins /dec_pwm_0/clr] [get_bd_ports clr]
+endgroup
+regenerate_bd_layout
+save_bd_design
+close [ open E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/new/motor.xdc w ]
+add_files -fileset constrs_1 E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/new/motor.xdc
+generate_target all [get_files  E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/gpsImode.bd]
+export_ip_user_files -of_objects [get_files E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/gpsImode.bd] -no_script -force -quiet
+export_simulation -of_objects [get_files E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/gpsImode.bd] -directory E:/Lin/vivado_learing/Gmode/gpsImode_Proj.ip_user_files/sim_scripts -ip_user_files_dir E:/Lin/vivado_learing/Gmode/gpsImode_Proj.ip_user_files -ipstatic_source_dir E:/Lin/vivado_learing/Gmode/gpsImode_Proj.ip_user_files/ipstatic -force -quiet
+make_wrapper -files [get_files E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/gpsImode.bd] -top
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+make_wrapper -files [get_files E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/gpsImode.bd] -top
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+delete_bd_objs [get_bd_ports StartTrigger]
+save_bd_design
+generate_target all [get_files  E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/gpsImode.bd]
+export_ip_user_files -of_objects [get_files E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/gpsImode.bd] -no_script -force -quiet
+export_simulation -of_objects [get_files E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/gpsImode.bd] -directory E:/Lin/vivado_learing/Gmode/gpsImode_Proj.ip_user_files/sim_scripts -ip_user_files_dir E:/Lin/vivado_learing/Gmode/gpsImode_Proj.ip_user_files -ipstatic_source_dir E:/Lin/vivado_learing/Gmode/gpsImode_Proj.ip_user_files/ipstatic -force -quiet
+make_wrapper -files [get_files E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/gpsImode.bd] -top
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_run impl_1
+file copy -force E:/Lin/vivado_learing/Gmode/gpsImode_Proj.runs/impl_1/gpsImode_wrapper.sysdef E:/Lin/vivado_learing/Gmode/gpsImode_Proj.sdk/gpsImode_wrapper.hdf
+

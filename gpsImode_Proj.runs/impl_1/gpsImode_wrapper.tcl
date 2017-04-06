@@ -44,6 +44,7 @@ proc step_failed { step } {
 
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {HDL-1065} -limit 10000
 
 start_step init_design
 set rc [catch {
@@ -108,10 +109,14 @@ set rc [catch {
   set_property processing_order EARLY [get_files e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_delay3_fifo2_0/gpsImode_delay3_fifo2_0/gpsImode_delay3_fifo2_0.xdc]
   read_xdc -ref gpsImode_delay4_fifo1_0 -cells U0 e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_delay4_fifo1_0/gpsImode_delay4_fifo1_0/gpsImode_delay4_fifo1_0.xdc
   set_property processing_order EARLY [get_files e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_delay4_fifo1_0/gpsImode_delay4_fifo1_0/gpsImode_delay4_fifo1_0.xdc]
+  read_xdc -ref gpsImode_start_tri_fifo1_0 -cells U0 e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_start_tri_fifo1_0/gpsImode_start_tri_fifo1_0/gpsImode_start_tri_fifo1_0.xdc
+  set_property processing_order EARLY [get_files e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_start_tri_fifo1_0/gpsImode_start_tri_fifo1_0/gpsImode_start_tri_fifo1_0.xdc]
+  read_xdc -ref gpsImode_motor_angle_fifo1_0 -cells U0 e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_motor_angle_fifo1_0/gpsImode_motor_angle_fifo1_0/gpsImode_motor_angle_fifo1_0.xdc
+  set_property processing_order EARLY [get_files e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_motor_angle_fifo1_0/gpsImode_motor_angle_fifo1_0/gpsImode_motor_angle_fifo1_0.xdc]
   read_xdc E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/imports/new/gps.xdc
   read_xdc E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/imports/new/imode.xdc
   read_xdc E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/new/delay.xdc
-  read_xdc E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/new/motor.xdc
+  read_xdc E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/imports/new/motor.xdc
   link_design -top gpsImode_wrapper -part xc7z020clg484-1
   write_hwdef -file gpsImode_wrapper.hwdef
   close_msg_db -file init_design.pb

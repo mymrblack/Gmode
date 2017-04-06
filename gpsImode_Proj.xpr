@@ -36,13 +36,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="50"/>
-    <Option Name="WTModelSimExportSim" Val="50"/>
-    <Option Name="WTQuestaExportSim" Val="50"/>
-    <Option Name="WTIesExportSim" Val="50"/>
-    <Option Name="WTVcsExportSim" Val="50"/>
-    <Option Name="WTRivieraExportSim" Val="50"/>
-    <Option Name="WTActivehdlExportSim" Val="50"/>
+    <Option Name="WTXSimExportSim" Val="56"/>
+    <Option Name="WTModelSimExportSim" Val="56"/>
+    <Option Name="WTQuestaExportSim" Val="56"/>
+    <Option Name="WTIesExportSim" Val="56"/>
+    <Option Name="WTVcsExportSim" Val="56"/>
+    <Option Name="WTRivieraExportSim" Val="56"/>
+    <Option Name="WTActivehdlExportSim" Val="56"/>
   </Configuration>
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
@@ -53,6 +53,42 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_delay1_fifo1_1/gpsImode_delay1_fifo1_1.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_ch2_fifo2_0/gpsImode_ch2_fifo2_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_delay_0_1/gpsImode_delay_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_fifo_generator_19_0/gpsImode_fifo_generator_19_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_fifo_generator_18_1/gpsImode_fifo_generator_18_1.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_fifo_generator_18_0/gpsImode_fifo_generator_18_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_fifo_generator_16_0/gpsImode_fifo_generator_16_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_delay2_fifo1_1/gpsImode_delay2_fifo1_1.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_delay2_fifo1_0/gpsImode_delay2_fifo1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_delay1_fifo1_2/gpsImode_delay1_fifo1_2.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_fifo_generator_16_1/gpsImode_fifo_generator_16_1.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_fifo_generator_0_5/gpsImode_fifo_generator_0_5.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="hdl/gpsImode.v"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_fifo_generator_14_2/gpsImode_fifo_generator_14_2.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_fifo_generator_1_2/gpsImode_fifo_generator_1_2.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_fifo_generator_1_1/gpsImode_fifo_generator_1_1.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_fifo_generator_0_4/gpsImode_fifo_generator_0_4.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_myip_fifo_ctrl_0_0/gpsImode_myip_fifo_ctrl_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_myImode_0_1/gpsImode_myImode_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_delay3_fifo1_0/gpsImode_delay3_fifo1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_motor_angle_fifo1_0/gpsImode_motor_angle_fifo1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_start_tri_fifo1_0/gpsImode_start_tri_fifo1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_delay4_fifo1_0/gpsImode_delay4_fifo1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_delay3_fifo2_0/gpsImode_delay3_fifo2_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_axi_uartlite_0_0/gpsImode_axi_uartlite_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_xbar_0/gpsImode_xbar_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_rst_processing_system7_0_100M_0/gpsImode_rst_processing_system7_0_100M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_processing_system7_0_axi_periph_0/gpsImode_processing_system7_0_axi_periph_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_newGpsIp_0_0/gpsImode_newGpsIp_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_processing_system7_0_0/gpsImode_processing_system7_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="hw_handoff/gpsImode.hwh"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="hdl/gpsImode.hwdef"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="hw_handoff/gpsImode_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_motor_0_0/gpsImode_motor_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="gpsImode_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="gpsImode.bd" FileRelPathName="ip/gpsImode_auto_pc_0/gpsImode_auto_pc_0.xci"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/gpsImode/hdl/gpsImode_wrapper.v">
         <FileInfo>
@@ -91,8 +127,10 @@
           <Attr Name="UsedIn" Val="implementation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/constrs_1/new/motor.xdc">
+      <File Path="$PSRCDIR/constrs_1/imports/new/motor.xdc">
         <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../motor_lynn/motor_lynn.srcs/constrs_1/new/motor.xdc"/>
+          <Attr Name="ImportTime" Val="1490669371"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
         </FileInfo>

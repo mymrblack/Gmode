@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Thu Mar 09 20:52:57 2017">
+<application name="pa" timeStamp="Thu Apr 06 10:44:26 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="e93345264faa4c6f91bcd4931ef1f3b9" type="ProjectID"/>
-<property name="ProjectIteration" value="63" type="ProjectIteration"/>
+<property name="ProjectIteration" value="72" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -17,54 +17,58 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="AddSources" value="2" type="JavaHandler"/>
-<property name="AutoConnectPort" value="84" type="JavaHandler"/>
+<property name="AddSources" value="3" type="JavaHandler"/>
+<property name="AutoConnectPort" value="89" type="JavaHandler"/>
 <property name="CloseProject" value="1" type="JavaHandler"/>
 <property name="CoreView" value="10" type="JavaHandler"/>
 <property name="CreateBlockDesign" value="5" type="JavaHandler"/>
-<property name="CreateTopHDL" value="49" type="JavaHandler"/>
+<property name="CreateTopHDL" value="57" type="JavaHandler"/>
 <property name="CustomizeRSBBlock" value="115" type="JavaHandler"/>
 <property name="DisconnectRSBPin" value="1" type="JavaHandler"/>
 <property name="EditConstraintSets" value="1" type="JavaHandler"/>
-<property name="EditDelete" value="64" type="JavaHandler"/>
+<property name="EditDelete" value="70" type="JavaHandler"/>
 <property name="EditInIPPackagerHandler" value="3" type="JavaHandler"/>
 <property name="EditUndo" value="7" type="JavaHandler"/>
 <property name="GenerateOutputForBDFile" value="2" type="JavaHandler"/>
 <property name="IPPackagerHandler" value="4" type="JavaHandler"/>
 <property name="IPPackagerWizardHandler" value="4" type="JavaHandler"/>
-<property name="ManageCompositeTargets" value="31" type="JavaHandler"/>
-<property name="NewExportHardware" value="22" type="JavaHandler"/>
-<property name="OpenBlockDesign" value="13" type="JavaHandler"/>
+<property name="ManageCompositeTargets" value="36" type="JavaHandler"/>
+<property name="NewExportHardware" value="23" type="JavaHandler"/>
+<property name="OpenBlockDesign" value="16" type="JavaHandler"/>
 <property name="OpenDeviceView" value="1" type="JavaHandler"/>
 <property name="OpenHardwareManager" value="3" type="JavaHandler"/>
 <property name="OpenPackageView" value="1" type="JavaHandler"/>
-<property name="OpenProject" value="7" type="JavaHandler"/>
+<property name="OpenProject" value="8" type="JavaHandler"/>
 <property name="ProjectSettingsCmdHandler" value="1" type="JavaHandler"/>
-<property name="RegenerateRSBLayout" value="5" type="JavaHandler"/>
-<property name="ReportIPStatus" value="16" type="JavaHandler"/>
-<property name="RunBitgen" value="69" type="JavaHandler"/>
+<property name="RegenerateRSBLayout" value="6" type="JavaHandler"/>
+<property name="ReportIPStatus" value="17" type="JavaHandler"/>
+<property name="RunBitgen" value="78" type="JavaHandler"/>
 <property name="RunImplementation" value="1" type="JavaHandler"/>
 <property name="SaveDesign" value="1" type="JavaHandler"/>
-<property name="SaveRSBDesign" value="21" type="JavaHandler"/>
-<property name="ShowView" value="22" type="JavaHandler"/>
-<property name="UpgradeIP" value="38" type="JavaHandler"/>
-<property name="ValidateRSBDesign" value="10" type="JavaHandler"/>
+<property name="SaveRSBDesign" value="24" type="JavaHandler"/>
+<property name="ShowView" value="23" type="JavaHandler"/>
+<property name="UpgradeIP" value="43" type="JavaHandler"/>
+<property name="ValidateRSBDesign" value="12" type="JavaHandler"/>
 <property name="ViewTaskImplementation" value="14" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
-<property name="PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, delay_0 ; DELAY_AXI ; DELAY_AXI_reg ; 0x43C3_0000 ; 64K ; 0x43C3_FFFF, 7, delay_0, 0, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_REPORT_IP_STATUS, Report IP Status" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Constraints, constrs_1, delay.xdc], 8, false" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Constraints, constrs_1, delay.xdc], 8, false, false, false, false, false, true" value="2" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_EXPORT_HARDWARE, Export Hardware..." value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Constraints, constrs_1, delay.xdc], 8, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Constraints, constrs_1, delay.xdc], 8, false, false, false, false, false, true" value="1" type="GuiResourceData"/>
 <property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, IP Integrator, Open Block Design], 7, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_REPORT, Report" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_TOOLS, Tools" value="2" type="GuiResourceData"/>
-<property name="delay.xdc, 693, 356" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_EXPORT, Export" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_FILE, File" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_FILE, Open Recent File" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, Open Recent Project" value="1" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="2" type="GuiResourceData"/>
+<property name="delay.xdc, 188, 26" value="1" type="GuiResourceData"/>
+<property name="delay.xdc, 303, 79" value="1" type="GuiResourceData"/>
+<property name="delay.xdc, 318, 37" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="73" type="GuiMode"/>
+<property name="GuiMode" value="95" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="61" type="TclMode"/>
+<property name="TclMode" value="78" type="TclMode"/>
 </item>
 </section>
 </application>

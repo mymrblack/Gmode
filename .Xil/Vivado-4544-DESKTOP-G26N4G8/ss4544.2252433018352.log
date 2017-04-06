@@ -1,0 +1,12 @@
+INFO: Analyzing Verilog file "C:/Users/Lin/AppData/Local/Temp/VivadoEditorAssist4179061427001263194.tmp" into library work (VERI-1482)
+INFO: analyzing module gpsImode_wrapper (VERI-9002)
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:502)
+	at java.awt.EventQueue.invokeAndWait(EventQueue.java:1313)
+	at java.awt.EventQueue.invokeAndWait(EventQueue.java:1294)
+	at javax.swing.SwingUtilities.invokeAndWait(SwingUtilities.java:1348)
+	at ui.views.P.a.ad.construct(SourceFile:2394)
+	at ui.frmwork.D.run(SourceFile:201)
+	at java.lang.Thread.run(Thread.java:745)
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 10 10:59:46 2017...

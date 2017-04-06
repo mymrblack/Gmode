@@ -4,6 +4,7 @@
 
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {HDL-1065} -limit 10000
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -65,6 +66,10 @@ set_property used_in_implementation false [get_files -all e:/Lin/vivado_learing/
 set_property used_in_implementation false [get_files -all e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_delay3_fifo2_0/gpsImode_delay3_fifo2_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_delay4_fifo1_0/gpsImode_delay4_fifo1_0/gpsImode_delay4_fifo1_0.xdc]
 set_property used_in_implementation false [get_files -all e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_delay4_fifo1_0/gpsImode_delay4_fifo1_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_start_tri_fifo1_0/gpsImode_start_tri_fifo1_0/gpsImode_start_tri_fifo1_0.xdc]
+set_property used_in_implementation false [get_files -all e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_start_tri_fifo1_0/gpsImode_start_tri_fifo1_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_motor_angle_fifo1_0/gpsImode_motor_angle_fifo1_0/gpsImode_motor_angle_fifo1_0.xdc]
+set_property used_in_implementation false [get_files -all e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_motor_angle_fifo1_0/gpsImode_motor_angle_fifo1_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/ip/gpsImode_auto_pc_0/gpsImode_auto_pc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/gpsImode_ooc.xdc]
 set_property is_locked true [get_files E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/sources_1/bd/gpsImode/gpsImode.bd]
@@ -82,8 +87,8 @@ set_property used_in_implementation false [get_files E:/Lin/vivado_learing/Gmode
 read_xdc E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/new/delay.xdc
 set_property used_in_implementation false [get_files E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/new/delay.xdc]
 
-read_xdc E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/new/motor.xdc
-set_property used_in_implementation false [get_files E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/new/motor.xdc]
+read_xdc E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/imports/new/motor.xdc
+set_property used_in_implementation false [get_files E:/Lin/vivado_learing/Gmode/gpsImode_Proj.srcs/constrs_1/imports/new/motor.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

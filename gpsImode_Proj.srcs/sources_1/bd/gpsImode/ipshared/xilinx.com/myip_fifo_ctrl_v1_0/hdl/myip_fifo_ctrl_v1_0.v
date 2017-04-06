@@ -30,6 +30,7 @@ module myip_fifo_ctrl_v1_0 #
         input [14:0] delay2_data_to_be_wr,
         input [14:0] delay3_data_to_be_wr,
         input [14:0] delay4_data_to_be_wr,
+        input [31:0] motor_angle_data_to_be_wr,
 
         input [21:0] ch1_fifo1_rd_data,
         input [21:0] ch2_fifo1_rd_data,
@@ -40,6 +41,7 @@ module myip_fifo_ctrl_v1_0 #
         input [14:0] delay2_fifo1_rd_data,
         input [14:0] delay3_fifo1_rd_data,
         input [14:0] delay4_fifo1_rd_data,
+        input [31:0] motor_angle_fifo1_rd_data,
 
         input [21:0] ch1_fifo2_rd_data,
         input [21:0] ch2_fifo2_rd_data,
@@ -50,6 +52,7 @@ module myip_fifo_ctrl_v1_0 #
         input [14:0] delay2_fifo2_rd_data,
         input [14:0] delay3_fifo2_rd_data,
         input [14:0] delay4_fifo2_rd_data,
+        input [31:0] motor_angle_fifo2_rd_data,
 
         output [21:0] ch1_fifo_wr_data,
         output [21:0] ch2_fifo_wr_data,
@@ -60,6 +63,7 @@ module myip_fifo_ctrl_v1_0 #
         output [14:0] delay2_fifo_wr_data,
         output [14:0] delay3_fifo_wr_data,
         output [14:0] delay4_fifo_wr_data,
+        output [31:0] motor_angle_fifo_wr_data,
 
         output fifo1_rd,
         output fifo2_rd,
@@ -114,6 +118,7 @@ module myip_fifo_ctrl_v1_0 #
         .delay2_data_to_be_wr(delay2_data_to_be_wr),
         .delay3_data_to_be_wr(delay3_data_to_be_wr),
         .delay4_data_to_be_wr(delay4_data_to_be_wr),
+        .motor_angle_data_to_be_wr(motor_angle_data_to_be_wr),
 
         .ch1_fifo1_rd_data(ch1_fifo1_rd_data),
         .ch2_fifo1_rd_data(ch2_fifo1_rd_data),
@@ -124,6 +129,7 @@ module myip_fifo_ctrl_v1_0 #
         .delay2_fifo1_rd_data(delay2_fifo1_rd_data),
         .delay3_fifo1_rd_data(delay3_fifo1_rd_data),
         .delay4_fifo1_rd_data(delay4_fifo1_rd_data),
+        .motor_angle_fifo1_rd_data(motor_angle_fifo1_rd_data),
 
         .ch1_fifo2_rd_data(ch1_fifo2_rd_data),
         .ch2_fifo2_rd_data(ch2_fifo2_rd_data),
@@ -134,6 +140,7 @@ module myip_fifo_ctrl_v1_0 #
         .delay2_fifo2_rd_data(delay2_fifo2_rd_data),
         .delay3_fifo2_rd_data(delay3_fifo2_rd_data),
         .delay4_fifo2_rd_data(delay4_fifo2_rd_data),
+        .motor_angle_fifo2_rd_data(motor_angle_fifo2_rd_data),
 
         .ch1_fifo_wr_data(ch1_fifo_wr_data),
         .ch2_fifo_wr_data(ch2_fifo_wr_data),
@@ -144,6 +151,7 @@ module myip_fifo_ctrl_v1_0 #
         .delay2_fifo_wr_data(delay2_fifo_wr_data),
         .delay3_fifo_wr_data(delay3_fifo_wr_data),
         .delay4_fifo_wr_data(delay4_fifo_wr_data),
+        .motor_angle_fifo_wr_data(motor_angle_fifo_wr_data),
 
         .fifo1_rd(fifo1_rd),
         .fifo2_rd(fifo2_rd),
